@@ -6,6 +6,14 @@ OtisBench evaluates whether an AI agent can complete a manufacturing order acros
 
 The primary suite contains **1,024 manufacturing workflows: 32 process routes × 16 disruption contracts × 2 parameter draws.** Every workflow has physical production, resource constraints, changing records, and an end state that the evaluator checks.
 
+## Long-running production campaigns
+
+Keep the plant running across **12 or 24 work orders** in one persistent agent episode. Campaigns cover **six or twelve manufacturing shifts**, with budgets of **2,880 or 5,760 tool calls**. Orders share machines, labor, fixtures, tool life, calibration, and cash. Production can overlap across route stages; spending and delayed customer payments affect the next order.
+
+Engineering releases, supplier dispositions, and equipment trips continue as later orders arrive. A machine trip can interrupt another order's WIP. Agents must preserve state, schedule competing work, maintain resources, recover production, and meet each order's delivery window. Waiting for every future change misses the first deadline.
+
+**64 campaigns = 32 manufacturing routes × 2 operating horizons.** [Campaign tools, scoring, checkpointing, and resume →](docs/production-campaigns.md)
+
 ## A complete manufacturing workflow
 
 1. Reconcile the customer order, drawing revision, material specification, quantity, and delivery date.
@@ -41,10 +49,11 @@ Reading records and writing a plan do not fulfill an order. The score follows th
 
 [All 32 routes, 16 disruptions, and workflow scoring →](docs/manufacturing-workflows.md)
 
-## Nine evaluation tracks
+## Ten evaluation tracks
 
 | Track | Catalog | What the agent delivers |
 |---|---:|---|
+| Production campaigns | 64 campaigns · 12 or 24 orders each | Sustained fulfillment across a shared plant |
 | Manufacturing workflows | 1,024 cases · 32 routes · 16 disruptions | Conforming, traceable customer shipments |
 | Engineering | 84 cases · 42 families | Manufacturing calculations and constrained decisions |
 | Supply chain | 96 cases · 24 families | Reconciled, approved, posted business decisions |
@@ -87,7 +96,16 @@ otisbench show mfg-flow-pump_assembly-16-01
 otisbench export-agent --task mfg-flow-pump_assembly-16-01 --output agent-input.json
 ```
 
-Run a selected task with your own agent:
+Run a long production campaign with your own agent:
+
+```bash
+otisbench campaign \
+  --task campaign-pump_assembly-twelve_shift \
+  --agent-command 'python /absolute/path/to/my_agent.py' \
+  --output runs/pump-campaign.json
+```
+
+Run a selected individual workflow:
 
 ```bash
 otisbench workflow   --task mfg-flow-pump_assembly-16-01   --agent-command 'python /absolute/path/to/my_agent.py'   --output runs/pump-recovery.json
@@ -109,12 +127,12 @@ Optional dependencies: `.[cad]` for solid evaluation, `.[documents]` for documen
 
 ## Design comparison
 
-LarkBench centers on recurring distributor purchasing over 26 weeks. OtisBench centers on manufacturing execution: transform material, operate resources, recover WIP, prove conformance, and fulfill the order. Its nine tracks extend that workflow into engineering, geometry, raw measurements, commercial documents, and factory economics. [Scope comparison →](docs/larkbench.md)
+LarkBench centers on recurring distributor purchasing over 26 weeks. OtisBench centers on manufacturing execution: transform material, operate resources, recover WIP, prove conformance, and fulfill the order. Its ten tracks extend that workflow into engineering, geometry, raw measurements, commercial documents, and factory economics. [Scope comparison →](docs/larkbench.md)
 
 ## Development
 
 ```bash
-python -m pytest tests/test_otisbench.py tests/test_agent_boundary.py tests/test_shopfloor.py -q
+python -m pytest tests/test_otisbench.py tests/test_agent_boundary.py tests/test_shopfloor.py tests/test_campaign.py -q
 python scripts/build_manifest.py --check
 ```
 

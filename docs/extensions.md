@@ -1,6 +1,6 @@
 # Manufacturing extensions
 
-These source-run tiers complement the nine packaged tracks. Each has its own catalog, scoring, and commands; use the linked technical guide for its interface and dependencies.
+These source-run tiers complement the ten packaged tracks. Each has its own catalog, scoring, and commands; use the linked technical guide for its interface and dependencies.
 
 | Tier | Scope | Entry points |
 |---|---|---|

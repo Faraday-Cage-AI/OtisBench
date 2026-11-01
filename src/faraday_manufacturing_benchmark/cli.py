@@ -29,7 +29,12 @@ def main(argv=None):
     parser=argparse.ArgumentParser(prog='otisbench',description='OtisBench: manufacturing workflows for AI agents')
     sub=parser.add_subparsers(dest='command',required=True)
     isolated=sub.add_parser('isolated');isolated.add_argument('--track',choices=['workflow','supply-chain','procurement','sensors','cad','documents'],required=True);isolated.add_argument('--task',action='append',required=True);isolated.add_argument('--agent-file',required=True);isolated.add_argument('--timeout',type=float,default=120);isolated.add_argument('--kernel-timeout',type=float,default=30);isolated.add_argument('--output',required=True)
-    ls=sub.add_parser('list');ls.add_argument('--track',choices=['workflow','engineering','execution','season','supply-chain','procurement','sensors','cad','documents'])
+    ls=sub.add_parser('list');ls.add_argument('--track',choices=['workflow','engineering','execution','season','supply-chain','procurement','sensors','cad','documents','campaign'])
+    campaign=sub.add_parser('campaign')
+    campaign.add_argument('--task',required=True)
+    campaign_agent=campaign.add_mutually_exclusive_group(required=True)
+    campaign_agent.add_argument('--agent-command');campaign_agent.add_argument('--agent-file')
+    campaign.add_argument('--timeout',type=float,default=120);campaign.add_argument('--stop-after',type=int);campaign.add_argument('--resume');campaign.add_argument('--output',required=True)
     documents=sub.add_parser('documents');documents.add_argument('--task',action='append',required=True);documents.add_argument('--agent-command',required=True);documents.add_argument('--output',required=True);documents.add_argument('--timeout',type=float,default=120)
     document_export=sub.add_parser('export-document-packet');document_export.add_argument('--task',required=True);document_export.add_argument('--output-dir',required=True)
     cad=sub.add_parser('cad');cad.add_argument('--task',action='append',required=True);cad.add_argument('--agent-command',required=True);cad.add_argument('--output',required=True);cad.add_argument('--timeout',type=float,default=120);cad.add_argument('--kernel-timeout',type=float,default=30)
@@ -51,7 +56,10 @@ def main(argv=None):
     replay_parser=sub.add_parser('replay');replay_parser.add_argument('run')
     args=parser.parse_args(argv)
     try:
-        if args.command=='isolated':
+        if args.command=='campaign':
+            from .campaign import execute
+            return execute(args)
+        elif args.command=='isolated':
             from .isolation_runner import contracts,run_task
             catalog,_,_,summarizer=contracts(args.track);byid={t['id']:t for t in catalog()}
             if len(set(args.task))!=len(args.task) or any(k not in byid for k in args.task):raise ValueError('unknown or duplicate isolated task ID')
@@ -63,6 +71,9 @@ def main(argv=None):
                 artifact['episodes'].append(episode);artifact.pop('current_episode',None)
                 artifact['summary']=summarizer(artifact['episodes'] if args.track=='cad' else [e['result'] for e in artifact['episodes']]);save(args.output,artifact)
         elif args.command=='list':
+            if args.track in (None,'campaign'):
+                from .campaign import catalog as campaign_catalog
+                for t in campaign_catalog():print(f"campaign\t{t['id']}\t{t['order_count']} work orders\t{t['horizon_minutes']} minutes\t{t['max_tool_calls']} calls")
             if args.track in (None,'documents'):
                 from .document_cases import catalog as document_catalog
                 for t in document_catalog():print(f"documents\t{t['id']}\t{t['family']}\t{t['mode']}")
@@ -92,9 +103,14 @@ def main(argv=None):
             from .sensor_cases import catalog as sensor_catalog
             from .cad_cases import catalog as cad_catalog
             from .document_cases import catalog as document_catalog
-            task=next((t for t in workflow_catalog()+TASKS+workflows()+catalog()+procurement_catalog()+sensor_catalog()+cad_catalog()+document_catalog() if t['id']==args.task_id),None)
+            from .campaign import catalog as campaign_catalog
+            task=next((t for t in workflow_catalog()+TASKS+workflows()+catalog()+procurement_catalog()+sensor_catalog()+cad_catalog()+document_catalog()+campaign_catalog() if t['id']==args.task_id),None)
             if task is None:raise ValueError('unknown task ID')
-            if task['id'].startswith('doc-'):
+            if task['id'].startswith('campaign-'):
+                from .campaign import startup
+                from .shopfloor_views import AgentView
+                task=startup(task,AgentView())
+            elif task['id'].startswith('doc-'):
                 from .documents import public_task
                 task=public_task(task)
             elif task['id'].startswith('cad-'):
@@ -115,6 +131,14 @@ def main(argv=None):
             else:task={k:v for k,v in task.items() if k!='seed'}
             print(json.dumps(task,indent=2))
         elif args.command=='export-agent':
+            if args.task.startswith('campaign-'):
+                from .campaign import catalog as campaign_catalog,startup,CAMPAIGN_TOOLS
+                from .shopfloor import TOOLS
+                from .shopfloor_views import AgentView
+                byid={t['id']:t for t in campaign_catalog()}
+                if args.task not in byid:raise ValueError('unknown campaign task ID')
+                save(args.output,dict(type='decision',protocol='faraday-manufacturing/1',track='campaign',payload=dict(clock_minute=0,calls_remaining=byid[args.task]['max_tool_calls'],last_result=None,task=startup(byid[args.task],AgentView()),tools=CAMPAIGN_TOOLS,manufacturing_tools=TOOLS)))
+                return 0
             if args.task.startswith('doc-'):
                 from .document_cases import catalog
                 from .documents import public_task,TOOLS
@@ -325,7 +349,11 @@ def main(argv=None):
             save(args.output,dict(track='manufacturing-season',case=asdict(case),draw=args.draw,policy=args.policy or 'external-agent',trace=world.trace,result=world.result()))
         elif args.command=='replay':
             value=json.loads(Path(args.run).read_text())
-            if value['track']=='manufacturing-documents':
+            if value.get('track')=='production-campaign':
+                from .campaign import catalog as campaign_catalog,replay as replay_campaign
+                byid={t['id']:t for t in campaign_catalog()}
+                replay_campaign(byid[value['evaluator_task_id']],value)
+            elif value['track']=='manufacturing-documents':
                 from .document_cases import catalog
                 from .documents import replay as replay_documents
                 byid={t['id']:t for t in catalog()}

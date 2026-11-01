@@ -1,11 +1,12 @@
 # OtisBench benchmark card
 
-OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.0.0** includes nine evaluation tracks and source-run advanced tiers.
+OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.1.0** includes ten evaluation tracks and source-run advanced tiers.
 
 ## Task catalogs
 
 | Track | Cases | Structure | Metric |
 |---|---:|---|---|
+| Campaign | 64 | 32 routes × 2 horizons; 12 or 24 orders | Strict campaign completion; mean order outcome; treasury reconciliation |
 | Workflow | 1,024 | 32 routes × 16 disruptions × 2 draws | Strict completion; 0–100 outcome score; route/disruption breakdowns |
 | Engineering | 84 | 42 families × 2 conditions | Exact-schema accuracy; numerical tolerances; family-macro success |
 | Supply chain | 96 | 24 families × 4 conditions | Reconciliation, approval, posting, read-back; family-macro success |
@@ -17,6 +18,12 @@ OtisBench evaluates manufacturing problem solving through executable task enviro
 | Factory seasons | 12 | 26 weekly decisions per season | Profit/demand margin, fill rate, cash and cost decomposition |
 
 Advanced tiers: 64 temporal workflow variants, 48 material-network cases, and 128 replenishment cases. Catalog dimensions describe route, contract, evidence mode, and parameter variation separately. Track metrics retain their own units.
+
+## Sustained production contract
+
+Production campaigns keep 12 or 24 work orders in one persistent episode. The six-shift profile permits 2,880 manufacturing minutes and 2,880 decisions; the twelve-shift profile permits 5,760 minutes and 5,760 decisions. Equipment, personnel, fixtures, wear, qualifications, and cash are shared. Order releases and independent source changes extend across the episode. Actual shipments generate delayed receivables. Each order retains its 240-call limit and manufacturing checks.
+
+Strict success requires all orders, campaign finish, financial reconciliation, and the horizon. Reports separate campaign completion, order completion, mean order score, cash, spending, and receivables. Atomic checkpoints and source-verified resume preserve the ongoing plant state. [Campaign contract](docs/production-campaigns.md).
 
 ## Primary workflow contract
 

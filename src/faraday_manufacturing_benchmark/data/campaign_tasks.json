@@ -1,0 +1,578 @@
+[
+  {
+    "family": "precision_cnc",
+    "horizon_minutes": 2880,
+    "id": "campaign-precision_cnc-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 10396416691398929065
+  },
+  {
+    "family": "precision_cnc",
+    "horizon_minutes": 5760,
+    "id": "campaign-precision_cnc-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 12690543917599422093
+  },
+  {
+    "family": "turned_shaft",
+    "horizon_minutes": 2880,
+    "id": "campaign-turned_shaft-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 12091962488169079493
+  },
+  {
+    "family": "turned_shaft",
+    "horizon_minutes": 5760,
+    "id": "campaign-turned_shaft-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 12290549121498224310
+  },
+  {
+    "family": "sheet_fabrication",
+    "horizon_minutes": 2880,
+    "id": "campaign-sheet_fabrication-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 3142114020789868148
+  },
+  {
+    "family": "sheet_fabrication",
+    "horizon_minutes": 5760,
+    "id": "campaign-sheet_fabrication-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 17389476267507807237
+  },
+  {
+    "family": "welded_structure",
+    "horizon_minutes": 2880,
+    "id": "campaign-welded_structure-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 14889507904063373855
+  },
+  {
+    "family": "welded_structure",
+    "horizon_minutes": 5760,
+    "id": "campaign-welded_structure-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 12659772602498010669
+  },
+  {
+    "family": "sand_casting",
+    "horizon_minutes": 2880,
+    "id": "campaign-sand_casting-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 12245718568626017335
+  },
+  {
+    "family": "sand_casting",
+    "horizon_minutes": 5760,
+    "id": "campaign-sand_casting-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 6739882407889926966
+  },
+  {
+    "family": "die_casting",
+    "horizon_minutes": 2880,
+    "id": "campaign-die_casting-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 14545147975835587652
+  },
+  {
+    "family": "die_casting",
+    "horizon_minutes": 5760,
+    "id": "campaign-die_casting-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 7345959714928768730
+  },
+  {
+    "family": "injection_molding",
+    "horizon_minutes": 2880,
+    "id": "campaign-injection_molding-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 4085923350740890705
+  },
+  {
+    "family": "injection_molding",
+    "horizon_minutes": 5760,
+    "id": "campaign-injection_molding-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 11416955924684610642
+  },
+  {
+    "family": "extrusion",
+    "horizon_minutes": 2880,
+    "id": "campaign-extrusion-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 523737746447757628
+  },
+  {
+    "family": "extrusion",
+    "horizon_minutes": 5760,
+    "id": "campaign-extrusion-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 14758595668566552727
+  },
+  {
+    "family": "rubber_molding",
+    "horizon_minutes": 2880,
+    "id": "campaign-rubber_molding-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 12838590565510194142
+  },
+  {
+    "family": "rubber_molding",
+    "horizon_minutes": 5760,
+    "id": "campaign-rubber_molding-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 4872457084107328759
+  },
+  {
+    "family": "composite_layup",
+    "horizon_minutes": 2880,
+    "id": "campaign-composite_layup-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 4115871667040558790
+  },
+  {
+    "family": "composite_layup",
+    "horizon_minutes": 5760,
+    "id": "campaign-composite_layup-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 16889887686544386484
+  },
+  {
+    "family": "pcb_assembly",
+    "horizon_minutes": 2880,
+    "id": "campaign-pcb_assembly-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 11741355611314176670
+  },
+  {
+    "family": "pcb_assembly",
+    "horizon_minutes": 5760,
+    "id": "campaign-pcb_assembly-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 14794016947298158737
+  },
+  {
+    "family": "cable_harness",
+    "horizon_minutes": 2880,
+    "id": "campaign-cable_harness-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 6448111187387550811
+  },
+  {
+    "family": "cable_harness",
+    "horizon_minutes": 5760,
+    "id": "campaign-cable_harness-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 1967879510909978067
+  },
+  {
+    "family": "battery_module",
+    "horizon_minutes": 2880,
+    "id": "campaign-battery_module-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 850561305762928919
+  },
+  {
+    "family": "battery_module",
+    "horizon_minutes": 5760,
+    "id": "campaign-battery_module-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 16996940083478728941
+  },
+  {
+    "family": "semiconductor",
+    "horizon_minutes": 2880,
+    "id": "campaign-semiconductor-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 9551622304102095319
+  },
+  {
+    "family": "semiconductor",
+    "horizon_minutes": 5760,
+    "id": "campaign-semiconductor-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 16504918376900735453
+  },
+  {
+    "family": "metal_additive",
+    "horizon_minutes": 2880,
+    "id": "campaign-metal_additive-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 1628807934188921720
+  },
+  {
+    "family": "metal_additive",
+    "horizon_minutes": 5760,
+    "id": "campaign-metal_additive-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 935243522662938075
+  },
+  {
+    "family": "heat_treatment",
+    "horizon_minutes": 2880,
+    "id": "campaign-heat_treatment-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 10050694787147935730
+  },
+  {
+    "family": "heat_treatment",
+    "horizon_minutes": 5760,
+    "id": "campaign-heat_treatment-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 1474257832229794599
+  },
+  {
+    "family": "electroplating",
+    "horizon_minutes": 2880,
+    "id": "campaign-electroplating-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 10156700965779367037
+  },
+  {
+    "family": "electroplating",
+    "horizon_minutes": 5760,
+    "id": "campaign-electroplating-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 16159607339173716566
+  },
+  {
+    "family": "anodizing",
+    "horizon_minutes": 2880,
+    "id": "campaign-anodizing-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 1234229267530672557
+  },
+  {
+    "family": "anodizing",
+    "horizon_minutes": 5760,
+    "id": "campaign-anodizing-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 15771421974811487368
+  },
+  {
+    "family": "powder_coating",
+    "horizon_minutes": 2880,
+    "id": "campaign-powder_coating-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 3864028255995496873
+  },
+  {
+    "family": "powder_coating",
+    "horizon_minutes": 5760,
+    "id": "campaign-powder_coating-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 7180735826682187998
+  },
+  {
+    "family": "gear_manufacturing",
+    "horizon_minutes": 2880,
+    "id": "campaign-gear_manufacturing-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 2672253694429193197
+  },
+  {
+    "family": "gear_manufacturing",
+    "horizon_minutes": 5760,
+    "id": "campaign-gear_manufacturing-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 11470964608406330821
+  },
+  {
+    "family": "bearing_assembly",
+    "horizon_minutes": 2880,
+    "id": "campaign-bearing_assembly-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 14378658894880480045
+  },
+  {
+    "family": "bearing_assembly",
+    "horizon_minutes": 5760,
+    "id": "campaign-bearing_assembly-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 17762541733747082254
+  },
+  {
+    "family": "pump_assembly",
+    "horizon_minutes": 2880,
+    "id": "campaign-pump_assembly-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 4081638628994432526
+  },
+  {
+    "family": "pump_assembly",
+    "horizon_minutes": 5760,
+    "id": "campaign-pump_assembly-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 17633910299820174941
+  },
+  {
+    "family": "motor_assembly",
+    "horizon_minutes": 2880,
+    "id": "campaign-motor_assembly-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 12051909698188400472
+  },
+  {
+    "family": "motor_assembly",
+    "horizon_minutes": 5760,
+    "id": "campaign-motor_assembly-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 10767778170539979003
+  },
+  {
+    "family": "valve_assembly",
+    "horizon_minutes": 2880,
+    "id": "campaign-valve_assembly-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 14942419956203283816
+  },
+  {
+    "family": "valve_assembly",
+    "horizon_minutes": 5760,
+    "id": "campaign-valve_assembly-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 18171642776114421425
+  },
+  {
+    "family": "hydraulic_cylinder",
+    "horizon_minutes": 2880,
+    "id": "campaign-hydraulic_cylinder-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 5694829785074842689
+  },
+  {
+    "family": "hydraulic_cylinder",
+    "horizon_minutes": 5760,
+    "id": "campaign-hydraulic_cylinder-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 5551088147088639595
+  },
+  {
+    "family": "packaging",
+    "horizon_minutes": 2880,
+    "id": "campaign-packaging-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 8644186718575540203
+  },
+  {
+    "family": "packaging",
+    "horizon_minutes": 5760,
+    "id": "campaign-packaging-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 13537843388481083229
+  },
+  {
+    "family": "food_processing",
+    "horizon_minutes": 2880,
+    "id": "campaign-food_processing-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 10803903156759944323
+  },
+  {
+    "family": "food_processing",
+    "horizon_minutes": 5760,
+    "id": "campaign-food_processing-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 15894625254369261087
+  },
+  {
+    "family": "chemical_blending",
+    "horizon_minutes": 2880,
+    "id": "campaign-chemical_blending-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 12893136058479399122
+  },
+  {
+    "family": "chemical_blending",
+    "horizon_minutes": 5760,
+    "id": "campaign-chemical_blending-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 2131788475087301398
+  },
+  {
+    "family": "tablet_manufacturing",
+    "horizon_minutes": 2880,
+    "id": "campaign-tablet_manufacturing-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 2267062262578933265
+  },
+  {
+    "family": "tablet_manufacturing",
+    "horizon_minutes": 5760,
+    "id": "campaign-tablet_manufacturing-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 4164489797527340626
+  },
+  {
+    "family": "textile",
+    "horizon_minutes": 2880,
+    "id": "campaign-textile-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 4060174440110310835
+  },
+  {
+    "family": "textile",
+    "horizon_minutes": 5760,
+    "id": "campaign-textile-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 5481588167788477410
+  },
+  {
+    "family": "glass_fabrication",
+    "horizon_minutes": 2880,
+    "id": "campaign-glass_fabrication-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 18261303319474498265
+  },
+  {
+    "family": "glass_fabrication",
+    "horizon_minutes": 5760,
+    "id": "campaign-glass_fabrication-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 17367047425946014864
+  },
+  {
+    "family": "ceramic_manufacturing",
+    "horizon_minutes": 2880,
+    "id": "campaign-ceramic_manufacturing-six_shift",
+    "max_tool_calls": 2880,
+    "order_count": 12,
+    "profile": "six_shift",
+    "seed": 1790548761906494639
+  },
+  {
+    "family": "ceramic_manufacturing",
+    "horizon_minutes": 5760,
+    "id": "campaign-ceramic_manufacturing-twelve_shift",
+    "max_tool_calls": 5760,
+    "order_count": 24,
+    "profile": "twelve_shift",
+    "seed": 4521492191233928559
+  }
+]

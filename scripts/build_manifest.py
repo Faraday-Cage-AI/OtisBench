@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from faraday_manufacturing_benchmark import __version__
 from faraday_manufacturing_benchmark.catalog import TASKS
+from faraday_manufacturing_benchmark.campaign import catalog as campaign_catalog, PROFILES as CAMPAIGN_PROFILES
 from faraday_manufacturing_benchmark.cli import workflow_catalog,workflows
 from faraday_manufacturing_benchmark.season import CASES
 from faraday_manufacturing_benchmark.supply_cases import catalog
@@ -21,6 +22,9 @@ def encoded(value):return (json.dumps(value,indent=2,sort_keys=True,allow_nan=Fa
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    campaigns=campaign_catalog();campaign_data=encoded(campaigns);campaign_frozen=ROOT/'src/faraday_manufacturing_benchmark/data/campaign_tasks.json'
+    if not args.check:campaign_frozen.write_bytes(campaign_data)
+    elif not campaign_frozen.exists() or campaign_frozen.read_bytes()!=campaign_data:raise SystemExit('Frozen campaign catalog mismatch')
     tasks=catalog();frozen=ROOT/'src/faraday_manufacturing_benchmark/data/supply_chain_tasks.json';data=encoded(tasks)
     if not args.check:frozen.write_bytes(data)
     elif not frozen.exists() or frozen.read_bytes()!=data:raise SystemExit('Frozen supply cases differ from authored contracts')
@@ -57,6 +61,9 @@ def main():
             for asset in [doc]+doc['pages']:
                 if hashlib.sha256((document_root/t['id']/asset['filename']).read_bytes()).hexdigest()!=asset['sha256']:raise SystemExit('Document public asset hash mismatch')
     previous=json.loads((ROOT/'manifest.json').read_text());previous.update(version=__version__,
+        campaign_cases=len(campaigns),campaign_route_families=len({t['family'] for t in campaigns}),
+        campaign_profiles={k:dict(work_orders=v[0],horizon_minutes=v[1],max_tool_calls=v[0]*240) for k,v in CAMPAIGN_PROFILES.items()},
+        campaign_catalog_sha256=hashlib.sha256(campaign_data).hexdigest(),
         engineering_cases=len(TASKS),engineering_families=len({t['family'] for t in TASKS}),
         execution_cases=len(workflows()),execution_families=len({t['family'] for t in workflows()}),
         manufacturing_workflow_cases=len(workflow_catalog()),factory_cases=[asdict(c) for c in CASES],
