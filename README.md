@@ -89,6 +89,12 @@ Each track keeps its own metrics. [Track contracts and scoring →](BENCHMARK_CA
 
 These tiers have separate catalogs and entry points in the source checkout.
 
+## Manufacturing judgment
+
+**12 workflows · 36 decision rounds** cover supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering cutover, escalation, capital investment, supplier development, shift handover, cross-site transfer, process trials, and negotiation.
+
+Commit a recommendation, receive new evidence, and revise the plan. Several choices can be defensible. Evidence and submission checks remain explicit; reviewers assess the quality of tradeoffs, feasibility, communication, and adaptation. No answer or preferred plan is supplied. [Work through the judgment workshops →](docs/manufacturing-judgment.md)
+
 ## The agent supplies the solution
 
 Agents receive a neutral fulfillment goal, tool contracts, and observable business records. The agent chooses every action and submits every calculated value. Workflow identifiers are opaque per episode. Worked formulas, scenario labels, reference plans, evaluator annotations, expected values, and live scores stay outside the workflow agent transport.

@@ -1,0 +1,758 @@
+[
+  {
+    "id": "judgment-supplier-recovery",
+    "title": "Recover a critical casting shortage",
+    "role": "Plant operations lead",
+    "goal": "Recommend a defensible supply and customer recovery plan. Revise it as evidence arrives; distinguish commitments from proposals.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "SUPPLIER-RECOVERY-1-1",
+            "text": "Customer A needs 80 pump bodies in 10 days; its production line may stop if delivery slips. Customer B needs 60 in 14 days and reports four days of buffer. Neither has approved a schedule change."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-1-2",
+            "text": "Incumbent foundry confirms only 60 conforming bodies in 12 days after a furnace failure. Current plant stock is 20 released bodies. No other confirmed receipts exist."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-1-3",
+            "text": "Alternate foundry quotes 100 bodies at $140 each versus incumbent $100; tooling costs $4,000. Sample arrival is quoted at day 4, approval takes at least two days, and production delivery is quoted at day 9 subject to sample acceptance. These are quotes, not confirmed orders."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-1-4",
+            "text": "Incremental recovery budget is $9,000. Customer approval is required before changing casting source. A normal purchase order requires procurement approval; tooling approval belongs to engineering."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "SUPPLIER-RECOVERY-2-1",
+            "text": "Customer A says it can accept 40 bodies on day 10 and the balance on day 13, but requests a written recovery plan before accepting that change."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-2-2",
+            "text": "Alternate foundry sample has a minor dimensional deviation. Engineering needs a further day to assess its function; approval is not assured."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-2-3",
+            "text": "Incumbent offers 20 bodies on day 8 and 40 on day 12 if the plant pays $2,000 for split processing. Quality records show two late certificates in the last six deliveries."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "SUPPLIER-RECOVERY-3-1",
+            "text": "Engineering accepts the alternate sample subject to added incoming inspection costing $1,500. Customer source approval remains pending."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-3-2",
+            "text": "Customer B now reports only one day of buffer. Sales asks operations to promise both customers full on-time delivery today."
+          },
+          {
+            "id": "SUPPLIER-RECOVERY-3-3",
+            "text": "Finance will consider an exception above $9,000 only with quantified exposure, an accountable owner, and a decision deadline."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-defect-investigation",
+    "title": "Investigate recurring seal failures",
+    "role": "Quality engineering lead",
+    "goal": "Develop and revise an investigation and containment plan without declaring an unsupported root cause.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "DEFECT-INVESTIGATION-1-1",
+            "text": "Three customers report leaks in 18 of 400 valves from two assembly shifts. Pressure-test logs show all shipped valves passed at the factory."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-1-2",
+            "text": "Both affected shifts used seal lot S17; one unaffected shift also used S17. The torque tool was calibrated seven weeks ago and is within its calibration period."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-1-3",
+            "text": "Return inspections show seal damage but cannot distinguish assembly damage from field contamination. Suspect inventory contains 600 valves; no rework method is approved."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-1-4",
+            "text": "A full teardown takes 12 minutes per valve. Available quality labor is 80 hours this week; production requests a shipment decision within one day."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "DEFECT-INVESTIGATION-2-1",
+            "text": "A tool download shows torque overshoot on 8% of cycles after a firmware update. Some returned failures predate the update."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-2-2",
+            "text": "The seal supplier reports a material change within the approved specification. There is no field-exposure comparison between old and changed material."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-2-3",
+            "text": "A customer will provide installation videos in two days but needs a containment update today."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "DEFECT-INVESTIGATION-3-1",
+            "text": "A 30-unit bench comparison shows two leaks with changed-material seals and zero with older seals under one accelerated test; field conditions vary."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-3-2",
+            "text": "Production proposes replacing every seal and closing the investigation. Engineering cannot yet show that replacement prevents recurrence."
+          },
+          {
+            "id": "DEFECT-INVESTIGATION-3-3",
+            "text": "The next customer update must separate confirmed facts, hypotheses, containment, and evidence needed for corrective-action approval."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-maintenance-strategy",
+    "title": "Choose a bottleneck maintenance strategy",
+    "role": "Reliability lead",
+    "goal": "Recommend the next two weeks of maintenance and contingency actions under uncertain failure risk.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "MAINTENANCE-STRATEGY-1-1",
+            "text": "The sole finish grinder serves three product families and has vibration readings rising from 2.1 to 3.9 mm/s over four weeks. The alarm threshold is 4.5; sensor mounting changed last week."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-1-2",
+            "text": "Bearing replacement requires a 16-hour outage and $12,000. A bearing is in stores. A spindle failure could stop the grinder for seven days; no calibrated failure probability is available."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-1-3",
+            "text": "Two customer orders consume 90% of next week\u2019s grinder capacity. A qualified subcontractor quotes $8,000 but cannot accept more than 30% of the load."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-1-4",
+            "text": "A weekend outage is possible with an experienced technician and $2,000 overtime; that technician is also on call for a furnace restart."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "MAINTENANCE-STRATEGY-2-1",
+            "text": "A repeat measurement with the original mounting reads 3.0 mm/s. Oil analysis shows elevated particles, but the last sample was taken after a filter change."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-2-2",
+            "text": "One customer accepts a two-day slip; the other has not responded. The subcontractor wants a reservation by noon."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-2-3",
+            "text": "The furnace restart moves to the same weekend window."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "MAINTENANCE-STRATEGY-3-1",
+            "text": "A manual inspection finds no visible bearing damage. The vendor recommends replacement based on trend but offers no failure forecast."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-3-2",
+            "text": "Sales adds a potentially profitable rush job requiring eight grinder hours, with no accepted customer commitment."
+          },
+          {
+            "id": "MAINTENANCE-STRATEGY-3-3",
+            "text": "Management needs a decision, monitoring triggers, named owners, and a fallback if the selected outage window disappears."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-allocation",
+    "title": "Allocate constrained production across customers",
+    "role": "Production planning manager",
+    "goal": "Choose and revise a customer allocation policy with explicit commercial and operational tradeoffs.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "ALLOCATION-1-1",
+            "text": "Next week has capacity for 120 assemblies against 180 requested. Customer A requests 80 and provides 40% of annual revenue; B requests 60 for a new launch; C requests 40 spare assemblies."
+          },
+          {
+            "id": "ALLOCATION-1-2",
+            "text": "A and B have the same contractual delivery priority. C has no late penalty but says its spares support installed equipment uptime; exact stockout exposure is unknown."
+          },
+          {
+            "id": "ALLOCATION-1-3",
+            "text": "Overtime adds 20 assemblies for $5,000. A subcontractor may add 30 for $9,000 after a customer-specific approval taking three days."
+          },
+          {
+            "id": "ALLOCATION-1-4",
+            "text": "Contribution margins are $170 per A unit, $150 per B unit, and $220 per C unit. Lost future sales are not quantified."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "ALLOCATION-2-1",
+            "text": "Customer C confirms only 10 units are urgent; the remainder can ship next month. Customer B says a partial shipment below 40 units does not enable its launch."
+          },
+          {
+            "id": "ALLOCATION-2-2",
+            "text": "A offers to accept 60 now if remaining units arrive within seven days; the following week is already 85% loaded."
+          },
+          {
+            "id": "ALLOCATION-2-3",
+            "text": "The subcontractor can meet the physical date, but Customer B\u2019s approval owner is unavailable for two days."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "ALLOCATION-3-1",
+            "text": "One overtime team loses a qualified tester, reducing overtime output to 10 assemblies."
+          },
+          {
+            "id": "ALLOCATION-3-2",
+            "text": "Sales proposes prioritizing A regardless of the written allocation policy. B requests a firm commitment immediately."
+          },
+          {
+            "id": "ALLOCATION-3-3",
+            "text": "Operations needs a revised allocation, explicit customer messages, and recovery milestones for deferred orders."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-engineering-change",
+    "title": "Plan a product revision cutover",
+    "role": "Manufacturing engineering lead",
+    "goal": "Recommend an effectivity and cutover plan balancing delivery, obsolescence, and unresolved evidence.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "ENGINEERING-CHANGE-1-1",
+            "text": "A proposed bracket revision reduces assembly time by 12% but changes a locating feature. It is not released. Three hundred old-revision blanks are in stock and 80 brackets are in WIP."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-1-2",
+            "text": "Two customers require revision approval before change. One has approved the drawing but has not approved the manufacturing process. Current orders total 240 brackets."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-1-3",
+            "text": "The new fixture costs $6,000 and takes five days; old blanks cannot be reworked to the new revision. Old product meets the current released specification."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-1-4",
+            "text": "Engineering wants a common cutover date. Production prefers consuming old stock, and sales has promised a delivery date without promising a revision."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "ENGINEERING-CHANGE-2-1",
+            "text": "A fit trial finds interference in one of ten assemblies with the new revision. Measurement uncertainty overlaps the tolerance limit."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-2-2",
+            "text": "The fixture supplier will reserve capacity for 24 hours without payment. One customer requests first-article evidence before considering approval."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-2-3",
+            "text": "A buyer proposes canceling remaining old blanks, incurring a $3,000 fee."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "ENGINEERING-CHANGE-3-1",
+            "text": "A corrected drawing resolves the interference but changes the fixture insert; supplier lead time increases by two days."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-3-2",
+            "text": "A major customer accepts a phased transition if lots are segregated and first-article evidence is provided. The second customer has not replied."
+          },
+          {
+            "id": "ENGINEERING-CHANGE-3-3",
+            "text": "Recommend release gates, stock disposition, communication, and an operational fallback if approval is late."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-customer-escalation",
+    "title": "Respond to a disputed shipment failure",
+    "role": "Customer program manager",
+    "goal": "Prepare a credible customer response and recovery proposal while responsibility remains disputed.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "CUSTOMER-ESCALATION-1-1",
+            "text": "A customer reports 14 damaged control cabinets from a delivery of 50 and asks for replacement of all 50 within five days."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-1-2",
+            "text": "Factory inspection photographs show intact cabinets before packing. Carrier records show a loading delay and one shock indicator activation; custody during unloading is disputed."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-1-3",
+            "text": "The plant can build 20 replacements in five days or inspect and repair returns after transport taking two days. No field repair scope is agreed."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-1-4",
+            "text": "Sales wants to admit fault immediately to protect the account; finance wants the carrier claim resolved before offering credits."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "CUSTOMER-ESCALATION-2-1",
+            "text": "The customer\u2019s technician says eight cabinets have cosmetic damage, four have damaged connectors, and two cannot power on. This is a preliminary report, not a joint inspection."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-2-2",
+            "text": "A local service partner can inspect tomorrow for $2,500 but has not seen the wiring revision."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-2-3",
+            "text": "The customer threatens a line shutdown and asks for a public statement."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "CUSTOMER-ESCALATION-3-1",
+            "text": "Joint inspection confirms repairable defects in ten cabinets; four require replacement. No evidence attributes all damage to one party."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-3-2",
+            "text": "The customer accepts staged recovery if there is one accountable contact and daily progress evidence."
+          },
+          {
+            "id": "CUSTOMER-ESCALATION-3-3",
+            "text": "Propose a settlement and recovery update without fabricating responsibility, completed repairs, or accepted commercial terms."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-capacity-investment",
+    "title": "Decide whether to add a second production cell",
+    "role": "Plant general manager",
+    "goal": "Prepare and revise a capital decision brief under demand and ramp-up uncertainty.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "CAPACITY-INVESTMENT-1-1",
+            "text": "A second machining cell costs $750,000 and is quoted to add 35% capacity after a 16-week installation. A second shift costs $190,000 annually and is estimated to add 22% capacity."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-1-2",
+            "text": "Current orders fill 92% of capacity for six months; 40% of the incremental sales pipeline is tied to one unsigned program."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-1-3",
+            "text": "The staffing plan requires two experienced setters who are not yet hired. Finance uses a three-year payback screen but permits strategic exceptions."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-1-4",
+            "text": "The production manager believes floor space is available; facilities has not checked utilities or fire access."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "CAPACITY-INVESTMENT-2-1",
+            "text": "Facilities estimates $85,000 utility work and a two-week commissioning risk. A nearby subcontractor offers a six-month overflow agreement with a termination charge."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-2-2",
+            "text": "The unsigned program passes its technical review but purchasing has not issued an award."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-2-3",
+            "text": "HR expects experienced setter recruitment to take 12 to 20 weeks."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "CAPACITY-INVESTMENT-3-1",
+            "text": "The customer offers a nonbinding demand forecast with a six-month cancellation provision. Equipment discount expires this week."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-3-2",
+            "text": "The current cell loses 7% of scheduled time to changeovers, and no improvement trial has been performed."
+          },
+          {
+            "id": "CAPACITY-INVESTMENT-3-3",
+            "text": "Recommend an investment or staged alternative with explicit decision thresholds and accountability."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-supplier-development",
+    "title": "Choose a supplier development approach",
+    "role": "Supplier quality manager",
+    "goal": "Develop a credible improvement and sourcing strategy without assuming audit scores establish delivery capability.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "SUPPLIER-DEVELOPMENT-1-1",
+            "text": "A sole-source coating supplier has 89% on-time delivery and 3.2% rework. It supplies a customer-approved finish that takes eight weeks to qualify elsewhere."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-1-2",
+            "text": "The supplier offers a dedicated lane if annual volume increases 25%. Demand forecasts range from minus 10% to plus 20%."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-1-3",
+            "text": "An audit found incomplete batch records but no evidence that every affected batch is nonconforming. Supplier management cites operator turnover."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-1-4",
+            "text": "Purchasing wants price reductions; operations needs near-term reliability. The team has five engineer-days per month for supplier support."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "SUPPLIER-DEVELOPMENT-2-1",
+            "text": "A site visit finds the bottleneck is shared curing capacity; operators are trained but scheduling changes twice daily."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-2-2",
+            "text": "A second supplier can begin qualification next month but requires a $15,000 trial order."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-2-3",
+            "text": "The incumbent offers schedule visibility but will not guarantee dedicated capacity without a minimum-volume commitment."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "SUPPLIER-DEVELOPMENT-3-1",
+            "text": "Two weeks of schedule freezing improve delivery to 96% on a 25-order sample. Rework has not changed materially."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-3-2",
+            "text": "The customer will consider dual sourcing if validation includes adhesion and corrosion evidence."
+          },
+          {
+            "id": "SUPPLIER-DEVELOPMENT-3-3",
+            "text": "Recommend a commercial and technical improvement plan, escalation triggers, and an evidence-based sourcing decision."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-shift-handover",
+    "title": "Redesign a failure-prone shift handover",
+    "role": "Production supervisor",
+    "goal": "Design and revise a practical handover process that survives real staffing and information constraints.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "SHIFT-HANDOVER-1-1",
+            "text": "Three missed handovers in one month led to repeated setups, a held lot entering the dispatch queue, and a six-hour repair delay."
+          },
+          {
+            "id": "SHIFT-HANDOVER-1-2",
+            "text": "Day shift keeps a spreadsheet; night shift uses handwritten notes. Both must use the same ERP, but its work-order comments do not send alerts."
+          },
+          {
+            "id": "SHIFT-HANDOVER-1-3",
+            "text": "The plant has 12 minutes of paid shift overlap. Supervisors say a 30-minute meeting is not feasible."
+          },
+          {
+            "id": "SHIFT-HANDOVER-1-4",
+            "text": "Operators speak two primary languages; quality-status labels are standardized. No one has measured handover completion rates."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "SHIFT-HANDOVER-2-1",
+            "text": "A two-day pilot of a long checklist is completed on day shift but skipped on night shift during an absence."
+          },
+          {
+            "id": "SHIFT-HANDOVER-2-2",
+            "text": "Night shift reports that the incoming supervisor cannot access the maintenance dashboard from the shop-floor terminal."
+          },
+          {
+            "id": "SHIFT-HANDOVER-2-3",
+            "text": "Quality requires every held lot to retain its existing release control; a handover checklist cannot authorize release."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "SHIFT-HANDOVER-3-1",
+            "text": "A shorter pilot captures open holds and breakdowns but misses a tooling-life issue on a different cell."
+          },
+          {
+            "id": "SHIFT-HANDOVER-3-2",
+            "text": "The works council requests that the process measure handover reliability rather than rank individual operators."
+          },
+          {
+            "id": "SHIFT-HANDOVER-3-3",
+            "text": "Deliver a revised operating routine, ownership, escalation, and a lightweight evaluation plan."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-cross-site-transfer",
+    "title": "Transfer work between two plants",
+    "role": "Regional operations director",
+    "goal": "Recommend a feasible cross-site transfer and transition plan with explicit unresolved approvals.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "CROSS-SITE-TRANSFER-1-1",
+            "text": "Plant North is overloaded for four weeks. Plant South has 400 spare machine-hours but lacks the customer\u2019s site approval for the valve family."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-1-2",
+            "text": "Nominal cycle times imply 300 hours for the proposed transfer. Transport adds three days, and fixtures need two days of installation at South."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-1-3",
+            "text": "Both plants use the same ERP vendor but different routing codes and material-lot formats. North has the only experienced process engineer."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-1-4",
+            "text": "The customer requires first-article evidence from a new site. There is no approval service-level commitment."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "CROSS-SITE-TRANSFER-2-1",
+            "text": "South\u2019s trial finds cycle time 18% slower than quoted and one gauge cannot resolve the tightest feature."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-2-2",
+            "text": "The gauge supplier can rent a suitable instrument for $4,000. North\u2019s engineer can support remotely or travel, but not both plants at once."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-2-3",
+            "text": "The customer agrees to review an approval package next week but has not approved production shipment."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "CROSS-SITE-TRANSFER-3-1",
+            "text": "Another product consumes 120 of South\u2019s spare hours. The instrument can arrive on time if booked today."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-3-2",
+            "text": "A customer planner asks for delivery commitments before the engineering review."
+          },
+          {
+            "id": "CROSS-SITE-TRANSFER-3-3",
+            "text": "Recommend a revised transfer scope, source-of-truth mapping, approval gates, and fallback schedule."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-process-trial",
+    "title": "Design a credible process improvement trial",
+    "role": "Process improvement engineer",
+    "goal": "Design and revise a trial capable of informing a manufacturing decision without treating correlation as causation.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "PROCESS-TRIAL-1-1",
+            "text": "A supplier claims a new coolant increases insert life by 30%. A one-week trial on one machine showed 22% improvement, but the trial ran easier parts."
+          },
+          {
+            "id": "PROCESS-TRIAL-1-2",
+            "text": "The plant has four similar machines, three insert batches, and day/night shifts. Available trial capacity is 80 machine-hours over two weeks."
+          },
+          {
+            "id": "PROCESS-TRIAL-1-3",
+            "text": "Tool-life variation is high; breakdowns and scrap must still be counted. The supplier offers free coolant but requests a purchase commitment after the trial."
+          },
+          {
+            "id": "PROCESS-TRIAL-1-4",
+            "text": "Operators report skin irritation with the current coolant. The new coolant\u2019s local handling assessment has not been completed."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "PROCESS-TRIAL-2-1",
+            "text": "One machine develops a spindle fault unrelated to the trial; its downtime removes 20 available hours."
+          },
+          {
+            "id": "PROCESS-TRIAL-2-2",
+            "text": "The proposed baseline measurements omit scrapped parts and use a different wear threshold than the new-coolant measurements."
+          },
+          {
+            "id": "PROCESS-TRIAL-2-3",
+            "text": "EHS allows a controlled trial after training but has not approved general rollout."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "PROCESS-TRIAL-3-1",
+            "text": "Early results show longer tool life on two machines and worse surface finish on one material family. The sample is too small for a precise subgroup estimate."
+          },
+          {
+            "id": "PROCESS-TRIAL-3-2",
+            "text": "Purchasing wants one yes/no answer for all machines before the promotional price expires."
+          },
+          {
+            "id": "PROCESS-TRIAL-3-3",
+            "text": "Recommend the next decision, explain limits, and define evidence that would change the recommendation."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "judgment-supplier-negotiation",
+    "title": "Negotiate a recovery agreement",
+    "role": "Commodity manager",
+    "goal": "Prepare and revise a negotiation mandate and counterproposal linking commercial concessions to measurable recovery.",
+    "stages": [
+      {
+        "label": "Opening decision",
+        "records": [
+          {
+            "id": "SUPPLIER-NEGOTIATION-1-1",
+            "text": "A forging supplier requests a 12% price increase on $1.2 million annual spend and quotes raw-material inflation as the reason."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-1-2",
+            "text": "Its delivery performance fell to 86%. The plant has six weeks of stock; qualifying another supplier takes 14 weeks."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-1-3",
+            "text": "The contract permits documented material adjustments but does not automatically cover labor or overhead. Only purchasing can sign changes."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-1-4",
+            "text": "The supplier offers priority capacity in exchange for a one-year volume commitment; the sales forecast remains uncertain."
+          }
+        ]
+      },
+      {
+        "label": "New evidence",
+        "records": [
+          {
+            "id": "SUPPLIER-NEGOTIATION-2-1",
+            "text": "Supplier cost evidence supports a 5% material impact at current purchase volumes. Labor costs rose, but the supplier has not provided the requested breakdown."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-2-2",
+            "text": "A supplier plant manager offers weekly capacity reporting and delivery milestones, subject to commercial agreement."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-2-3",
+            "text": "Engineering says qualification elsewhere could be accelerated to ten weeks at a $20,000 cost, with no guaranteed approval."
+          }
+        ]
+      },
+      {
+        "label": "Management review",
+        "records": [
+          {
+            "id": "SUPPLIER-NEGOTIATION-3-1",
+            "text": "The supplier offers 8% with quarterly material-index review and asks for take-or-pay volume. Finance rejects unbounded volume exposure."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-3-2",
+            "text": "A recovery milestone is missed, but the supplier disclosed it three days in advance and proposed a split delivery."
+          },
+          {
+            "id": "SUPPLIER-NEGOTIATION-3-3",
+            "text": "Deliver a negotiation position, concession boundaries, measurable commitments, and a walk-away or escalation plan."
+          }
+        ]
+      }
+    ]
+  }
+]

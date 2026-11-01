@@ -84,6 +84,11 @@ def main():
         score_reporting='Separate track scores; do not pool incompatible units.',
         benchmark='OtisBench')
     previous.pop('superlative_claim_status', None)
+    from faraday_manufacturing_benchmark.judgment import catalog as judgment_catalog
+    judgment_tasks = judgment_catalog()
+    previous['judgment_workflows'] = len(judgment_tasks)
+    previous['judgment_decision_rounds'] = sum(len(t['stages']) for t in judgment_tasks)
+    previous['judgment_assessment'] = 'Separate reviewer ratings; no automatic quality score.'
     previous['advanced_tiers'] = {'temporal_workflow_variants': 64, 'material_network_cases': 48, 'replenishment_cases': 128}
     paths=[]
     for directory in ('src','scripts','tests','examples','docs','challenges','.github'):

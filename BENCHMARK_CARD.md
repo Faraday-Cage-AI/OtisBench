@@ -1,6 +1,6 @@
 # OtisBench benchmark card
 
-OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.3.0** includes ten evaluation tracks and source-run advanced tiers.
+OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.4.0** includes ten outcome-scored tracks, twelve staged judgment workshops, and source-run advanced tiers.
 
 ## Task catalogs
 
@@ -18,6 +18,10 @@ OtisBench evaluates manufacturing problem solving through executable task enviro
 | Factory seasons | 12 | 26 weekly decisions per season | Profit/demand margin, fill rate, cash and cost decomposition |
 
 Advanced tiers: 64 temporal workflow variants, 48 material-network cases, and 128 replenishment cases. Catalog dimensions describe route, contract, evidence mode, and parameter variation separately. Track metrics retain their own units.
+
+## Manufacturing judgment workshops
+
+Twelve distinct workflows contain three decision rounds each. The participant commits a recommendation before the next fixed evidence update is revealed. The workshop tool checks submission structure and visible citation identifiers; it does not automatically assess the quality of a recommendation or execute proposed factory actions. Six rubric dimensions receive explicit reviewer ratings bound to the exact session. Report these separately from deterministic outcome scores. No reference plan or live rating is supplied to the participant. [Workshop interface and reviewer rubric](docs/manufacturing-judgment.md).
 
 ## Sustained production contract
 

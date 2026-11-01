@@ -28,6 +28,8 @@ def save(path,value):
 def main(argv=None):
     parser=argparse.ArgumentParser(prog='otisbench',description='OtisBench: manufacturing workflows for AI agents')
     sub=parser.add_subparsers(dest='command',required=True)
+    from .judgment import configure as configure_judgment
+    configure_judgment(sub.add_parser('judgment', help='Staged manufacturing judgment workshops'))
     isolated=sub.add_parser('isolated');isolated.add_argument('--track',choices=['workflow','supply-chain','procurement','sensors','cad','documents'],required=True);isolated.add_argument('--task',action='append',required=True);isolated.add_argument('--agent-file',required=True);isolated.add_argument('--timeout',type=float,default=120);isolated.add_argument('--kernel-timeout',type=float,default=30);isolated.add_argument('--output',required=True)
     ls=sub.add_parser('list');ls.add_argument('--track',choices=['workflow','engineering','execution','season','supply-chain','procurement','sensors','cad','documents','campaign'])
     campaign=sub.add_parser('campaign')
@@ -56,7 +58,10 @@ def main(argv=None):
     replay_parser=sub.add_parser('replay');replay_parser.add_argument('run')
     args=parser.parse_args(argv)
     try:
-        if args.command=='campaign':
+        if args.command=='judgment':
+            from .judgment import execute
+            return execute(args)
+        elif args.command=='campaign':
             from .campaign import execute
             return execute(args)
         elif args.command=='isolated':
