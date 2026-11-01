@@ -1,10 +1,14 @@
 # OtisBench
 
-**Keep a factory running—from engineering release to the final customer shipment.**
+**Put an AI agent in charge of the factory. Make it deliver.**
 
-OtisBench evaluates whether an AI agent can complete a manufacturing order across engineering, purchasing, production, maintenance, quality, and delivery. The agent investigates business records, calculates process settings, commits actions, recovers from disruptions, and ships conforming product with serial traceability.
+OtisBench challenges AI agents to take ownership of manufacturing operations—from engineering release to the final serialized shipment. The agent leads the work across engineering, purchasing, production, maintenance, quality, and delivery: investigate the records, make decisions, execute them, and recover when conditions change. Success means getting conforming product to the customer within the operating constraints.
 
 The primary suite contains **1,024 manufacturing workflows: 32 process routes × 16 disruption contracts × 2 parameter draws.** Every workflow has physical production, resource constraints, changing records, and an end state that the evaluator checks.
+
+## The agent’s mission
+
+You are the plant operations lead. Own the backlog, coordinate the factory, and turn available resources into completed customer orders. Make decisions from the evidence, follow through with actions, and adapt when the plant changes. Keep working toward delivery within the time, decision, cash, quality, and authorization limits. Your decisions carry forward across the campaign.
 
 ## The production marathon
 

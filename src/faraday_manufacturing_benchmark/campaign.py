@@ -547,7 +547,7 @@ class ProductionCampaign(CampaignLogistics):
 
 def startup(task, view):
     return dict(id=view.episode_id, title='Run the manufacturing production campaign',
-        prompt='Fulfill every customer work order within its delivery window and the plant budget. Manage shared production resources, supplier dispatch commitments, maintenance spares, qualifications, material eligibility, quality release, and cash. Finish each order with its evidence, then finish the campaign.',
+        prompt='You are the plant operations lead. Take ownership of the backlog and carry every customer work order through to conforming delivery. Make decisions from the available business evidence, execute them through the tools, and adapt as conditions change. Manage shared production resources, supplier dispatch commitments, maintenance spares, qualifications, material eligibility, quality release, and cash. Keep working toward completion within the delivery windows, plant budget, horizon, and decision limits. Respect all required approvals. Finish each order with its evidence, then finish the campaign.',
         order_count=task['order_count'], horizon_minutes=task['horizon_minutes'], max_tool_calls=task['max_tool_calls'])
 
 

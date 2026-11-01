@@ -52,7 +52,7 @@ PREFIX={'M':'EQ','EMP':'EMP','FIX':'FIX','LOT':'LOT','SO':'SO','WO':'WO','OP':'O
 def public_task(task,episode_id='manufacturing-work-order'):
     """Explicit allowlist: author metadata cannot silently reach the tested agent."""
     return dict(id=episode_id,title='Complete the manufacturing work order',
-        prompt='Fulfill the customer orders using the manufacturing systems of record. Record the production, quality disposition, and shipments, and finish with their evidence IDs.',
+        prompt='You are the manufacturing operations lead. Take ownership of this work order and carry it through to conforming customer delivery. Make decisions from the manufacturing systems of record, execute them through the tools, and adapt as conditions change. Keep working toward completion within the stated time, decision, budget, quality, and authorization limits. Record the production, quality disposition, and shipments, and finish with their evidence IDs.',
         systems=list(task['systems']),max_tool_calls=task['max_tool_calls'],horizon_minutes=task['horizon_minutes'])
 
 
