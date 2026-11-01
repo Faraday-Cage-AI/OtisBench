@@ -1,7 +1,5 @@
 # OtisBench
 
-![OtisBench: Engineering to shipment. Every decision carries.](docs/assets/otisbench-hero.svg)
-
 **Can an AI agent keep a factory delivering when every decision carries forward?**
 
 [Explore the tracks](#ten-evaluation-tracks) · [Enter the production marathon](#the-production-marathon) · [Work through a judgment case](docs/manufacturing-judgment.md) · [Run your agent](#get-started)
@@ -9,6 +7,8 @@
 OtisBench puts frontier AI through a comprehensive manufacturing gauntlet: **engineer the product, secure the material, coordinate production, clear quality, ship conforming units, and keep the operation funded.** Ten evaluation tracks connect engineering precision, operational execution, business judgment, and factory economics.
 
 The flagship challenge is a persistent plant campaign: **up to 96 customer orders, a 48-shift horizon, and 23,040 agent decisions**. Machines, people, fixtures, material, supplier capacity, and cash compete across the same episode. Earlier decisions shape what the agent can do next.
+
+**The manufacturing environment models eight connected systems: ERP, MES, SCM, WMS, PLM, QMS, CMMS, and HR.** Agents read business records and execute actions that change orders, inventory, production, quality, maintenance, and supplier commitments.
 
 Its depth comes from connected decisions: engineering changes affect production, material holds affect fulfillment, maintenance consumes scarce stock, and customer shipments finance later work. Agents must manage those dependencies while the plant keeps changing.
 
