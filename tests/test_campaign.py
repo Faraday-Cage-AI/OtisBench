@@ -67,13 +67,13 @@ def reconcile(world, view, key):
         act(world, view, key, 'read', system=system)
 
 
-def test_catalog_has_two_sustained_profiles_for_every_route():
+def test_catalog_has_four_sustained_profiles_for_every_route():
     tasks = catalog()
-    assert len(tasks) == 64
+    assert len(tasks) == 128
     assert len({t['family'] for t in tasks}) == 32
-    assert {t['order_count'] for t in tasks} == {12, 24}
-    assert {t['horizon_minutes'] for t in tasks} == {2880, 5760}
-    assert {t['max_tool_calls'] for t in tasks} == {2880, 5760}
+    assert {t['order_count'] for t in tasks} == {12, 24, 48, 96}
+    assert {t['horizon_minutes'] for t in tasks} == {2880, 5760, 11520, 23040}
+    assert {t['max_tool_calls'] for t in tasks} == {2880, 5760, 11520, 23040}
     assert len({t['id'] for t in tasks}) == len(tasks)
 
 
@@ -194,11 +194,14 @@ def test_tool_replacement_restores_rated_capacity_and_invalidates_other_reads():
 
 def test_cash_shortage_rejects_purchase_without_consuming_approval_or_stock():
     world, view = plant()
-    world.cash_cents = world.opening_cash_cents = 0
+    reservation = world.call('reserve_supply', dict(work_order_id='WO-0001', units=4, window_start=0, expedited=False), view)
+    assert reservation['ok']
+    world.cash_cents = 0
+    world.opening_cash_cents = world.prepaid_cents
     child = world.orders['WO-0001']
     for system in ('ERP', 'PLM', 'SCM'):
         act(world, view, child.key, 'read', system=system)
-    payload = dict(units=4, expedited=False)
+    payload = dict(units=4, expedited=False, allocation_id='RES-SUP-0001')
     act(world, view, child.key, 'request_approval', kind='purchase', payload=payload)
     before = deepcopy(child.records['SCM']['purchase_orders'])
     result = world.call('act', dict(work_order_id=child.key, action='purchase', parameters=dict(payload, approval_id='APR-1')), view)
@@ -420,7 +423,7 @@ def test_frozen_campaign_catalog_matches_authored_tasks():
     frozen = root / 'src/faraday_manufacturing_benchmark/data/campaign_tasks.json'
     assert json.loads(frozen.read_text()) == catalog()
     manifest = json.loads((root / 'manifest.json').read_text())
-    assert manifest['campaign_cases'] == 64
+    assert manifest['campaign_cases'] == 128
     assert manifest['campaign_route_families'] == 32
 
 

@@ -15,7 +15,7 @@ def test_public_version_and_distribution_agree():
     import tomllib
     project = tomllib.loads((ROOT / 'pyproject.toml').read_text())['project']
     assert project['name'] == 'otisbench'
-    assert project['version'] == otisbench.__version__ == __version__ == '1.1.0'
+    assert project['version'] == otisbench.__version__ == __version__ == '1.2.0'
     assert project['scripts']['otisbench'] == 'otisbench.cli:main'
 
 

@@ -9,7 +9,7 @@ For execution changes, cover stock/cash conservation, resource occupancy, approv
 Run focused tests before submitting changes:
 
 ```bash
-python -m pytest tests/test_otisbench.py tests/test_agent_boundary.py tests/test_shopfloor.py tests/test_campaign.py -q
+python -m pytest tests/test_otisbench.py tests/test_agent_boundary.py tests/test_shopfloor.py tests/test_campaign.py tests/test_campaign_logistics.py -q
 python scripts/build_manifest.py
 python scripts/build_manifest.py --check
 ```

@@ -7,7 +7,7 @@ OtisBench makes the manufacturing order the unit of work: engineering release, m
 | Dimension | LarkBench published design | OtisBench design |
 |---|---|---|
 | Core operational unit | Distributor/vendor purchasing book | Manufacturing order and production route |
-| Decision horizon | One purchase decision per week, 26 weeks | 12–24-order shared-plant campaigns with up to 5,760 tool decisions; additional 26-week factory seasons |
+| Decision horizon | One purchase decision per week, 26 weeks | 12–96-order shared-plant campaigns with up to 23,040 tool decisions; additional 26-week factory seasons |
 | Material transformation | Purchasing and inventory economics | Material consumption, WIP, ordered operations, rework, finished product |
 | Production resources | Distributor purchasing scope | Machines, labor qualifications, fixtures, tool life, calibration, batch limits |
 | Disruption recovery | Demand, deliveries, and vendor information | 16 workflow disruption contracts, plus staggered temporal recovery |

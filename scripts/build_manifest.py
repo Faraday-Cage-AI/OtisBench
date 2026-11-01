@@ -62,7 +62,7 @@ def main():
                 if hashlib.sha256((document_root/t['id']/asset['filename']).read_bytes()).hexdigest()!=asset['sha256']:raise SystemExit('Document public asset hash mismatch')
     previous=json.loads((ROOT/'manifest.json').read_text());previous.update(version=__version__,
         campaign_cases=len(campaigns),campaign_route_families=len({t['family'] for t in campaigns}),
-        campaign_profiles={k:dict(work_orders=v[0],horizon_minutes=v[1],max_tool_calls=v[0]*240) for k,v in CAMPAIGN_PROFILES.items()},
+        campaign_profiles={k:dict(work_orders=v[0],horizon_minutes=v[1],max_tool_calls=v[0]*240,release_cadence_minutes=216 if v[0]>=48 else 180) for k,v in CAMPAIGN_PROFILES.items()},
         campaign_catalog_sha256=hashlib.sha256(campaign_data).hexdigest(),
         engineering_cases=len(TASKS),engineering_families=len({t['family'] for t in TASKS}),
         execution_cases=len(workflows()),execution_families=len({t['family'] for t in workflows()}),

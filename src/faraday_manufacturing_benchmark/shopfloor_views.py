@@ -34,7 +34,7 @@ case_id review_due_minute document_id affected_lots disposition passed_units fix
 calibration_minutes calibration_cost_cents tool_change_minutes tool_change_cost_cents equipment_alerts
 machine_id severity reading purchase_orders certificates supplier unit_cents minimum_units
 standard_lead_minutes expedited_lead_minutes expedite_cents due_minute purchase_order cost_cents
-approval kind payload approval_id expedited start_minute operator_id decision reworked_units
+approval kind payload approval_id allocation_id expedited start_minute operator_id decision reworked_units
 finished evidence_ids events wip_preserved
 surface_m_min diameter_mm max_rpm teeth chip_mm_tooth tolerance_fraction
 target_temperature_c section_mm base_soak_minutes minutes_per_section_mm

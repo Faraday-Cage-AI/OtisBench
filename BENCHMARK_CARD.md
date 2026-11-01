@@ -1,12 +1,12 @@
 # OtisBench benchmark card
 
-OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.1.0** includes ten evaluation tracks and source-run advanced tiers.
+OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.2.0** includes ten evaluation tracks and source-run advanced tiers.
 
 ## Task catalogs
 
 | Track | Cases | Structure | Metric |
 |---|---:|---|---|
-| Campaign | 64 | 32 routes × 2 horizons; 12 or 24 orders | Strict campaign completion; mean order outcome; treasury reconciliation |
+| Campaign | 128 | 32 routes × 4 horizons; 12–96 orders | Strict campaign completion; mean order outcome; treasury reconciliation |
 | Workflow | 1,024 | 32 routes × 16 disruptions × 2 draws | Strict completion; 0–100 outcome score; route/disruption breakdowns |
 | Engineering | 84 | 42 families × 2 conditions | Exact-schema accuracy; numerical tolerances; family-macro success |
 | Supply chain | 96 | 24 families × 4 conditions | Reconciliation, approval, posting, read-back; family-macro success |
@@ -21,9 +21,11 @@ Advanced tiers: 64 temporal workflow variants, 48 material-network cases, and 12
 
 ## Sustained production contract
 
-Production campaigns keep 12 or 24 work orders in one persistent episode. The six-shift profile permits 2,880 manufacturing minutes and 2,880 decisions; the twelve-shift profile permits 5,760 minutes and 5,760 decisions. Equipment, personnel, fixtures, wear, qualifications, and cash are shared. Order releases and independent source changes extend across the episode. Actual shipments generate delayed receivables. Each order retains its 240-call limit and manufacturing checks.
+Production campaigns keep 12, 24, 48, or 96 work orders in one persistent episode. The four profiles permit 2,880, 5,760, 11,520, or 23,040 manufacturing minutes and the same respective decision budgets. Equipment, personnel, fixtures, wear, qualifications, maintenance stock, supplier dispatch capacity, and cash are shared.
 
-Strict success requires all orders, campaign finish, financial reconciliation, and the horizon. Reports separate campaign completion, order completion, mean order score, cash, spending, and receivables. Atomic checkpoints and source-verified resume preserve the ongoing plant state. [Campaign contract](docs/production-campaigns.md).
+Supplier allocations lock 20% deposits and bind quantity, work order, dispatch window, and service level. Purchasing approvals bind the exact allocation. Cancellation fees and expired-deposit costs persist. Tool changes and repairs consume finite spares; replenishment requires packs, funds, and delivery time. Actual customer shipments generate delayed receivables. Each order retains its 240-call limit and manufacturing checks.
+
+Strict success requires all orders, resolved supplier commitments, explicit campaign finish, financial and spare-inventory reconciliation, and the horizon. Per-decision journals and source-verified resume preserve ongoing plant state. [Campaign contract](docs/production-campaigns.md).
 
 ## Primary workflow contract
 

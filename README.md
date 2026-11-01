@@ -1,18 +1,32 @@
 # OtisBench
 
-**Manufacturing agents, from engineering release to shipped product.**
+**Keep a factory running—from engineering release to the final customer shipment.**
 
 OtisBench evaluates whether an AI agent can complete a manufacturing order across engineering, purchasing, production, maintenance, quality, and delivery. The agent investigates business records, calculates process settings, commits actions, recovers from disruptions, and ships conforming product with serial traceability.
 
 The primary suite contains **1,024 manufacturing workflows: 32 process routes × 16 disruption contracts × 2 parameter draws.** Every workflow has physical production, resource constraints, changing records, and an end state that the evaluator checks.
 
-## Long-running production campaigns
+## The production marathon
 
-Keep the plant running across **12 or 24 work orders** in one persistent agent episode. Campaigns cover **six or twelve manufacturing shifts**, with budgets of **2,880 or 5,760 tool calls**. Orders share machines, labor, fixtures, tool life, calibration, and cash. Production can overlap across route stages; spending and delayed customer payments affect the next order.
+Take one plant through **96 customer work orders** in a persistent agent episode. The largest profile has a **48-shift manufacturing horizon** and a budget of **23,040 agent decisions**. Smaller profiles cover 12, 24, and 48 orders.
 
-Engineering releases, supplier dispositions, and equipment trips continue as later orders arrive. A machine trip can interrupt another order's WIP. Agents must preserve state, schedule competing work, maintain resources, recover production, and meet each order's delivery window. Waiting for every future change misses the first deadline.
+Orders compete for machines, labor, fixtures, tooling, supplier dispatch slots, and cash. A material commitment locks a deposit. Customer shipments fund later work through delayed payments. Repairs require kits that must actually arrive. Engineering changes and equipment trips continue as new orders enter the plant.
 
-**64 campaigns = 32 manufacturing routes × 2 operating horizons.** [Campaign tools, scoring, checkpointing, and resume →](docs/production-campaigns.md)
+The agent must keep production moving, protect material eligibility, maintain resources, recover interrupted WIP, clear quality, and meet every customer window. Waiting for all future changes misses the first deadline. Buying every supply lot on the fastest service runs into shared dispatch capacity.
+
+```mermaid
+flowchart LR
+    A[Customer orders] --> B[Supplier capacity and deposits]
+    B --> C[Material receipts]
+    C --> D[Shared production resources]
+    D --> E[Inspection and rework]
+    E --> F[Serialized shipments]
+    F --> G[Customer cash receipts]
+    G --> B
+    H[Engineering changes and equipment trips] --> D
+```
+
+**128 campaigns = 32 manufacturing routes × 4 operating horizons.** [Campaign contracts, tools, and recovery →](docs/production-campaigns.md)
 
 ## A complete manufacturing workflow
 
@@ -53,7 +67,7 @@ Reading records and writing a plan do not fulfill an order. The score follows th
 
 | Track | Catalog | What the agent delivers |
 |---|---:|---|
-| Production campaigns | 64 campaigns · 12 or 24 orders each | Sustained fulfillment across a shared plant |
+| Production campaigns | 128 campaigns · 12–96 orders each | Sustained fulfillment across a shared plant |
 | Manufacturing workflows | 1,024 cases · 32 routes · 16 disruptions | Conforming, traceable customer shipments |
 | Engineering | 84 cases · 42 families | Manufacturing calculations and constrained decisions |
 | Supply chain | 96 cases · 24 families | Reconciled, approved, posted business decisions |
@@ -100,7 +114,7 @@ Run a long production campaign with your own agent:
 
 ```bash
 otisbench campaign \
-  --task campaign-pump_assembly-twelve_shift \
+  --task campaign-pump_assembly-forty_eight_shift \
   --agent-command 'python /absolute/path/to/my_agent.py' \
   --output runs/pump-campaign.json
 ```
@@ -132,7 +146,7 @@ LarkBench centers on recurring distributor purchasing over 26 weeks. OtisBench c
 ## Development
 
 ```bash
-python -m pytest tests/test_otisbench.py tests/test_agent_boundary.py tests/test_shopfloor.py tests/test_campaign.py -q
+python -m pytest tests/test_otisbench.py tests/test_agent_boundary.py tests/test_shopfloor.py tests/test_campaign.py tests/test_campaign_logistics.py -q
 python scripts/build_manifest.py --check
 ```
 

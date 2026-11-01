@@ -11,9 +11,11 @@ import random
 from .shopfloor import ManufacturingWorkflow, TOOLS, digest, overlap
 from .shopfloor_cases import ROUTES, SYSTEMS
 from .shopfloor_views import AgentView
+from .campaign_logistics import CampaignLogistics
 
-PROTOCOL = 'otisbench-production-campaign/1'
-PROFILES = {'six_shift': (12, 2880), 'twelve_shift': (24, 5760)}
+PROTOCOL = 'otisbench-production-campaign/2'
+PROFILES = {'six_shift': (12, 2880), 'twelve_shift': (24, 5760),
+            'twenty_four_shift': (48, 11520), 'forty_eight_shift': (96, 23040)}
 CONTRACTS = ('compound_recovery', 'late_quality_hold', 'drawing_effectivity',
              'failed_final_inspection', 'split_material_lots', 'customer_allocation',
              'serial_recall', 'late_inbound_material')
@@ -24,24 +26,51 @@ CAMPAIGN_TOOLS = {
     'wait': {'minutes': 'integer 1..300'},
     'repair_machine': {'machine_id': 'issued equipment handle'},
     'renew_qualification': {'operator_id': 'issued employee handle'},
+    'reserve_supply': {'work_order_id': 'issued work-order handle', 'units': 'positive integer',
+                       'window_start': 'dispatch-window start minute', 'expedited': 'boolean'},
+    'cancel_supply': {'allocation_id': 'issued supply reservation handle'},
+    'order_spares': {'kind': 'tooling_kit | repair_kit', 'quantity': 'positive pack multiple, at most 32', 'expedited': 'boolean'},
     'finish_campaign': {},
 }
+
+
+MANUFACTURING_TOOLS = deepcopy(TOOLS)
+MANUFACTURING_TOOLS['purchase']['allocation_id'] = 'confirmed supply reservation ID; also include in approval payload'
 
 
 def catalog():
     return [dict(id=f'campaign-{family}-{profile}', family=family, profile=profile,
                  order_count=count, horizon_minutes=horizon, max_tool_calls=count * 240,
+                 release_cadence_minutes=216 if count >= 48 else 180,
                  seed=int.from_bytes(hashlib.sha256(f'{family}:{profile}:campaign-v1'.encode()).digest()[:8], 'big'))
             for family in ROUTES for profile, (count, horizon) in PROFILES.items()]
 
 
 class CampaignOrder(ManufacturingWorkflow):
+    def local_state(self):
+        shared_fields = {'MES': {'machines'}, 'HR': {'operators'}, 'QMS': {'instruments'}}
+        records = {system: {key: value for key, value in rows.items() if key not in shared_fields.get(system, ())}
+                   for system, rows in self.records.items()}
+        return dict(records=records, versions=self.versions, read_versions=self.read_versions,
+            approvals=self.approvals, approval_uses=sorted(self.approval_uses), spent=self.spent_cents,
+            violations=self.violations, events=self.events, parameters_ok=self.parameters_ok,
+            consumed=self.consumed, finished=self.finished, rework_completed=self.rework_completed,
+            inspection_counter=self.inspection_counter, release_minute=self.release_minute,
+            contract_value_cents=getattr(self, 'contract_value_cents', None))
+
+    def state_hash(self):
+        if not hasattr(self, 'campaign'):
+            return super().state_hash()
+        return digest(dict(clock=self.clock, order=self.local_state(), shared=self.campaign._shared_hashes()))
+
     def _advance(self, minutes):
         self.campaign.advance(minutes)
 
     def _spend(self, cents):
         plant = self.campaign
-        if plant.cash_cents < cents:
+        allocation = getattr(self, '_purchase_allocation', None)
+        deposit = allocation['deposit_cents'] if allocation else 0
+        if plant.cash_cents < cents - deposit:
             plant.spend_error = 'cash_insufficient'
             return False
         if plant.spent_cents + cents > plant.budget_cents:
@@ -49,9 +78,38 @@ class CampaignOrder(ManufacturingWorkflow):
             return False
         if not super()._spend(cents):
             return False
-        plant.cash_cents -= cents
+        plant.cash_cents -= cents - deposit
+        plant.prepaid_cents -= deposit
         plant.spent_cents += cents
         return True
+
+    def _do_purchase(self, units, expedited, approval_id, allocation_id=None):
+        supplier = self.records['SCM']['supplier']
+        if type(units) is not int or units < supplier['minimum_units'] or type(expedited) is not bool:
+            return self._error('invalid supplier order')
+        allocation, error = self.campaign.allocation_for_purchase(self, allocation_id, units, expedited)
+        if error:
+            self.campaign.spend_error = error
+            return self._error(error)
+        payload = dict(units=units, expedited=expedited, allocation_id=allocation_id)
+        if not self._authorized(approval_id, 'purchase', payload, consume=False):
+            return self._error('purchase authorization mismatch', critical=True)
+        cost = units * supplier['unit_cents'] + (supplier['expedite_cents'] if expedited else 0)
+        self._purchase_allocation = allocation
+        try:
+            paid = self._spend(cost)
+        finally:
+            self._purchase_allocation = None
+        if not paid:
+            return self._error('purchase exceeds available funds or budget')
+        self.approval_uses.add(approval_id)
+        key = f'PO-{len(self.records["SCM"]["purchase_orders"]) + 1}'
+        due = max(self.clock, allocation['window_start']) + supplier['expedited_lead_minutes' if expedited else 'standard_lead_minutes']
+        po = dict(id=key, units=units, lot_id='LOT-' + key, status='in_transit', due_minute=due)
+        self.records['SCM']['purchase_orders'][key] = po
+        allocation.update(status='used', purchase_order=key, purchase_minute=self.clock)
+        self._bump('SCM')
+        return dict(ok=True, purchase_order=deepcopy(po), cost_cents=cost)
 
     def _do_start_operation(self, **arguments):
         result = super()._do_start_operation(**arguments)
@@ -79,8 +137,13 @@ class CampaignOrder(ManufacturingWorkflow):
         return dict(ok=True, operation_id=operation_id, wip_preserved=True)
 
     def _do_replace_tool(self, machine_id):
+        if self.campaign.spares['tooling_kit'] < 1:
+            self.campaign.spend_error = 'spare_unavailable'
+            return self._error('spare unavailable')
         result = super()._do_replace_tool(machine_id)
         if result.get('ok'):
+            self.campaign.spares['tooling_kit'] -= 1
+            self.campaign.spares_used['tooling_kit'] += 1
             self.records['MES']['machines'][machine_id]['tool_remaining_units'] = self.campaign.tool_capacity
             result['tool_remaining_units'] = self.campaign.tool_capacity
         return result
@@ -96,7 +159,7 @@ class CampaignOrder(ManufacturingWorkflow):
         return result
 
 
-class ProductionCampaign:
+class ProductionCampaign(CampaignLogistics):
     """One clock, treasury, machine fleet, workforce and fixture inventory."""
     tool_capacity = 120
     repair_minutes = 45
@@ -119,13 +182,12 @@ class ProductionCampaign:
         self.received_cents = 0
         self.spent_cents = 0
         self.plant_spent_cents = 0
+        self._init_logistics()
         rng = random.Random(task['seed'])
         contracts = list(CONTRACTS)
         rng.shuffle(contracts)
-        releases = []
         for index in range(task['order_count']):
-            release = index * 180 + (rng.randint(0, 25) if index else 0)
-            releases.append(release)
+            release = index * task.get('release_cadence_minutes', 180) + (rng.randint(0, 25) if index else 0)
             contract = contracts[index % len(contracts)]
             if task['order_count'] >= 12 and index == task['order_count'] - 1:
                 contract = 'compound_recovery'
@@ -208,7 +270,8 @@ class ProductionCampaign:
         self.cash_cents = self.opening_cash_cents
         self.shared_hashes = self._shared_hashes()
         self.source_commitment = digest(dict(task=task, calendar=self.calendar,
-            orders={k: w.source_commitment for k, w in self.orders.items()}, opening_cash=self.opening_cash_cents))
+            orders={k: w.source_commitment for k, w in self.orders.items()}, opening_cash=self.opening_cash_cents,
+            logistics=self.logistics_state()))
         self.initial_state_hash = self.state_hash()
 
     def _shared_hashes(self):
@@ -224,9 +287,10 @@ class ProductionCampaign:
         self.shared_hashes = current
 
     def state_hash(self):
-        return digest(dict(clock=self.clock, orders={k: w.state_hash() for k, w in self.orders.items()},
+        return digest(dict(clock=self.clock, orders={k: w.local_state() for k, w in self.orders.items()}, shared=self._shared_hashes(),
                            cash=self.cash_cents, spent=self.spent_cents, plant_spent=self.plant_spent_cents,
-                           received=self.received_cents, receivables=self.receivables, fired=sorted(self.fired), finished=self.finished))
+                           received=self.received_cents, receivables=self.receivables, fired=sorted(self.fired), finished=self.finished,
+                           logistics=self.logistics_state()))
 
     def _move_to(self, minute):
         self.clock = minute
@@ -247,6 +311,8 @@ class ProductionCampaign:
                 self.cash_cents += row['amount_cents']
                 self.received_cents += row['amount_cents']
                 row['status'] = 'received'
+
+        self.advance_logistics(minute)
 
     def _apply_event(self, event):
         world = self.orders[event['work_order']]
@@ -297,7 +363,7 @@ class ProductionCampaign:
                 shipped=sum(o['shipped'] for o in erp['orders']), due_minute=world.deadline,
                 budget_cents=erp['budget_cents'], status='closed' if world.finished else 'scheduled' if self.clock < world.release_minute else 'open'))
             row.update(release_minute=world.release_minute, contract_value_cents=world.contract_value_cents,
-                       calls_remaining=world.task['max_tool_calls'] - len(world.trace))
+                       calls_remaining=world.task['max_tool_calls'] - len(world.trace), spent_cents=world.spent_cents)
             rows.append(row)
         return dict(ok=True, clock_minute=self.clock, work_orders=rows, cash_cents=self.cash_cents,
             spent_cents=self.spent_cents, budget_cents=self.budget_cents,
@@ -306,7 +372,7 @@ class ProductionCampaign:
             maintenance=dict(repair_minutes=self.repair_minutes, repair_cost_cents=self.repair_cost_cents,
                 tool_capacity_units=self.tool_capacity, renewal_minutes=self.renewal_minutes,
                 renewal_cost_cents=self.renewal_cost_cents, qualification_minutes=self.qualification_minutes),
-            payment_terms_minutes=self.payment_terms_minutes)
+            payment_terms_minutes=self.payment_terms_minutes, **self.public_logistics(view))
 
     def _plant_spend(self, cents):
         if self.cash_cents < cents:
@@ -355,6 +421,8 @@ class ProductionCampaign:
                 elif tool == 'wait' and set(arguments) == {'minutes'} and type(arguments['minutes']) is int and 1 <= arguments['minutes'] <= 300:
                     self.advance(arguments['minutes'])
                     result = dict(ok=True, clock_minute=self.clock)
+                elif tool in ('reserve_supply', 'cancel_supply', 'order_spares'):
+                    result = self.logistics_call(tool, arguments, view)
                 elif tool == 'repair_machine' and set(arguments) == {'machine_id'}:
                     machine = self.machines.get(arguments['machine_id'])
                     if not machine or machine['status'] != 'down':
@@ -362,9 +430,13 @@ class ProductionCampaign:
                     elif overlap(self.clock, self.clock + self.repair_minutes, machine['busy']) or any(o['machine'] == machine['id'] and o['status'] in ('running', 'interrupted')
                              for w in self.orders.values() for o in w.records['MES']['operations']):
                         result = dict(ok=False, error='resource_conflict', clock_minute=self.clock)
+                    elif self.spares['repair_kit'] < 1:
+                        result = dict(ok=False, error='spare_unavailable', clock_minute=self.clock)
                     elif not self._plant_spend(self.repair_cost_cents):
                         result = dict(ok=False, error='funds_unavailable', clock_minute=self.clock)
                     else:
+                        self.spares['repair_kit'] -= 1
+                        self.spares_used['repair_kit'] += 1
                         self.advance(self.repair_minutes)
                         machine['status'] = 'available'
                         for owner in self.orders.values():
@@ -386,7 +458,9 @@ class ProductionCampaign:
                         self._sync_shared()
                         result = view.encode(dict(ok=True, operator_id=person['id'], certified_until_minute=person['certified_until_minute'], clock_minute=self.clock))
                 elif tool == 'finish_campaign' and not arguments:
-                    if not all(w.finished and w.trace and w.trace[-1]['tool'] == 'finish' and w.trace[-1]['result'].get('ok') and sum(o['shipped'] for o in w.records['ERP']['orders']) == w.records['ERP']['required_units'] for w in self.orders.values()):
+                    if any(a['status'] == 'booked' for a in self.allocations.values()):
+                        result = dict(ok=False, error='supply_commitments_open', clock_minute=self.clock)
+                    elif not all(w.finished and w.trace and w.trace[-1]['tool'] == 'finish' and w.trace[-1]['result'].get('ok') and sum(o['shipped'] for o in w.records['ERP']['orders']) == w.records['ERP']['required_units'] for w in self.orders.values()):
                         result = dict(ok=False, error='orders_incomplete', clock_minute=self.clock)
                     else:
                         self.finished = True
@@ -404,7 +478,7 @@ class ProductionCampaign:
 
     def grade(self):
         grades = [world.grade() for world in self.orders.values()]
-        ledger_ok = (self.cash_cents == self.opening_cash_cents + self.received_cents - self.spent_cents
+        ledger_ok = (self.cash_cents == self.opening_cash_cents + self.received_cents - self.spent_cents - self.prepaid_cents
                      and self.spent_cents == self.plant_spent_cents + sum(w.spent_cents for w in self.orders.values())
                      and self.cash_cents >= 0 and self.received_cents == sum(r['amount_cents'] for r in self.receivables if r['status'] == 'received'))
         expected = {}
@@ -421,7 +495,7 @@ class ProductionCampaign:
         observed = {(r['work_order'], r['shipment']): (r['amount_cents'], r['due_minute'], r['status'])
                     for r in self.receivables}
         ledger_ok = ledger_ok and len(observed) == len(self.receivables) and observed == expected
-        ledger_ok = ledger_ok and self.spent_cents <= self.budget_cents
+        ledger_ok = ledger_ok and self.spent_cents <= self.budget_cents and self.logistics_check()
         quantity = sum(g['required_units'] for g in grades)
         delivered = sum(g['delivered_units'] for g in grades)
         strict = self.finished and ledger_ok and self.clock <= self.task['horizon_minutes'] and all(g['strict_success'] for g in grades)
@@ -429,23 +503,23 @@ class ProductionCampaign:
         return dict(task_id=self.task['id'], strict_success=strict, score=0 if critical or not ledger_ok else sum(g['score'] for g in grades) / len(grades),
             orders_completed=sum(g['strict_success'] for g in grades), order_count=len(grades), delivered_units=delivered,
             required_units=quantity, elapsed_minutes=self.clock, tool_calls=len(self.trace), spent_cents=self.spent_cents,
-            cash_cents=self.cash_cents, receivable_cents=sum(r['amount_cents'] for r in self.receivables if r['status'] == 'pending'),
+            cash_cents=self.cash_cents, prepaid_cents=self.prepaid_cents, receivable_cents=sum(r['amount_cents'] for r in self.receivables if r['status'] == 'pending'),
             ledger_ok=ledger_ok, critical_violation=critical, orders=grades)
 
 
 def startup(task, view):
     return dict(id=view.episode_id, title='Run the manufacturing production campaign',
-        prompt='Fulfill every customer work order within its delivery window and the plant budget. Manage shared production resources, qualifications, material eligibility, quality release, and cash. Finish each order with its evidence, then finish the campaign.',
+        prompt='Fulfill every customer work order within its delivery window and the plant budget. Manage shared production resources, supplier dispatch commitments, maintenance spares, qualifications, material eligibility, quality release, and cash. Finish each order with its evidence, then finish the campaign.',
         order_count=task['order_count'], horizon_minutes=task['horizon_minutes'], max_tool_calls=task['max_tool_calls'])
 
 
 def source_fingerprints():
     root = Path(__file__).parent
-    names = ('campaign.py', 'shopfloor.py', 'shopfloor_cases.py', 'shopfloor_views.py', 'agents.py', 'isolation.py', '__init__.py')
+    names = ('campaign.py', 'campaign_logistics.py', 'campaign_storage.py', 'shopfloor.py', 'shopfloor_cases.py', 'shopfloor_views.py', 'agents.py', 'isolation.py', '__init__.py')
     return {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in names}
 
 
-def run(task, agent, checkpoint=None, stop_after=None, resume=None):
+def run(task, agent, checkpoint=None, stop_after=None, resume=None, journal=None):
     if stop_after is not None and (type(stop_after) is not int or stop_after < 1):
         raise ValueError('stop_after must be a positive integer')
     if resume is None:
@@ -464,13 +538,15 @@ def run(task, agent, checkpoint=None, stop_after=None, resume=None):
     def snapshot():
         return dict(artifact, trace=deepcopy(world.trace), agent_trace=deepcopy(transport), result=world.grade(),
                     alias_nonce=view.nonce)
+    if journal is not None:
+        journal.start(snapshot())
     try:
         while not world.finished and len(world.trace) < task['max_tool_calls'] and world.clock < task['horizon_minutes']:
             if stop_after is not None and len(world.trace) - starting_calls >= stop_after:
                 break
             payload = dict(clock_minute=world.clock, calls_remaining=task['max_tool_calls'] - len(world.trace), last_result=last)
             if first_decision:
-                payload.update(task=startup(task, view), tools=deepcopy(CAMPAIGN_TOOLS), manufacturing_tools=deepcopy(TOOLS))
+                payload.update(task=startup(task, view), tools=deepcopy(CAMPAIGN_TOOLS), manufacturing_tools=deepcopy(MANUFACTURING_TOOLS))
                 if resume is not None:
                     payload['history'] = deepcopy(transport)
                 first_decision = False
@@ -480,6 +556,8 @@ def run(task, agent, checkpoint=None, stop_after=None, resume=None):
             arguments = view.decode(decision['arguments'])
             last = world.call(decision['tool'], arguments, view)
             transport.append(dict(decision=deepcopy(decision), result=deepcopy(last)))
+            if journal is not None:
+                journal.append(world.trace[-1], transport[-1])
             if checkpoint:
                 checkpoint(snapshot())
     except (ValueError, OSError) as exc:
@@ -530,6 +608,14 @@ def execute(args):
     if args.task not in tasks:
         raise ValueError('unknown campaign task')
     path = Path(args.output)
+    from .campaign_storage import CampaignJournal, load_checkpoint
+    same_output = bool(args.resume and Path(args.resume).resolve() == path.resolve())
+    if path.exists() and not same_output:
+        raise ValueError('output exists; resume it or choose a fresh output')
+    prior = load_checkpoint(args.resume, tasks[args.task]) if args.resume else None
+    journal = CampaignJournal(path, replace=same_output)
+    if journal.path.exists() and not same_output:
+        raise ValueError('recovery journal exists; resume it or choose a fresh output')
     def save(artifact):
         path.parent.mkdir(parents=True, exist_ok=True)
         temporary = path.with_name(path.name + '.pending')
@@ -541,12 +627,15 @@ def execute(args):
     else:
         from .agents import DecisionAgent
         context = DecisionAgent(args.agent_command, timeout=args.timeout)
-    with context as selected:
-        artifact = run(tasks[args.task], selected, checkpoint=save, stop_after=args.stop_after,
-                       resume=json.loads(Path(args.resume).read_text()) if args.resume else None)
-        if hasattr(selected, 'isolation'):
-            artifact['isolation'] = deepcopy(selected.isolation)
-    save(artifact)
+    try:
+        with context as selected:
+            artifact = run(tasks[args.task], selected, stop_after=args.stop_after, resume=prior, journal=journal)
+            if hasattr(selected, 'isolation'):
+                artifact['isolation'] = deepcopy(selected.isolation)
+        save(artifact)
+    finally:
+        journal.close()
+    journal.path.unlink()
     return 0
 
 

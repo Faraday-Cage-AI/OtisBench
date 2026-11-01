@@ -132,12 +132,12 @@ def main(argv=None):
             print(json.dumps(task,indent=2))
         elif args.command=='export-agent':
             if args.task.startswith('campaign-'):
-                from .campaign import catalog as campaign_catalog,startup,CAMPAIGN_TOOLS
+                from .campaign import catalog as campaign_catalog,startup,CAMPAIGN_TOOLS,MANUFACTURING_TOOLS
                 from .shopfloor import TOOLS
                 from .shopfloor_views import AgentView
                 byid={t['id']:t for t in campaign_catalog()}
                 if args.task not in byid:raise ValueError('unknown campaign task ID')
-                save(args.output,dict(type='decision',protocol='faraday-manufacturing/1',track='campaign',payload=dict(clock_minute=0,calls_remaining=byid[args.task]['max_tool_calls'],last_result=None,task=startup(byid[args.task],AgentView()),tools=CAMPAIGN_TOOLS,manufacturing_tools=TOOLS)))
+                save(args.output,dict(type='decision',protocol='faraday-manufacturing/1',track='campaign',payload=dict(clock_minute=0,calls_remaining=byid[args.task]['max_tool_calls'],last_result=None,task=startup(byid[args.task],AgentView()),tools=CAMPAIGN_TOOLS,manufacturing_tools=MANUFACTURING_TOOLS)))
                 return 0
             if args.task.startswith('doc-'):
                 from .document_cases import catalog
