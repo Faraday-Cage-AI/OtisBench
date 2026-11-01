@@ -92,7 +92,7 @@ def main():
     previous['advanced_tiers'] = {'temporal_workflow_variants': 64, 'material_network_cases': 48, 'replenishment_cases': 128}
     paths=[]
     for directory in ('src','scripts','tests','examples','docs','challenges','.github'):
-        paths.extend(p for p in (ROOT/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix in ('.py','.json','.md','.yml','.yaml'))
+        paths.extend(p for p in (ROOT/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix in ('.py','.json','.md','.yml','.yaml','.svg'))
     paths.extend(ROOT/p for p in ('README.md','BENCHMARK_CARD.md','pyproject.toml','NOTICE','LICENSE','DATA_LICENSE','CONTRIBUTING.md','.gitignore','.gitattributes'))
     paths.extend(p for p in asset_root.rglob('*') if p.is_file() and p.suffix in ('.png','.step'))
     paths.extend(p for p in document_root.rglob('*') if p.is_file() and p.suffix in ('.pdf','.png'))

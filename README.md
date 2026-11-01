@@ -1,8 +1,14 @@
 # OtisBench
 
-**The manufacturing gauntlet for frontier AI agents.**
+![OtisBench: Engineering to shipment. Every decision carries.](docs/assets/otisbench-hero.svg)
 
-OtisBench is a comprehensive manufacturing benchmark built to stress engineering precision, operational execution, business judgment, and sustained decision-making across the factory. **Ten evaluation tracks span the journey from drawings and raw materials to production, quality release, serialized delivery, and customer cash collection.**
+**Can an AI agent keep a factory delivering when every decision carries forward?**
+
+[Explore the tracks](#ten-evaluation-tracks) · [Enter the production marathon](#the-production-marathon) · [Work through a judgment case](docs/manufacturing-judgment.md) · [Run your agent](#get-started)
+
+OtisBench puts frontier AI through a comprehensive manufacturing gauntlet: **engineer the product, secure the material, coordinate production, clear quality, ship conforming units, and keep the operation funded.** Ten evaluation tracks connect engineering precision, operational execution, business judgment, and factory economics.
+
+The flagship challenge is a persistent plant campaign: **up to 96 customer orders, a 48-shift horizon, and 23,040 agent decisions**. Machines, people, fixtures, material, supplier capacity, and cash compete across the same episode. Earlier decisions shape what the agent can do next.
 
 Its depth comes from connected decisions: engineering changes affect production, material holds affect fulfillment, maintenance consumes scarce stock, and customer shipments finance later work. Agents must manage those dependencies while the plant keeps changing.
 
@@ -15,7 +21,13 @@ Its depth comes from connected decisions: engineering changes affect production,
 | **Up to 23,040 agent decisions** | A 48-shift manufacturing horizon with consequences that persist across orders |
 | **12 judgment workflows · 36 decision rounds** | Evolving evidence, competing priorities, and recommendations that must withstand review |
 
-## Built to test manufacturing intelligence in depth
+## Inside the challenge
+
+A customer order needs material that has just entered quality hold. Replacement supply ties up cash before it arrives. The machine has enough tool life for the next batch, but its operator’s qualification will expire. An engineering change arrives while earlier work is in progress. The agent must get the next decision right and carry its consequences through production, inspection, and delivery.
+
+These pressures arise through the workflow and campaign contracts. The workload combines process calculations, resource scheduling, approval-bound actions, evolving records, and recovery from interrupted work.
+
+## What OtisBench puts to the test
 
 **Engineering precision.** Derive process settings, interpret drawings, construct CAD solids, analyze raw sensor evidence, and reconcile commercial documents.
 
@@ -170,7 +182,9 @@ Optional dependencies: `.[cad]` for solid evaluation, `.[documents]` for documen
 
 ## Design comparison
 
-LarkBench centers on recurring distributor purchasing over 26 weeks. OtisBench centers on manufacturing execution: transform material, operate resources, recover WIP, prove conformance, and fulfill the order. Its ten tracks extend that workflow into engineering, geometry, raw measurements, commercial documents, and factory economics. [Scope comparison →](docs/larkbench.md)
+[LarkBench](https://larkagents.com/blog/larkbench/article.html) studies recurring distributor purchasing. [ICCA Bench](https://oroagents.com/benchmarks/icca-bench) studies adaptation to delayed consequences at a wholesale buying desk. **OtisBench puts the manufacturing operation itself at the center:** engineering inputs, material transformation, finite production resources, work in progress, quality release, serialized fulfillment, and shared cash.
+
+Its breadth comes from ten evaluation tracks, 32 production routes, persistent multi-order campaigns, and a separate workshop set for manufacturing judgment. [Benchmark scope and design →](docs/benchmark-landscape.md)
 
 ## Development
 
@@ -182,18 +196,3 @@ python scripts/build_manifest.py --check
 These commands check package identity, task contracts, action invariants, agent-input boundaries, and release fingerprints. Benchmark episodes and provider calls start only through explicit run commands.
 
 Code: [Apache-2.0](LICENSE). Task content: [CC BY 4.0](DATA_LICENSE). [Methodology](docs/methodology.md) · [Attribution](NOTICE).
-
-## Model scorecard example
-
-**Illustrative only: the values below are made up to demonstrate the scorecard format. They are not measured model performance or a ranking.**
-
-| Model | Example value (0–100) |
-|---|---:|
-| GPT-5.4 | 50 |
-| GPT-5.5 | 50 |
-| Opus 4.7 | 50 |
-| Sonnet 4.6 | 50 |
-| Grok 4.5 | 50 |
-| Gemini 3.1 Pro | 50 |
-
-[Example data and format](examples/scorecard/README.md).
