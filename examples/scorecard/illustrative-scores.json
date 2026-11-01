@@ -1,0 +1,32 @@
+{
+  "kind": "illustrative-example",
+  "measured": false,
+  "benchmark": "OtisBench",
+  "description": "Made-up values for layout demonstration; not performance or ranking.",
+  "rows": [
+    {
+      "model": "GPT-5.4",
+      "example_value": 50
+    },
+    {
+      "model": "GPT-5.5",
+      "example_value": 50
+    },
+    {
+      "model": "Opus 4.7",
+      "example_value": 50
+    },
+    {
+      "model": "Sonnet 4.6",
+      "example_value": 50
+    },
+    {
+      "model": "Grok 4.5",
+      "example_value": 50
+    },
+    {
+      "model": "Gemini 3.1 Pro",
+      "example_value": 50
+    }
+  ]
+}

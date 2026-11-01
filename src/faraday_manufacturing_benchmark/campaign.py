@@ -24,6 +24,7 @@ CAMPAIGN_TOOLS = {
     'act': {'work_order_id': 'issued work-order handle', 'action': 'manufacturing tool name',
             'parameters': 'arguments matching that manufacturing tool'},
     'wait': {'minutes': 'integer 1..300'},
+    'service_machine': {'machine_id': 'issued equipment handle'},
     'repair_machine': {'machine_id': 'issued equipment handle'},
     'renew_qualification': {'operator_id': 'issued employee handle'},
     'reserve_supply': {'work_order_id': 'issued work-order handle', 'units': 'positive integer',
@@ -162,6 +163,9 @@ class CampaignOrder(ManufacturingWorkflow):
 class ProductionCampaign(CampaignLogistics):
     """One clock, treasury, machine fleet, workforce and fixture inventory."""
     tool_capacity = 120
+    service_minutes = 30
+    service_cost_cents = 6500
+    service_coverage_minutes = 960
     repair_minutes = 45
     repair_cost_cents = 9000
     renewal_minutes = 30
@@ -178,6 +182,7 @@ class ProductionCampaign(CampaignLogistics):
         self.orders = {}
         self.calendar = []
         self.fired = set()
+        self.services = []
         self.receivables = []
         self.received_cents = 0
         self.spent_cents = 0
@@ -290,7 +295,7 @@ class ProductionCampaign(CampaignLogistics):
         return digest(dict(clock=self.clock, orders={k: w.local_state() for k, w in self.orders.items()}, shared=self._shared_hashes(),
                            cash=self.cash_cents, spent=self.spent_cents, plant_spent=self.plant_spent_cents,
                            received=self.received_cents, receivables=self.receivables, fired=sorted(self.fired), finished=self.finished,
-                           logistics=self.logistics_state()))
+                           logistics=self.logistics_state(), services=self.services))
 
     def _move_to(self, minute):
         self.clock = minute
@@ -334,6 +339,14 @@ class ProductionCampaign(CampaignLogistics):
             world._bump('WMS', 'QMS')
         else:
             machine = self.machines[event['machine']]
+            if any(row['machine_id'] == machine['id'] and row['started_minute'] <= self.clock < row['covered_until_minute']
+                   for row in self.services):
+                for alert in r['CMMS']['equipment_alerts']:
+                    if alert['machine_id'] == machine['id']:
+                        alert['status'] = 'service_covered'
+                world._bump('CMMS')
+                self._sync_shared()
+                return
             machine['status'] = 'down'
             for alert in r['CMMS']['equipment_alerts']:
                 if alert['machine_id'] == machine['id']:
@@ -369,7 +382,11 @@ class ProductionCampaign(CampaignLogistics):
             spent_cents=self.spent_cents, budget_cents=self.budget_cents,
             receivables=[dict(work_order_id=view.encode({'id': row['work_order']})['id'],
                 amount_cents=row['amount_cents'], due_minute=row['due_minute'], status=row['status']) for row in self.receivables],
-            maintenance=dict(repair_minutes=self.repair_minutes, repair_cost_cents=self.repair_cost_cents,
+            maintenance=dict(service_minutes=self.service_minutes, service_cost_cents=self.service_cost_cents,
+                service_coverage_minutes=self.service_coverage_minutes,
+                services=[dict(machine_id=view.encode({'id': row['machine_id']})['id'],
+                    started_minute=row['started_minute'], completed_minute=row['completed_minute'],
+                    covered_until_minute=row['covered_until_minute']) for row in self.services], repair_minutes=self.repair_minutes, repair_cost_cents=self.repair_cost_cents,
                 tool_capacity_units=self.tool_capacity, renewal_minutes=self.renewal_minutes,
                 renewal_cost_cents=self.renewal_cost_cents, qualification_minutes=self.qualification_minutes),
             payment_terms_minutes=self.payment_terms_minutes, **self.public_logistics(view))
@@ -423,6 +440,27 @@ class ProductionCampaign(CampaignLogistics):
                     result = dict(ok=True, clock_minute=self.clock)
                 elif tool in ('reserve_supply', 'cancel_supply', 'order_spares'):
                     result = self.logistics_call(tool, arguments, view)
+                elif tool == 'service_machine' and set(arguments) == {'machine_id'}:
+                    machine = self.machines.get(arguments['machine_id'])
+                    if not machine or machine['status'] != 'available':
+                        result = dict(ok=False, error='machine_state_invalid', clock_minute=self.clock)
+                    elif overlap(self.clock, self.clock + self.service_minutes, machine['busy']) or any(
+                            o['machine'] == machine['id'] and o['status'] in ('running', 'interrupted')
+                            for w in self.orders.values() for o in w.records['MES']['operations']):
+                        result = dict(ok=False, error='resource_conflict', clock_minute=self.clock)
+                    elif self.spares['repair_kit'] < 1:
+                        result = dict(ok=False, error='spare_unavailable', clock_minute=self.clock)
+                    elif not self._plant_spend(self.service_cost_cents):
+                        result = dict(ok=False, error='funds_unavailable', clock_minute=self.clock)
+                    else:
+                        self.spares['repair_kit'] -= 1
+                        self.spares_used['repair_kit'] += 1
+                        self.services.append(dict(machine_id=machine['id'], started_minute=self.clock,
+                            completed_minute=self.clock + self.service_minutes,
+                            covered_until_minute=self.clock + self.service_minutes + self.service_coverage_minutes))
+                        self.advance(self.service_minutes)
+                        result = dict(ok=True, machine_id=view.encode({'id': machine['id']})['id'],
+                            covered_until_minute=self.services[-1]['covered_until_minute'], clock_minute=self.clock)
                 elif tool == 'repair_machine' and set(arguments) == {'machine_id'}:
                     machine = self.machines.get(arguments['machine_id'])
                     if not machine or machine['status'] != 'down':

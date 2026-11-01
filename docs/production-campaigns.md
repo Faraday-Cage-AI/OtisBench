@@ -43,7 +43,7 @@ Use the issued work-order handle to investigate and execute an order:
 {"tool":"act","arguments":{"work_order_id":"<issued handle>","action":"read","parameters":{"system":"ERP"}}}
 ```
 
-`act` supports the manufacturing tools: read records, reserve material, seek action-bound approvals, purchase, calibrate, replace tools, execute operations, recover WIP, inspect, rework, release, ship, and finish with evidence. Root tools also provide `reserve_supply`, `cancel_supply`, `order_spares`, `wait`, `repair_machine`, `renew_qualification`, and `finish_campaign`. Every attempted decision consumes time and the global call budget. Order actions also consume that order's 240-call budget.
+`act` supports the manufacturing tools: read records, reserve material, seek action-bound approvals, purchase, calibrate, replace tools, execute operations, recover WIP, inspect, rework, release, ship, and finish with evidence. Root tools also provide `reserve_supply`, `cancel_supply`, `order_spares`, `wait`, `service_machine`, `repair_machine`, `renew_qualification`, and `finish_campaign`. Every attempted decision consumes time and the global call budget. Order actions also consume that order's 240-call budget.
 
 Future orders expose their commercial backlog fields before release; their operational records become accessible at release. Agents receive business observations and their submitted results. Private event calendars, source seeds, scenario labels, expected controls, reference policies, state hashes, and live scores remain evaluator-side.
 
@@ -85,3 +85,9 @@ Resume verifies source fingerprints, replays recorded transitions, and reconstru
 Strict campaign success requires every work order to pass its manufacturing checks, an explicit campaign finish, resolved supplier commitments, valid cash and spare-inventory ledgers, and completion within the campaign horizon. The outcome score is the mean order score. A critical manufacturing violation or ledger failure sets the campaign score to zero. Reports also retain strict order completions, actual delivered units, elapsed time, action count, spending, cash, prepaid supplier deposits, and outstanding receivables.
 
 The financial check reconstructs cash from opening funds, production/procurement/maintenance debits, prepaid deposits, and collected shipment receivables. The stock check reconciles opening spares, actual receipts, ready inventory, and consumed maintenance stock. It reconciles each receivable's quantity-based amount, source shipment, payment date, and collection state. Replay checks both agent and evaluator traces, aliases, transitions, and terminal outcomes.
+
+### Preventive equipment service
+
+`service_machine(machine_id)` requires available equipment with no overlapping booking or running/interrupted WIP. Service consumes one repair kit, costs 6,500 cents, and takes 30 manufacturing minutes. Coverage begins during service and lasts until 960 minutes after completion; a condition trip at the expiry minute is no longer covered. Covered trips update the equipment alert without interrupting production. Reactive repair instead takes 45 minutes and costs 9,000 cents. Both compete for the same finite kits.
+
+`read_campaign` exposes service terms and history, including each machine, start, completion, and coverage expiry. The agent chooses whether and when to service; no preventive plan is supplied.

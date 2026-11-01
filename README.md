@@ -10,7 +10,7 @@ The primary suite contains **1,024 manufacturing workflows: 32 process routes ×
 
 Take one plant through **96 customer work orders** in a persistent agent episode. The largest profile has a **48-shift manufacturing horizon** and a budget of **23,040 agent decisions**. Smaller profiles cover 12, 24, and 48 orders.
 
-Orders compete for machines, labor, fixtures, tooling, supplier dispatch slots, and cash. A material commitment locks a deposit. Customer shipments fund later work through delayed payments. Repairs require kits that must actually arrive. Engineering changes and equipment trips continue as new orders enter the plant.
+Orders compete for machines, labor, fixtures, tooling, supplier dispatch slots, and cash. A material commitment locks a deposit. Customer shipments fund later work through delayed payments. Repairs require kits that must actually arrive. Preventive service can avert equipment trips, but consumes the same scarce kits, cash, and production time. Engineering changes and equipment trips continue as new orders enter the plant.
 
 The agent must keep production moving, protect material eligibility, maintain resources, recover interrupted WIP, clear quality, and meet every customer window. Waiting for all future changes misses the first deadline. Buying every supply lot on the fastest service runs into shared dispatch capacity.
 
@@ -153,3 +153,18 @@ python scripts/build_manifest.py --check
 These commands check package identity, task contracts, action invariants, agent-input boundaries, and release fingerprints. Benchmark episodes and provider calls start only through explicit run commands.
 
 Code: [Apache-2.0](LICENSE). Task content: [CC BY 4.0](DATA_LICENSE). [Methodology](docs/methodology.md) · [Attribution](NOTICE).
+
+## Model scorecard example
+
+**Illustrative only: the values below are made up to demonstrate the scorecard format. They are not measured model performance or a ranking.**
+
+| Model | Example value (0–100) |
+|---|---:|
+| GPT-5.4 | 50 |
+| GPT-5.5 | 50 |
+| Opus 4.7 | 50 |
+| Sonnet 4.6 | 50 |
+| Grok 4.5 | 50 |
+| Gemini 3.1 Pro | 50 |
+
+[Example data and format](examples/scorecard/README.md).

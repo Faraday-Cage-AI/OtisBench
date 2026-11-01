@@ -1,6 +1,6 @@
 # OtisBench benchmark card
 
-OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.2.0** includes ten evaluation tracks and source-run advanced tiers.
+OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.3.0** includes ten evaluation tracks and source-run advanced tiers.
 
 ## Task catalogs
 
@@ -23,7 +23,7 @@ Advanced tiers: 64 temporal workflow variants, 48 material-network cases, and 12
 
 Production campaigns keep 12, 24, 48, or 96 work orders in one persistent episode. The four profiles permit 2,880, 5,760, 11,520, or 23,040 manufacturing minutes and the same respective decision budgets. Equipment, personnel, fixtures, wear, qualifications, maintenance stock, supplier dispatch capacity, and cash are shared.
 
-Supplier allocations lock 20% deposits and bind quantity, work order, dispatch window, and service level. Purchasing approvals bind the exact allocation. Cancellation fees and expired-deposit costs persist. Tool changes and repairs consume finite spares; replenishment requires packs, funds, and delivery time. Actual customer shipments generate delayed receivables. Each order retains its 240-call limit and manufacturing checks.
+Supplier allocations lock 20% deposits and bind quantity, work order, dispatch window, and service level. Purchasing approvals bind the exact allocation. Cancellation fees and expired-deposit costs persist. Preventive service trades downtime, cash, and repair kits for temporary condition-trip coverage. Tool changes and repairs consume finite spares; replenishment requires packs, funds, and delivery time. Actual customer shipments generate delayed receivables. Each order retains its 240-call limit and manufacturing checks.
 
 Strict success requires all orders, resolved supplier commitments, explicit campaign finish, financial and spare-inventory reconciliation, and the horizon. Per-decision journals and source-verified resume preserve ongoing plant state. [Campaign contract](docs/production-campaigns.md).
 

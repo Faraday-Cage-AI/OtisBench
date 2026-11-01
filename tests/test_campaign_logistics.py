@@ -358,3 +358,61 @@ def test_logistics_projection_drops_evaluator_annotations_in_new_records():
             for item in value:
                 yield from keys(item)
     assert not set(keys(public)) & PRIVATE_KEYS
+
+
+def test_preventive_service_spends_once_and_exposes_coverage():
+    world, view = plant()
+    before = world.cash_cents
+    result = world.call('service_machine', dict(machine_id='M-01'), view)
+    assert result['ok']
+    assert result['covered_until_minute'] == 991
+    assert world.clock == 31
+    assert before - world.cash_cents == world.service_cost_cents
+    assert world.spares['repair_kit'] == 0
+    assert world.spares_used['repair_kit'] == 1
+    assert world.grade()['ledger_ok']
+    row = world.public_records(view)['maintenance']['services'][0]
+    assert row == dict(machine_id=view.encode({'id': 'M-01'})['id'],
+                       started_minute=1, completed_minute=31, covered_until_minute=991)
+    previous = world.state_hash()
+    world.services[0]['covered_until_minute'] += 1
+    assert world.state_hash() != previous
+
+
+@pytest.mark.parametrize('failure', ['down', 'busy', 'wip', 'kits', 'cash'])
+def test_service_rejects_ineligible_resources_without_consuming_stock_or_cash(failure):
+    world, view = plant()
+    if failure == 'down':
+        world.machines['M-01']['status'] = 'down'
+    elif failure == 'busy':
+        world.machines['M-01']['busy'].append(dict(start=10, finish=40, source='test'))
+    elif failure == 'wip':
+        world.orders['WO-0001'].records['MES']['operations'][0].update(machine='M-01', status='interrupted')
+    elif failure == 'kits':
+        world.spares['repair_kit'] = 0
+    else:
+        world.cash_cents = 0
+    before = (world.cash_cents, world.spent_cents, deepcopy(world.spares), deepcopy(world.spares_used))
+    result = world.call('service_machine', dict(machine_id='M-01'), view)
+    assert result['error'] == {'down': 'machine_state_invalid', 'busy': 'resource_conflict',
+                              'wip': 'resource_conflict', 'kits': 'spare_unavailable',
+                              'cash': 'funds_unavailable'}[failure]
+    assert (world.cash_cents, world.spent_cents, world.spares, world.spares_used) == before
+    assert world.services == []
+
+
+def test_service_covers_trips_during_downtime_and_expires_at_the_boundary():
+    world, view = plant()
+    world.calendar = [dict(at=15, work_order='WO-0001', kind='machine_trip', machine='M-01')]
+    assert world.call('service_machine', dict(machine_id='M-01'), view)['ok']
+    assert world.machines['M-01']['status'] == 'available'
+    operation = world.orders['WO-0002'].records['MES']['operations'][0]
+    operation.update(machine='M-01', status='running', finish=1100)
+    world._move_to(990)
+    event = dict(work_order='WO-0001', kind='machine_trip', machine='M-01')
+    world._apply_event(event)
+    assert operation['status'] == 'running'
+    world._move_to(991)
+    world._apply_event(event)
+    assert world.machines['M-01']['status'] == 'down'
+    assert operation['status'] == 'interrupted'
