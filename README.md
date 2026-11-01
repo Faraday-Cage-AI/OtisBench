@@ -1,14 +1,33 @@
 # OtisBench
 
-**Put an AI agent in charge of the factory. Make it deliver.**
+**The manufacturing gauntlet for frontier AI agents.**
 
-OtisBench challenges AI agents to take ownership of manufacturing operations—from engineering release to the final serialized shipment. The agent leads the work across engineering, purchasing, production, maintenance, quality, and delivery: investigate the records, make decisions, execute them, and recover when conditions change. Success means getting conforming product to the customer within the operating constraints.
+OtisBench is a comprehensive manufacturing benchmark built to stress engineering precision, operational execution, business judgment, and sustained decision-making across the factory. **Ten evaluation tracks span the journey from drawings and raw materials to production, quality release, serialized delivery, and customer cash collection.**
 
-The primary suite contains **1,024 manufacturing workflows: 32 process routes × 16 disruption contracts × 2 parameter draws.** Every workflow has physical production, resource constraints, changing records, and an end state that the evaluator checks.
+Its depth comes from connected decisions: engineering changes affect production, material holds affect fulfillment, maintenance consumes scarce stock, and customer shipments finance later work. Agents must manage those dependencies while the plant keeps changing.
 
-## The agent’s mission
+| Scale | Coverage |
+|---|---|
+| **32 manufacturing routes** | Machining, fabrication, casting, plastics, electronics, assembly, surface treatment, and batch processing |
+| **1,024 manufacturing workflows** | 32 routes × 16 disruption contracts × 2 parameter draws |
+| **128 persistent campaigns** | Four operating horizons across all 32 routes |
+| **Up to 96 customer orders per campaign** | Shared machines, labor, fixtures, inventory, supplier capacity, and cash |
+| **Up to 23,040 agent decisions** | A 48-shift manufacturing horizon with consequences that persist across orders |
+| **12 judgment workflows · 36 decision rounds** | Evolving evidence, competing priorities, and recommendations that must withstand review |
 
-You are the plant operations lead. Own the backlog, coordinate the factory, and turn available resources into completed customer orders. Make decisions from the evidence, follow through with actions, and adapt when the plant changes. Keep working toward delivery within the time, decision, cash, quality, and authorization limits. Your decisions carry forward across the campaign.
+## Built to test manufacturing intelligence in depth
+
+**Engineering precision.** Derive process settings, interpret drawings, construct CAD solids, analyze raw sensor evidence, and reconcile commercial documents.
+
+**Execution across the factory.** Source eligible material, secure approvals, schedule qualified resources, run production, recover work in progress, clear quality, and deliver traceable product.
+
+**Sustained operational control.** Carry a plant through successive orders with finite tooling, maintenance spares, supplier dispatch windows, deposits, delayed receivables, and a shared treasury.
+
+**Adaptation under pressure.** Respond to drawing changes, equipment trips, held lots, failed inspections, expiring qualifications, and shifting customer needs while earlier commitments remain in force.
+
+**Manufacturing judgment.** Defend allocation, sourcing, maintenance, investment, negotiation, and recovery decisions as new evidence arrives. Reviewers assess the quality of the tradeoffs and revisions.
+
+**Inspectable outcomes.** Retain action traces, inspect the resulting business state, reconcile physical and financial ledgers, and replay execution. Each track measures the output its task actually requires.
 
 ## The production marathon
 

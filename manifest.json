@@ -319,7 +319,7 @@
     "DATA_LICENSE": "cdfea8fe834b28dde853f85186e05f010c88223ccf38fd2e3ff6e60558910032",
     "LICENSE": "1c849bea2893fc9382c930e4b081daeddc437b7d0314353cf2979b060677fa4b",
     "NOTICE": "ec0051af24407857f0f77f25946c6883bfade57cc3c75dd4161b6ce580179ad5",
-    "README.md": "798fcc1ca86783ca292de533229e59110922cf175cc31df8a641263c5b511a16",
+    "README.md": "26311e271dc7227eae72dfce703c0704e20f4ec62e0db7e91a350a0d02b05929",
     "challenges/README.md": "4a814a595b2c7fb92d4c1f21b597baea24063308b864052ae170985bc08e3d1d",
     "challenges/temporal_workflows.py": "08ca2446dad1ce25be846a1c7f475363cd5db89a1b23ccc9252add72935db5d9",
     "challenges/test_temporal_workflows.py": "07008e700de2218211fb13edb028f433d60c9400ef9d70eaa33b0c1e4b13cbd9",
