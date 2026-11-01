@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "otisbench"
+version = "1.0.0"
+description = "Manufacturing engineering, shop-floor execution, and long-horizon factory economics for AI agents."
+requires-python = ">=3.11"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "DATA_LICENSE"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "jsonschema>=4.23"]
+openai = ["openai>=1.99", "python-dotenv>=1"]
+documents = ["reportlab==4.4.9", "pypdf==6.10.0", "jsonschema>=4.23", "pillow==12.3.0"]
+cad = ["cadquery==2.6.1", "cadquery-ocp==7.8.1.1.post1", "pillow==12.3.0"]
+
+real-data = ["numpy==2.4.6"]
+
+[project.urls]
+Homepage = "https://github.com/Faraday-Cage-AI/OtisBench"
+Repository = "https://github.com/Faraday-Cage-AI/OtisBench"
+Issues = "https://github.com/Faraday-Cage-AI/OtisBench/issues"
+
+[project.scripts]
+otisbench = "otisbench.cli:main"
+mfg-bench = "faraday_manufacturing_benchmark.cli:main"
+mfg-erp = "faraday_manufacturing_benchmark.erp_compat:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+faraday_manufacturing_benchmark = ["data/*.json", "data/cad_assets/*.json", "data/cad_assets/*/*.png", "data/cad_assets/*/*.step", "data/document_assets/*.json", "data/document_assets/*/*.pdf", "data/document_assets/*/*.png"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

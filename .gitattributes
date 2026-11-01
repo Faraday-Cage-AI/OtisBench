@@ -1,0 +1,4 @@
+*.png binary
+*.pdf binary
+*.step -text -whitespace
+LICENSE -whitespace

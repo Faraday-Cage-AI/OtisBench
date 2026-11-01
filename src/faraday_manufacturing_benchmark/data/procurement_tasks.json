@@ -1,0 +1,818 @@
+[
+  {
+    "contract": "standard_purchase",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-standard_purchase-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1414938296254761253,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "standard_purchase",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-standard_purchase-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 12243868985050869694,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "standard_purchase",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-standard_purchase-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 9901286710635080483,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "standard_purchase",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-standard_purchase-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 17099832778022173866,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "supplier_suspension",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-supplier_suspension-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 6303096454178775831,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "supplier_suspension",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-supplier_suspension-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 12444210124401060132,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "supplier_suspension",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-supplier_suspension-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 8351208238608523048,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "supplier_suspension",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-supplier_suspension-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 15335420284440149909,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quote_revision",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-quote_revision-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 6463146440846301150,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quote_revision",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-quote_revision-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 9439950571073480469,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quote_revision",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-quote_revision-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1210413802691532800,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quote_revision",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-quote_revision-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 13734459690292146012,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "partial_delivery",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-partial_delivery-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1231390229924607391,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "partial_delivery",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-partial_delivery-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 10388645849311541452,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "partial_delivery",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-partial_delivery-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 13631017827613952111,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "partial_delivery",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-partial_delivery-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 3542800383948616714,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "certificate_hold",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-certificate_hold-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1532873524265782523,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "certificate_hold",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-certificate_hold-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 8156598957937406035,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "certificate_hold",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-certificate_hold-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 10127929069077584329,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "certificate_hold",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-certificate_hold-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 14231042440868790929,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "unit_conversion",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-unit_conversion-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 13203761352796791383,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "unit_conversion",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-unit_conversion-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 10887177656617704119,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "unit_conversion",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-unit_conversion-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1478055558669878951,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "unit_conversion",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-unit_conversion-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 5336314039183104092,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quantity_discount",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-quantity_discount-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 2566098141771814794,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quantity_discount",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-quantity_discount-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 44257921976669268,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quantity_discount",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-quantity_discount-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 7184799760155479931,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "quantity_discount",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-quantity_discount-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 3728624698825970361,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "invoice_variance",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-invoice_variance-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 12246504533071348807,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "invoice_variance",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-invoice_variance-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 6593284712095641993,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "invoice_variance",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-invoice_variance-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 16483886612389031245,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "invoice_variance",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-invoice_variance-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 15195503484351971745,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "duplicate_invoice",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-duplicate_invoice-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 3709338084522563551,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "duplicate_invoice",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-duplicate_invoice-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 12561600534556853942,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "duplicate_invoice",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-duplicate_invoice-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 16884583098454787045,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "duplicate_invoice",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-duplicate_invoice-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 18420359967033371270,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "bank_change",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-bank_change-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1010678126444993215,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "bank_change",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-bank_change-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 11627384333890360218,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "bank_change",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-bank_change-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 13674606440978305772,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "bank_change",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-bank_change-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 9071326397728975253,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "short_delivery",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-short_delivery-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 2681353693128389930,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "short_delivery",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-short_delivery-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 567044464913315589,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "short_delivery",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-short_delivery-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 14358078736280575969,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "short_delivery",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-short_delivery-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 6087876516251873304,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "compound_recovery",
+    "draw": 0,
+    "horizon_minutes": 400,
+    "id": "p2p-compound_recovery-001",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 1802934209982452651,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "compound_recovery",
+    "draw": 1,
+    "horizon_minutes": 400,
+    "id": "p2p-compound_recovery-002",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 6943409718731487371,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "compound_recovery",
+    "draw": 2,
+    "horizon_minutes": 400,
+    "id": "p2p-compound_recovery-003",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 7285246481699150921,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  },
+  {
+    "contract": "compound_recovery",
+    "draw": 3,
+    "horizon_minutes": 400,
+    "id": "p2p-compound_recovery-004",
+    "max_tool_calls": 180,
+    "provenance": "synthetic-generated",
+    "seed": 2420664491774023601,
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TREASURY"
+    ]
+  }
+]

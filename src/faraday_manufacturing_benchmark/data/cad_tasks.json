@@ -1,0 +1,578 @@
+[
+  {
+    "draw": 0,
+    "family": "drilled_plate",
+    "id": "cad-drilled_plate-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 4946747107326368632
+  },
+  {
+    "draw": 1,
+    "family": "drilled_plate",
+    "id": "cad-drilled_plate-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 16244880826972397705
+  },
+  {
+    "draw": 0,
+    "family": "drilled_plate",
+    "id": "cad-drilled_plate-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 2165108519067029004
+  },
+  {
+    "draw": 1,
+    "family": "drilled_plate",
+    "id": "cad-drilled_plate-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 18094580695111460213
+  },
+  {
+    "draw": 0,
+    "family": "drilled_plate",
+    "id": "cad-drilled_plate-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 463385029174855857
+  },
+  {
+    "draw": 1,
+    "family": "drilled_plate",
+    "id": "cad-drilled_plate-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 8701015031859567735
+  },
+  {
+    "draw": 0,
+    "family": "counterbore_plate",
+    "id": "cad-counterbore_plate-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 10913291688781962686
+  },
+  {
+    "draw": 1,
+    "family": "counterbore_plate",
+    "id": "cad-counterbore_plate-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 524227393226195003
+  },
+  {
+    "draw": 0,
+    "family": "counterbore_plate",
+    "id": "cad-counterbore_plate-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 1838516551594311123
+  },
+  {
+    "draw": 1,
+    "family": "counterbore_plate",
+    "id": "cad-counterbore_plate-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 10844180794139044709
+  },
+  {
+    "draw": 0,
+    "family": "counterbore_plate",
+    "id": "cad-counterbore_plate-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 7459192180823379920
+  },
+  {
+    "draw": 1,
+    "family": "counterbore_plate",
+    "id": "cad-counterbore_plate-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 5678522985636867651
+  },
+  {
+    "draw": 0,
+    "family": "slotted_plate",
+    "id": "cad-slotted_plate-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 6953757647763411434
+  },
+  {
+    "draw": 1,
+    "family": "slotted_plate",
+    "id": "cad-slotted_plate-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 14258841674240553255
+  },
+  {
+    "draw": 0,
+    "family": "slotted_plate",
+    "id": "cad-slotted_plate-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 10623526930902300393
+  },
+  {
+    "draw": 1,
+    "family": "slotted_plate",
+    "id": "cad-slotted_plate-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 8713773888087255211
+  },
+  {
+    "draw": 0,
+    "family": "slotted_plate",
+    "id": "cad-slotted_plate-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 592596143625595244
+  },
+  {
+    "draw": 1,
+    "family": "slotted_plate",
+    "id": "cad-slotted_plate-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 15147465421585325023
+  },
+  {
+    "draw": 0,
+    "family": "pocket_block",
+    "id": "cad-pocket_block-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 5935909029603105872
+  },
+  {
+    "draw": 1,
+    "family": "pocket_block",
+    "id": "cad-pocket_block-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 10574626847552859170
+  },
+  {
+    "draw": 0,
+    "family": "pocket_block",
+    "id": "cad-pocket_block-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 2584109105193427952
+  },
+  {
+    "draw": 1,
+    "family": "pocket_block",
+    "id": "cad-pocket_block-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 4150963830365018112
+  },
+  {
+    "draw": 0,
+    "family": "pocket_block",
+    "id": "cad-pocket_block-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 12491747017712999713
+  },
+  {
+    "draw": 1,
+    "family": "pocket_block",
+    "id": "cad-pocket_block-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 11513621760734881880
+  },
+  {
+    "draw": 0,
+    "family": "stepped_shaft",
+    "id": "cad-stepped_shaft-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 14325468251375118737
+  },
+  {
+    "draw": 1,
+    "family": "stepped_shaft",
+    "id": "cad-stepped_shaft-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 6887811402305277483
+  },
+  {
+    "draw": 0,
+    "family": "stepped_shaft",
+    "id": "cad-stepped_shaft-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 14601351523652198740
+  },
+  {
+    "draw": 1,
+    "family": "stepped_shaft",
+    "id": "cad-stepped_shaft-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 5251445818491347157
+  },
+  {
+    "draw": 0,
+    "family": "stepped_shaft",
+    "id": "cad-stepped_shaft-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 5673153482267172635
+  },
+  {
+    "draw": 1,
+    "family": "stepped_shaft",
+    "id": "cad-stepped_shaft-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 16945694442114373205
+  },
+  {
+    "draw": 0,
+    "family": "flanged_bushing",
+    "id": "cad-flanged_bushing-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 7089924950702981641
+  },
+  {
+    "draw": 1,
+    "family": "flanged_bushing",
+    "id": "cad-flanged_bushing-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 5755638314021590280
+  },
+  {
+    "draw": 0,
+    "family": "flanged_bushing",
+    "id": "cad-flanged_bushing-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 17695965602927756554
+  },
+  {
+    "draw": 1,
+    "family": "flanged_bushing",
+    "id": "cad-flanged_bushing-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 6670376917739943047
+  },
+  {
+    "draw": 0,
+    "family": "flanged_bushing",
+    "id": "cad-flanged_bushing-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 9334109812988740247
+  },
+  {
+    "draw": 1,
+    "family": "flanged_bushing",
+    "id": "cad-flanged_bushing-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 15431307427021481362
+  },
+  {
+    "draw": 0,
+    "family": "angle_bracket",
+    "id": "cad-angle_bracket-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 14398969527347875562
+  },
+  {
+    "draw": 1,
+    "family": "angle_bracket",
+    "id": "cad-angle_bracket-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 5530219464739801170
+  },
+  {
+    "draw": 0,
+    "family": "angle_bracket",
+    "id": "cad-angle_bracket-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 16459809274104729857
+  },
+  {
+    "draw": 1,
+    "family": "angle_bracket",
+    "id": "cad-angle_bracket-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 12578051723566914427
+  },
+  {
+    "draw": 0,
+    "family": "angle_bracket",
+    "id": "cad-angle_bracket-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 4303164358972588852
+  },
+  {
+    "draw": 1,
+    "family": "angle_bracket",
+    "id": "cad-angle_bracket-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 6129481113890195209
+  },
+  {
+    "draw": 0,
+    "family": "open_housing",
+    "id": "cad-open_housing-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 73821555810518656
+  },
+  {
+    "draw": 1,
+    "family": "open_housing",
+    "id": "cad-open_housing-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 8178730164863625063
+  },
+  {
+    "draw": 0,
+    "family": "open_housing",
+    "id": "cad-open_housing-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 6953830105680227097
+  },
+  {
+    "draw": 1,
+    "family": "open_housing",
+    "id": "cad-open_housing-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 17670865536459511923
+  },
+  {
+    "draw": 0,
+    "family": "open_housing",
+    "id": "cad-open_housing-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 4269978617428894661
+  },
+  {
+    "draw": 1,
+    "family": "open_housing",
+    "id": "cad-open_housing-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 6862361319088523590
+  },
+  {
+    "draw": 0,
+    "family": "rounded_plate",
+    "id": "cad-rounded_plate-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 8572817557018524104
+  },
+  {
+    "draw": 1,
+    "family": "rounded_plate",
+    "id": "cad-rounded_plate-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 2584131466850082760
+  },
+  {
+    "draw": 0,
+    "family": "rounded_plate",
+    "id": "cad-rounded_plate-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 12459085324995680140
+  },
+  {
+    "draw": 1,
+    "family": "rounded_plate",
+    "id": "cad-rounded_plate-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 339369593572269517
+  },
+  {
+    "draw": 0,
+    "family": "rounded_plate",
+    "id": "cad-rounded_plate-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 18044783107640443863
+  },
+  {
+    "draw": 1,
+    "family": "rounded_plate",
+    "id": "cad-rounded_plate-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 15767403435052447746
+  },
+  {
+    "draw": 0,
+    "family": "chamfered_pocket",
+    "id": "cad-chamfered_pocket-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 15751039237745908074
+  },
+  {
+    "draw": 1,
+    "family": "chamfered_pocket",
+    "id": "cad-chamfered_pocket-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 7426115868496246585
+  },
+  {
+    "draw": 0,
+    "family": "chamfered_pocket",
+    "id": "cad-chamfered_pocket-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 15690606678726253756
+  },
+  {
+    "draw": 1,
+    "family": "chamfered_pocket",
+    "id": "cad-chamfered_pocket-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 12036728353082570627
+  },
+  {
+    "draw": 0,
+    "family": "chamfered_pocket",
+    "id": "cad-chamfered_pocket-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 11693913036458078781
+  },
+  {
+    "draw": 1,
+    "family": "chamfered_pocket",
+    "id": "cad-chamfered_pocket-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 9279557337939487520
+  },
+  {
+    "draw": 0,
+    "family": "tapered_hub",
+    "id": "cad-tapered_hub-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 9734625574723673947
+  },
+  {
+    "draw": 1,
+    "family": "tapered_hub",
+    "id": "cad-tapered_hub-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 7116615802046737260
+  },
+  {
+    "draw": 0,
+    "family": "tapered_hub",
+    "id": "cad-tapered_hub-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 3117992271622362811
+  },
+  {
+    "draw": 1,
+    "family": "tapered_hub",
+    "id": "cad-tapered_hub-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 5392374802871079836
+  },
+  {
+    "draw": 0,
+    "family": "tapered_hub",
+    "id": "cad-tapered_hub-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 8469680266971535402
+  },
+  {
+    "draw": 1,
+    "family": "tapered_hub",
+    "id": "cad-tapered_hub-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 16695877141246755435
+  },
+  {
+    "draw": 0,
+    "family": "lofted_adapter",
+    "id": "cad-lofted_adapter-text_and_drawing-01",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 9884598117028731465
+  },
+  {
+    "draw": 1,
+    "family": "lofted_adapter",
+    "id": "cad-lofted_adapter-text_and_drawing-02",
+    "mode": "text_and_drawing",
+    "provenance": "synthetic-generated",
+    "seed": 11259401030162275123
+  },
+  {
+    "draw": 0,
+    "family": "lofted_adapter",
+    "id": "cad-lofted_adapter-drawing_only-01",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 13609360622202306922
+  },
+  {
+    "draw": 1,
+    "family": "lofted_adapter",
+    "id": "cad-lofted_adapter-drawing_only-02",
+    "mode": "drawing_only",
+    "provenance": "synthetic-generated",
+    "seed": 15795927880852259759
+  },
+  {
+    "draw": 0,
+    "family": "lofted_adapter",
+    "id": "cad-lofted_adapter-revision_edit-01",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 16758067640014195976
+  },
+  {
+    "draw": 1,
+    "family": "lofted_adapter",
+    "id": "cad-lofted_adapter-revision_edit-02",
+    "mode": "revision_edit",
+    "provenance": "synthetic-generated",
+    "seed": 874767439379002955
+  }
+]

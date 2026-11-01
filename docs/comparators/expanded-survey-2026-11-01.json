@@ -1,0 +1,179 @@
+{
+  "additional_named_resources": 12,
+  "assessment_date": "2026-11-01",
+  "common_model_ranking": false,
+  "exclusions": [
+    "Generic production-software/MLOps benchmarks without industrial operational tasks",
+    "Corporate KPI/spend/headcount benchmarking tools rather than AI evaluation environments",
+    "Secondary aggregators, social posts and unverified dataset catalogs as claim evidence",
+    "Bulk data access, gated applications, paid model runs and external submissions are outside this review"
+  ],
+  "exhaustive_world_survey": false,
+  "native_cases_added": 0,
+  "original_selected_comparators": 6,
+  "resources": [
+    {
+      "count_scope": "180 question records; 60 knowledge, 60 reasoning, 60 agent categories",
+      "coverage": "Industrial knowledge, procedural reasoning and human-approval boundaries in Japanese canonical form.",
+      "declared_evidence_level": "schema_validation",
+      "faraday_gap": "Our operational controls do not establish multilingual industrial question-answering. Its current overlap judge is explicitly experimental; schema validation is not an official semantic score.",
+      "id": "iab",
+      "name": "Industrial Agent Benchmark",
+      "relationship": "direct",
+      "source_ids": [
+        "repo:iab"
+      ]
+    },
+    {
+      "count_scope": "Factory, warehouse and retail releases; no locally verified task count",
+      "coverage": "On-site video/document tasks authored around field operations.",
+      "declared_evidence_level": "source_inspection",
+      "faraday_gap": "Raster CAD and synthetic PDFs do not establish on-site video interpretation or authentic safety-incident understanding. The publisher requires an application for dataset access; no application or data download was made.",
+      "id": "fieldwork",
+      "name": "FieldWorkArena",
+      "relationship": "direct",
+      "source_ids": [
+        "repo:fieldwork",
+        "pub:fieldwork-project",
+        "pub:fieldwork-paper"
+      ]
+    },
+    {
+      "count_scope": "100 task definitions, 10 categories, 10 synthetic fabs; 800 local qualification episodes",
+      "coverage": "Fab exception handling, genealogy, metrology, process safety, dispositions and readback.",
+      "declared_evidence_level": "author_controls",
+      "faraday_gap": "One named semiconductor production route does not establish the same depth of fab exception workflows. Local unchanged oracle controls are not a learned-model score or Harbor-isolation reproduction.",
+      "id": "semikong",
+      "name": "SemiKongBench-100",
+      "relationship": "direct",
+      "source_ids": [
+        "repo:semikong",
+        "pub:semikong-project"
+      ]
+    },
+    {
+      "count_scope": "README describes 7 implemented process tasks; pinned tree contains 9 process definitions",
+      "coverage": "Multi-date ERP work, financial control-account ties, handbook clauses and auditable state.",
+      "declared_evidence_level": "author_controls",
+      "faraday_gap": "Persisted procurement and invoice controls do not establish every multi-day analytical/accounting workflow. Definition counts, historical model-pilot coverage and current local validator coverage must remain separate.",
+      "id": "businessbench",
+      "name": "Business Bench process track",
+      "relationship": "direct",
+      "source_ids": [
+        "repo:businessbench"
+      ]
+    },
+    {
+      "count_scope": "3 manufacturing prediction challenges",
+      "coverage": "Equipment failure within 24 hours, production-delay prediction and quality-cost estimation.",
+      "declared_evidence_level": "source_inspection",
+      "faraday_gap": "Our hydraulic condition classifier is not a substitute for these forecast targets or human/data-science comparison. The dataset metadata lists CC-BY-NC-SA-4.0; only public descriptions and metadata were retrieved, with no data redistribution or leaderboard submission.",
+      "id": "agentds",
+      "name": "AgentDS-Manufacturing",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:agentds-current-card",
+        "pub:agentds-description",
+        "pub:agentds-metadata",
+        "pub:agentds-paper"
+      ]
+    },
+    {
+      "count_scope": "78 intervention decisions: 66 human-resolution labels and 12 classifier-derived silver labels",
+      "coverage": "Customer-specific freight decisions evaluated with and without prior intervention memory.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "Public synthetic SOPs do not establish performance on authentic company-history decisions. The page evaluates a decision node, not a whole shipment workflow; customer data and model claims were not independently reproduced.",
+      "id": "pallet-memory",
+      "name": "Pallet Memory-Bench",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:pallet-memory"
+      ]
+    },
+    {
+      "count_scope": "Domain knowledge and SOP-grounded tool-orchestration evaluation; no locally verified common count",
+      "coverage": "Supply-chain knowledge and long-horizon procedure/tool composition.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "Our executable workflows do not establish comparable SOP synthesis, language-model knowledge or performance under this benchmark protocol. Versioned paper inspected; code/data/model execution not reproduced.",
+      "id": "supchain",
+      "name": "SupChain-Bench",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:supchain-paper"
+      ]
+    },
+    {
+      "count_scope": "Publisher describes 2,049 procurement questions and aligned Chinese/English/Russian/Vietnamese versions",
+      "coverage": "Standards-grounded procurement knowledge with separate safety evaluation.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "Synthetic material decisions are not expert-validated interpretation of source standards or multilingual procurement QA. Question/model/expert counts are publisher claims, not locally reproduced evaluations.",
+      "id": "industrybench",
+      "name": "IndustryBench",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:industrybench-paper"
+      ]
+    },
+    {
+      "count_scope": "Version 3 describes 99 scenarios, 8 asset classes and 39 MCP-native tools",
+      "coverage": "Algorithm-grounded industrial prognostics, orchestration and asset-specific reasoning.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "Condition classification does not establish remaining-useful-life reasoning, battery degradation or cross-asset generalization. Its relationship and possible data overlap with AssetOpsBench are not treated as independent additive coverage.",
+      "id": "phmforge",
+      "name": "PHMForge",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:phmforge-paper"
+      ]
+    },
+    {
+      "count_scope": "Version 2 describes 6,690 questions from 118 rule/action pairs over 16 asset types",
+      "coverage": "Maintenance recommendations from expert symbolic rules and structural perturbations.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "Arithmetic sensor controls do not establish equivalent rule-to-action expertise or robustness. Questions, underlying expert pairs and variants are different units; no model or practitioner result was reproduced.",
+      "id": "diagnosticiq",
+      "name": "DiagnosticIQ",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:diagnosticiq-paper"
+      ]
+    },
+    {
+      "count_scope": "Publisher describes 410 images, 4,510 multiple-choice and 7,380 open-ended questions",
+      "coverage": "Industrial visual anomaly reasoning, unanswerable queries and capture degradation.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "Our document OCR and drawing/solid checks do not establish physical-defect inspection or safe abstention on these images. The site was inspected; dataset and model runs were not reproduced.",
+      "id": "robustmad",
+      "name": "RobustMAD",
+      "relationship": "direct",
+      "source_ids": [
+        "pub:robustmad-project"
+      ]
+    },
+    {
+      "count_scope": "Publisher describes more than 2,000 tasks across 12 business domains",
+      "coverage": "Expert-authored procedural work with generated executable tools and data.",
+      "declared_evidence_level": "publisher_description",
+      "faraday_gap": "This is adjacent procedural/logistics evidence, not proof of physical-manufacturing depth. Our workflows do not establish the same expert SOP provenance or domain breadth; no runtime/model reproduction was attempted.",
+      "id": "sopbench",
+      "name": "SOP-Bench",
+      "relationship": "adjacent",
+      "source_ids": [
+        "pub:sopbench-project"
+      ]
+    }
+  ],
+  "schema": "expanded-industrial-comparator-survey/1",
+  "search_queries": [
+    "manufacturing supply chain AI agent benchmark benchmark dataset manufacturing benchmark 2026",
+    "industrial agent benchmark supply chain scheduling procurement benchmark GitHub",
+    "manufacturing benchmark LLM agents production scheduling ManuBench MFG benchmark",
+    "supply chain agent benchmark inventory logistics benchmark 2026 SupplyChainBench",
+    "manufacturing industrial benchmark LLM safety visual inspection P&ID benchmark agents 2026"
+  ],
+  "selected_local_reproductions": {
+    "businessbench": "runs/expanded-survey/business-reproduction-v5/reproduction.json",
+    "semikong": "runs/expanded-survey/semikong-reproduction-v2/reproduction.json"
+  },
+  "selection_rule": "Include primary resources for manufacturing, industrial procurement, maintenance, field operations, supply-chain decisions or executable ERP; mark broader SOP work adjacent. Search discovery is exploratory, not an exhaustive survey or independent ranking."
+}

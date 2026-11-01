@@ -1,0 +1,482 @@
+[
+  {
+    "condition": "normal",
+    "domain": "rotating_equipment",
+    "family": "vibration_order",
+    "horizon_minutes": 120,
+    "id": "sensor-vibration_order-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 18285775141088174369
+  },
+  {
+    "condition": "fault",
+    "domain": "rotating_equipment",
+    "family": "vibration_order",
+    "horizon_minutes": 120,
+    "id": "sensor-vibration_order-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 3666446697687649424
+  },
+  {
+    "condition": "missing",
+    "domain": "rotating_equipment",
+    "family": "vibration_order",
+    "horizon_minutes": 120,
+    "id": "sensor-vibration_order-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 6245275212131961603
+  },
+  {
+    "condition": "boundary",
+    "domain": "rotating_equipment",
+    "family": "vibration_order",
+    "horizon_minutes": 120,
+    "id": "sensor-vibration_order-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 8477442325909001976
+  },
+  {
+    "condition": "normal",
+    "domain": "rotating_equipment",
+    "family": "bearing_impulsiveness",
+    "horizon_minutes": 120,
+    "id": "sensor-bearing_impulsiveness-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 2868425937537407318
+  },
+  {
+    "condition": "fault",
+    "domain": "rotating_equipment",
+    "family": "bearing_impulsiveness",
+    "horizon_minutes": 120,
+    "id": "sensor-bearing_impulsiveness-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 10231854853251710248
+  },
+  {
+    "condition": "missing",
+    "domain": "rotating_equipment",
+    "family": "bearing_impulsiveness",
+    "horizon_minutes": 120,
+    "id": "sensor-bearing_impulsiveness-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 9914585067137953130
+  },
+  {
+    "condition": "boundary",
+    "domain": "rotating_equipment",
+    "family": "bearing_impulsiveness",
+    "horizon_minutes": 120,
+    "id": "sensor-bearing_impulsiveness-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 1723584132045274386
+  },
+  {
+    "condition": "normal",
+    "domain": "thermal_quality",
+    "family": "thermal_soak_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-thermal_soak_trace-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 17642469296395004843
+  },
+  {
+    "condition": "fault",
+    "domain": "thermal_quality",
+    "family": "thermal_soak_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-thermal_soak_trace-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 13194571581775128955
+  },
+  {
+    "condition": "missing",
+    "domain": "thermal_quality",
+    "family": "thermal_soak_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-thermal_soak_trace-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 18178231274539699690
+  },
+  {
+    "condition": "boundary",
+    "domain": "thermal_quality",
+    "family": "thermal_soak_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-thermal_soak_trace-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 2680336876985981022
+  },
+  {
+    "condition": "normal",
+    "domain": "test_engineering",
+    "family": "pressure_decay",
+    "horizon_minutes": 120,
+    "id": "sensor-pressure_decay-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 8506790887054564959
+  },
+  {
+    "condition": "fault",
+    "domain": "test_engineering",
+    "family": "pressure_decay",
+    "horizon_minutes": 120,
+    "id": "sensor-pressure_decay-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 15745702463158919233
+  },
+  {
+    "condition": "missing",
+    "domain": "test_engineering",
+    "family": "pressure_decay",
+    "horizon_minutes": 120,
+    "id": "sensor-pressure_decay-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 8195656056604859626
+  },
+  {
+    "condition": "boundary",
+    "domain": "test_engineering",
+    "family": "pressure_decay",
+    "horizon_minutes": 120,
+    "id": "sensor-pressure_decay-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 12300599949448387197
+  },
+  {
+    "condition": "normal",
+    "domain": "electrical_condition",
+    "family": "motor_phase_current",
+    "horizon_minutes": 120,
+    "id": "sensor-motor_phase_current-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 1555349680577059935
+  },
+  {
+    "condition": "fault",
+    "domain": "electrical_condition",
+    "family": "motor_phase_current",
+    "horizon_minutes": 120,
+    "id": "sensor-motor_phase_current-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 262021310973277612
+  },
+  {
+    "condition": "missing",
+    "domain": "electrical_condition",
+    "family": "motor_phase_current",
+    "horizon_minutes": 120,
+    "id": "sensor-motor_phase_current-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 7853506444583796844
+  },
+  {
+    "condition": "boundary",
+    "domain": "electrical_condition",
+    "family": "motor_phase_current",
+    "horizon_minutes": 120,
+    "id": "sensor-motor_phase_current-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 1869257546203197602
+  },
+  {
+    "condition": "normal",
+    "domain": "predictive_maintenance",
+    "family": "tool_wear_prediction",
+    "horizon_minutes": 120,
+    "id": "sensor-tool_wear_prediction-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 15266410259034043497
+  },
+  {
+    "condition": "fault",
+    "domain": "predictive_maintenance",
+    "family": "tool_wear_prediction",
+    "horizon_minutes": 120,
+    "id": "sensor-tool_wear_prediction-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 9503416568049473627
+  },
+  {
+    "condition": "missing",
+    "domain": "predictive_maintenance",
+    "family": "tool_wear_prediction",
+    "horizon_minutes": 120,
+    "id": "sensor-tool_wear_prediction-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 7732167400198295505
+  },
+  {
+    "condition": "boundary",
+    "domain": "predictive_maintenance",
+    "family": "tool_wear_prediction",
+    "horizon_minutes": 120,
+    "id": "sensor-tool_wear_prediction-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 11676346797938932235
+  },
+  {
+    "condition": "normal",
+    "domain": "process_quality",
+    "family": "spc_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-spc_trace-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 7069447041698756853
+  },
+  {
+    "condition": "fault",
+    "domain": "process_quality",
+    "family": "spc_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-spc_trace-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 12974495186452391022
+  },
+  {
+    "condition": "missing",
+    "domain": "process_quality",
+    "family": "spc_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-spc_trace-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 11972718524760979274
+  },
+  {
+    "condition": "boundary",
+    "domain": "process_quality",
+    "family": "spc_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-spc_trace-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 5428169240054920212
+  },
+  {
+    "condition": "normal",
+    "domain": "energy_operations",
+    "family": "energy_meter_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-energy_meter_trace-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 1216180187478815996
+  },
+  {
+    "condition": "fault",
+    "domain": "energy_operations",
+    "family": "energy_meter_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-energy_meter_trace-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 1794379698778058601
+  },
+  {
+    "condition": "missing",
+    "domain": "energy_operations",
+    "family": "energy_meter_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-energy_meter_trace-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 499560016360624524
+  },
+  {
+    "condition": "boundary",
+    "domain": "energy_operations",
+    "family": "energy_meter_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-energy_meter_trace-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 5114864541595828801
+  },
+  {
+    "condition": "normal",
+    "domain": "storage_quality",
+    "family": "cold_chain_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-cold_chain_trace-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 2313222097266874860
+  },
+  {
+    "condition": "fault",
+    "domain": "storage_quality",
+    "family": "cold_chain_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-cold_chain_trace-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 6337161178146128895
+  },
+  {
+    "condition": "missing",
+    "domain": "storage_quality",
+    "family": "cold_chain_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-cold_chain_trace-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 11459483667871987035
+  },
+  {
+    "condition": "boundary",
+    "domain": "storage_quality",
+    "family": "cold_chain_trace",
+    "horizon_minutes": 120,
+    "id": "sensor-cold_chain_trace-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 2812877688617728508
+  },
+  {
+    "condition": "normal",
+    "domain": "instrumentation",
+    "family": "redundant_sensor_bias",
+    "horizon_minutes": 120,
+    "id": "sensor-redundant_sensor_bias-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 3921901954836044659
+  },
+  {
+    "condition": "fault",
+    "domain": "instrumentation",
+    "family": "redundant_sensor_bias",
+    "horizon_minutes": 120,
+    "id": "sensor-redundant_sensor_bias-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 17759887535252305997
+  },
+  {
+    "condition": "missing",
+    "domain": "instrumentation",
+    "family": "redundant_sensor_bias",
+    "horizon_minutes": 120,
+    "id": "sensor-redundant_sensor_bias-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 9540111020230445191
+  },
+  {
+    "condition": "boundary",
+    "domain": "instrumentation",
+    "family": "redundant_sensor_bias",
+    "horizon_minutes": 120,
+    "id": "sensor-redundant_sensor_bias-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 6274744237688469527
+  },
+  {
+    "condition": "normal",
+    "domain": "process_integrity",
+    "family": "flow_mass_balance",
+    "horizon_minutes": 120,
+    "id": "sensor-flow_mass_balance-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 5903452271458355523
+  },
+  {
+    "condition": "fault",
+    "domain": "process_integrity",
+    "family": "flow_mass_balance",
+    "horizon_minutes": 120,
+    "id": "sensor-flow_mass_balance-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 11275966236349818077
+  },
+  {
+    "condition": "missing",
+    "domain": "process_integrity",
+    "family": "flow_mass_balance",
+    "horizon_minutes": 120,
+    "id": "sensor-flow_mass_balance-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 6548579435288509628
+  },
+  {
+    "condition": "boundary",
+    "domain": "process_integrity",
+    "family": "flow_mass_balance",
+    "horizon_minutes": 120,
+    "id": "sensor-flow_mass_balance-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 10637338599565709488
+  },
+  {
+    "condition": "normal",
+    "domain": "predictive_maintenance",
+    "family": "cohort_failure_risk",
+    "horizon_minutes": 120,
+    "id": "sensor-cohort_failure_risk-normal",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 17275735943928850218
+  },
+  {
+    "condition": "fault",
+    "domain": "predictive_maintenance",
+    "family": "cohort_failure_risk",
+    "horizon_minutes": 120,
+    "id": "sensor-cohort_failure_risk-fault",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 262925415543738922
+  },
+  {
+    "condition": "missing",
+    "domain": "predictive_maintenance",
+    "family": "cohort_failure_risk",
+    "horizon_minutes": 120,
+    "id": "sensor-cohort_failure_risk-missing",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 16211033295955927716
+  },
+  {
+    "condition": "boundary",
+    "domain": "predictive_maintenance",
+    "family": "cohort_failure_risk",
+    "horizon_minutes": 120,
+    "id": "sensor-cohort_failure_risk-boundary",
+    "max_tool_calls": 80,
+    "provenance": "synthetic-generated",
+    "seed": 12535762341273654408
+  }
+]

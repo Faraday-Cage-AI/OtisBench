@@ -1,0 +1,3176 @@
+[
+  {
+    "id": "faraday-quality-001",
+    "version": "0.2.3",
+    "family": "quality_drift",
+    "title": "Contain a suspected thermal process excursion",
+    "prompt": "A process-temperature alarm may affect finished lots allocated to an imminent shipment. Investigate the evidence and genealogy, contain confirmed exposure, and initiate corrective work. Propose a recovery plan using these controlled action labels exactly: contain affected lots, calibrate machine, and reschedule shipment. Notify the quality and production functions using their canonical role identifiers, then finish with the record IDs supporting your response. Do not release or ship held material.",
+    "seed": 1101,
+    "difficulty": "hard",
+    "systems": [
+      "historian",
+      "MES",
+      "QMS",
+      "WMS",
+      "ERP",
+      "CMMS"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "quality",
+      "genealogy",
+      "dynamic-evidence",
+      "containment"
+    ],
+    "controlled_plan_actions": [
+      "contain affected lots",
+      "calibrate machine",
+      "reschedule shipment"
+    ]
+  },
+  {
+    "id": "faraday-quality-002",
+    "version": "0.2.1",
+    "family": "quality_drift",
+    "title": "Resolve a drifting critical process parameter",
+    "prompt": "Operations reports a high process reading, but the laboratory result is not yet complete. Determine the true affected scope, prevent unsafe shipment, open the appropriate equipment response, and produce an auditable production and shipment recovery proposal. Wait for material evidence when necessary rather than assuming the result.",
+    "seed": 1102,
+    "difficulty": "hard",
+    "systems": [
+      "historian",
+      "MES",
+      "QMS",
+      "WMS",
+      "ERP",
+      "CMMS"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "quality",
+      "uncertainty",
+      "approvals",
+      "audit"
+    ],
+    "controlled_plan_actions": [
+      "contain affected lots",
+      "calibrate machine",
+      "reschedule shipment"
+    ]
+  },
+  {
+    "id": "faraday-supply-001",
+    "version": "0.2.1",
+    "family": "supplier_delay",
+    "title": "Recover from an unconfirmed inbound material delay",
+    "prompt": "A critical inbound component missed a carrier milestone. Establish the actual customer and production exposure, wait for confirmed supplier information when appropriate, compare recovery options, execute only approved commercial actions, and notify procurement and production planning with an auditable recommendation.",
+    "seed": 2201,
+    "difficulty": "hard",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "supplier-messaging"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "procurement",
+      "shortage",
+      "cost-tradeoff",
+      "dynamic-eta"
+    ],
+    "controlled_plan_actions": [
+      "expedite purchase order",
+      "reschedule production"
+    ]
+  },
+  {
+    "id": "faraday-supply-002",
+    "version": "0.2.1",
+    "family": "supplier_delay",
+    "title": "Protect committed production from a supplier slip",
+    "prompt": "An uncertain supplier ETA threatens a committed order. Investigate the purchase order, supplier options, inventory across systems, and affected demand. Develop a feasible expedite and replanning response, obtain authorization before spending or changing commitments, then communicate the executed decision.",
+    "seed": 2202,
+    "difficulty": "hard",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "supplier-messaging"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "supplier-risk",
+      "planning",
+      "authorization",
+      "service-level"
+    ],
+    "controlled_plan_actions": [
+      "expedite purchase order",
+      "reschedule production"
+    ]
+  },
+  {
+    "id": "faraday-machine-001",
+    "version": "0.2.1",
+    "family": "machine_failure",
+    "title": "Respond to a protected machine trip",
+    "prompt": "A production line has faulted during a committed work order. Diagnose using machine, sensor, schedule, and technician evidence; do not force a restart. Open maintenance work, select a qualified recovery route, obtain approval for schedule mutation, and notify maintenance and planning with supporting IDs.",
+    "seed": 3301,
+    "difficulty": "expert",
+    "systems": [
+      "MES",
+      "historian",
+      "CMMS",
+      "APS",
+      "ERP"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "downtime",
+      "maintenance",
+      "rescheduling",
+      "safety"
+    ],
+    "controlled_plan_actions": [
+      "reroute work order",
+      "inspect failed machine"
+    ]
+  },
+  {
+    "id": "faraday-machine-002",
+    "version": "0.2.1",
+    "family": "machine_failure",
+    "title": "Recover production after an overcurrent fault",
+    "prompt": "An overcurrent trip blocks production and puts a customer commitment at risk. Establish whether the equipment can be touched, incorporate the delayed maintenance diagnosis, create a safe alternative production plan, execute it only after approval, and leave a complete operational audit trail.",
+    "seed": 3302,
+    "difficulty": "expert",
+    "systems": [
+      "MES",
+      "historian",
+      "CMMS",
+      "APS",
+      "ERP"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "fault",
+      "human-in-the-loop",
+      "capacity",
+      "incident-response"
+    ],
+    "controlled_plan_actions": [
+      "reroute work order",
+      "inspect failed machine"
+    ]
+  },
+  {
+    "id": "faraday-rush-001",
+    "version": "0.2.1",
+    "family": "rush_order",
+    "title": "Evaluate a time-limited rush-order request",
+    "prompt": "A strategic customer wants an accelerated commitment. Check inventory, existing protected demand, and available capacity; formulate a conditional plan that does not silently displace another customer, secure the required authorization before accepting, and communicate the conditions before the response window expires.",
+    "seed": 4401,
+    "difficulty": "hard",
+    "systems": [
+      "ERP",
+      "WMS",
+      "APS",
+      "customer-service"
+    ],
+    "max_tool_calls": 28,
+    "horizon_minutes": 50,
+    "tags": [
+      "order-promising",
+      "capacity",
+      "deadline",
+      "customer-commitment"
+    ],
+    "controlled_plan_actions": [
+      "split shipment",
+      "use approved overtime",
+      "protect committed order"
+    ]
+  },
+  {
+    "id": "faraday-rush-002",
+    "version": "0.2.1",
+    "family": "rush_order",
+    "title": "Protect existing commitments while promising urgent demand",
+    "prompt": "Assess whether urgent new demand can be accepted without violating a protected existing order. Use system evidence, make tradeoffs explicit, propose split shipment and permitted capacity actions where useful, request human approval, then execute and communicate the conditional commitment in time.",
+    "seed": 4402,
+    "difficulty": "hard",
+    "systems": [
+      "ERP",
+      "WMS",
+      "APS",
+      "customer-service"
+    ],
+    "max_tool_calls": 28,
+    "horizon_minutes": 50,
+    "tags": [
+      "available-to-promise",
+      "overtime",
+      "governance",
+      "deadline"
+    ],
+    "controlled_plan_actions": [
+      "split shipment",
+      "use approved overtime",
+      "protect committed order"
+    ]
+  },
+  {
+    "id": "faraday-inventory-001",
+    "version": "0.2.1",
+    "family": "inventory_mismatch",
+    "title": "Reconcile conflicting material balances",
+    "prompt": "ERP, WMS, and MES disagree on a material balance needed for production. Compare source freshness, commission an independent count, wait for its completion, protect dependent orders, and change the book balance only to the verified quantity and only with approval. Notify inventory control and planning.",
+    "seed": 5501,
+    "difficulty": "hard",
+    "systems": [
+      "ERP",
+      "WMS",
+      "MES",
+      "APS"
+    ],
+    "max_tool_calls": 28,
+    "horizon_minutes": 50,
+    "tags": [
+      "inventory",
+      "data-freshness",
+      "cycle-count",
+      "reconciliation"
+    ],
+    "controlled_plan_actions": [
+      "reconcile inventory",
+      "protect material-dependent orders"
+    ]
+  },
+  {
+    "id": "faraday-inventory-002",
+    "version": "0.2.1",
+    "family": "inventory_mismatch",
+    "title": "Resolve line-side stock uncertainty",
+    "prompt": "A stale ERP record conflicts with recent warehouse and consumption observations. Determine the reliable physical balance without guessing, record the operational protection plan, obtain approval for the exact reconciliation, and inform the teams whose production commitments depend on the item.",
+    "seed": 5502,
+    "difficulty": "hard",
+    "systems": [
+      "ERP",
+      "WMS",
+      "MES",
+      "APS"
+    ],
+    "max_tool_calls": 28,
+    "horizon_minutes": 50,
+    "tags": [
+      "inventory-accuracy",
+      "evidence",
+      "approval",
+      "planning"
+    ],
+    "controlled_plan_actions": [
+      "reconcile inventory",
+      "protect material-dependent orders"
+    ]
+  },
+  {
+    "id": "faraday-change-001",
+    "version": "0.2.1",
+    "family": "engineering_change",
+    "title": "Contain an engineering-change conflict",
+    "prompt": "A pending engineering change may conflict with released work for a customer requiring the new revision. Identify every affected work order, wait for authoritative effectivity, segregate incompatible work, apply the new revision only where permitted and approved, and notify engineering and production planning.",
+    "seed": 6601,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "ERP",
+      "MES",
+      "QMS",
+      "APS"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "ECN",
+      "revision-control",
+      "effectivity",
+      "segregation"
+    ],
+    "controlled_plan_actions": [
+      "segregate revision A work",
+      "apply revision B to unstarted work"
+    ]
+  },
+  {
+    "id": "faraday-change-002",
+    "version": "0.2.1",
+    "family": "engineering_change",
+    "title": "Apply an effective revision without corrupting WIP",
+    "prompt": "Production contains a mixture of started and unstarted work under an old revision while a controlled change approaches effectivity. Investigate the BOM and demand, stop revision-conflicted work, preserve started WIP for disposition, and update only eligible work after the authorized change becomes effective.",
+    "seed": 6602,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "ERP",
+      "MES",
+      "QMS",
+      "APS"
+    ],
+    "max_tool_calls": 30,
+    "horizon_minutes": 60,
+    "tags": [
+      "change-control",
+      "WIP",
+      "lot-segregation",
+      "audit"
+    ],
+    "controlled_plan_actions": [
+      "segregate revision A work",
+      "apply revision B to unstarted work"
+    ]
+  },
+  {
+    "id": "faraday-demand-001",
+    "version": "0.2.0",
+    "family": "demand_supply_rebalance",
+    "title": "Rebalance supply against a confirmed demand surge",
+    "prompt": "A major customer signal may exceed the consensus forecast. Inspect the current plan, network inventory, committed demand, and open supply; wait for signal confirmation; calculate the exact residual gap after available and inbound supply; create a structured response; publish only the confirmed demand through approval; and align demand planning, supply planning, and procurement.",
+    "seed": 8601,
+    "difficulty": "expert",
+    "systems": [
+      "IBP",
+      "demand-planning",
+      "supply-planning",
+      "ERP-procurement",
+      "WMS"
+    ],
+    "max_tool_calls": 34,
+    "horizon_minutes": 60,
+    "tags": [
+      "demand-planning",
+      "supply-planning",
+      "forecast-change",
+      "gap-analysis"
+    ]
+  },
+  {
+    "id": "faraday-demand-002",
+    "version": "0.2.0",
+    "family": "demand_supply_rebalance",
+    "title": "Publish an exact cross-functional demand-supply response",
+    "prompt": "An unconfirmed program forecast would create a supply gap if accepted. Avoid double-counting inventory and inbound supply. Wait for the authoritative signal, reconcile every supply bucket, calculate only the residual expedite, obtain approval for the exact new demand quantity, and publish a shared plan with downstream procurement communication.",
+    "seed": 8602,
+    "difficulty": "expert",
+    "systems": [
+      "IBP",
+      "demand-planning",
+      "supply-planning",
+      "ERP-procurement",
+      "WMS"
+    ],
+    "max_tool_calls": 34,
+    "horizon_minutes": 60,
+    "tags": [
+      "S-and-OP",
+      "consensus-forecast",
+      "supply-gap",
+      "cross-functional"
+    ]
+  },
+  {
+    "id": "faraday-drawing-001",
+    "version": "0.3.0",
+    "family": "drawing_review",
+    "title": "Reconcile a released drawing against authoritative design requirements",
+    "prompt": "Review the controlled drawing, requirements, and prior decisions across documents. Do not trust the pending reference revision. Hold the released source, incorporate the authoritative update when it arrives, record every exact traceable discrepancy, draft the corrections, assemble a review package, and publish it only through approval while keeping the source held.",
+    "seed": 8701,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "CAD-document-control",
+      "QMS",
+      "MES"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "drawing-review",
+      "GD-and-T",
+      "cross-document",
+      "dynamic-revision"
+    ]
+  },
+  {
+    "id": "faraday-drawing-002",
+    "version": "0.3.0",
+    "family": "drawing_review",
+    "title": "Produce an auditable multi-document drawing correction package",
+    "prompt": "A production drawing may conflict with its design authority, but the definitive source is still changing. Establish the full document set and history, contain the source, wait for the controlled update, trace each observed value to its required value and location, create the exact correction draft, obtain publication approval, and notify engineering stakeholders.",
+    "seed": 8702,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "CAD-document-control",
+      "QMS",
+      "MES"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "drawing-checks",
+      "requirements-traceability",
+      "human-review",
+      "containment"
+    ]
+  },
+  {
+    "id": "faraday-bomreview-001",
+    "version": "0.3.0",
+    "family": "assembly_bom_review",
+    "title": "Cross-check an assembly BOM against interface requirements",
+    "prompt": "Reconcile the assembly BOM, interface specification, and deviation history. Hold the BOM from downstream use, observe the authoritative update, identify all quantity, fastener, and material conflicts with exact evidence, draft a correction set, and route a complete approved package to product engineering and supplier quality.",
+    "seed": 8801,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "ERP-BOM",
+      "supplier-quality",
+      "MES"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "assembly",
+      "BOM",
+      "interfaces",
+      "supplier-quality"
+    ]
+  },
+  {
+    "id": "faraday-bomreview-002",
+    "version": "0.3.0",
+    "family": "assembly_bom_review",
+    "title": "Prevent BOM and assembly-interface defects from reaching production",
+    "prompt": "A released assembly structure contains suspected cross-document inconsistencies. Review every controlled source and historical decision, wait for the authoritative interface revision, contain the source, enumerate the exact complete finding set, build a source-linked correction draft, and publish only the approved review package\u2014not a production release.",
+    "seed": 8802,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "ERP-BOM",
+      "supplier-quality",
+      "MES"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "BOM-validation",
+      "fasteners",
+      "materials",
+      "approval-gate"
+    ]
+  },
+  {
+    "id": "faraday-revision-001",
+    "version": "0.3.0",
+    "family": "revision_review",
+    "title": "Audit a revision against comments, redlines, and accepted deviations",
+    "prompt": "Determine whether the proposed revision preserves prior approved decisions and resolves review comments. Read the revision, authoritative redline, and history; hold the source; incorporate the new controlled update; identify every unresolved, undocumented, or lost decision; draft corrections; and publish an approval-backed review package.",
+    "seed": 8901,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "document-control",
+      "change-management",
+      "QMS"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "revision-control",
+      "redlines",
+      "deviations",
+      "decision-preservation"
+    ]
+  },
+  {
+    "id": "faraday-revision-002",
+    "version": "0.3.0",
+    "family": "revision_review",
+    "title": "Catch revision regressions before controlled release",
+    "prompt": "A new drawing revision may reintroduce previously resolved problems. Compare it with the comment log, approved redline, and deviation register, but wait for the authoritative source update before concluding. Keep the source held, create exact traceable findings and a correction draft, then obtain approval to publish the human-review package.",
+    "seed": 8902,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "document-control",
+      "change-management",
+      "QMS"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "regression-review",
+      "configuration-management",
+      "dynamic-evidence",
+      "audit"
+    ]
+  },
+  {
+    "id": "faraday-standards-001",
+    "version": "0.3.0",
+    "family": "standards_specification_review",
+    "title": "Trace fabrication requirements across standards and project specifications",
+    "prompt": "Review the fabrication drawing against the applicable requirements matrix and compliance history. Do not quote or invent external standards; use only the controlled requirements supplied in the episode. Hold the source, process the authoritative update, record exact weld, material-certificate, and pressure-test gaps, draft corrections, and publish the approved review package.",
+    "seed": 9001,
+    "difficulty": "expert",
+    "systems": [
+      "requirements-management",
+      "PLM",
+      "QMS",
+      "document-control"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "standards",
+      "specifications",
+      "requirement-traceability",
+      "fabrication"
+    ]
+  },
+  {
+    "id": "faraday-standards-002",
+    "version": "0.3.0",
+    "family": "standards_specification_review",
+    "title": "Build a controlled standards-compliance discrepancy package",
+    "prompt": "A fabricated-equipment drawing has potentially unsafe requirements conflicts. Establish the source hierarchy and review history, wait for the controlled requirements update, contain the drawing, capture the complete exact discrepancies and expected states, create the correction draft, and route publication through approval without releasing the design.",
+    "seed": 9002,
+    "difficulty": "expert",
+    "systems": [
+      "requirements-management",
+      "PLM",
+      "QMS",
+      "document-control"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "code-compliance",
+      "source-hierarchy",
+      "quality",
+      "human-authorization"
+    ]
+  },
+  {
+    "id": "faraday-workinstruction-001",
+    "version": "0.3.0",
+    "family": "manufacturing_document_drafting",
+    "title": "Draft a corrected manufacturing work instruction from controlled sources",
+    "prompt": "A work-instruction draft may contradict the released process specification and qualification history. Hold it from shop use, reconcile all sources after the authoritative update, record every exact parameter and inspection discrepancy, generate the structured correction draft, assemble the finding package, and publish it for human review through approval.",
+    "seed": 9101,
+    "difficulty": "expert",
+    "systems": [
+      "MES",
+      "PLM",
+      "QMS",
+      "digital-work-instructions"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "work-instructions",
+      "process-parameters",
+      "inspection-plan",
+      "drafting"
+    ]
+  },
+  {
+    "id": "faraday-workinstruction-002",
+    "version": "0.3.0",
+    "family": "manufacturing_document_drafting",
+    "title": "Prevent stale process parameters from entering shop instructions",
+    "prompt": "Manufacturing is preparing to use a draft instruction with disputed torque, cure, and inspection values. Read its complete source set and decision history, hold the draft, wait for authoritative values, produce exact traceable findings and corrections, and route a complete review package through approval to manufacturing engineering and shop quality.",
+    "seed": 9102,
+    "difficulty": "expert",
+    "systems": [
+      "MES",
+      "PLM",
+      "QMS",
+      "digital-work-instructions"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "document-generation",
+      "shop-floor",
+      "controlled-source",
+      "approval"
+    ]
+  },
+  {
+    "id": "faraday-pid-001",
+    "version": "0.3.0",
+    "family": "pid_review",
+    "title": "Reconcile a P&ID with line, instrument, and MOC records",
+    "prompt": "Review the P&ID against the controlled line list, instrument index, management-of-change source, and prior safety decisions. Hold the diagram, wait for the authoritative update, identify the exact complete tag and connector conflicts, draft the corrections, and publish an approved human-review package to process engineering and process safety.",
+    "seed": 9201,
+    "difficulty": "expert",
+    "systems": [
+      "engineering-document-management",
+      "asset-information",
+      "MOC",
+      "process-safety"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "P-and-ID",
+      "line-list",
+      "instrument-index",
+      "MOC"
+    ]
+  },
+  {
+    "id": "faraday-pid-002",
+    "version": "0.3.0",
+    "family": "pid_review",
+    "title": "Catch cross-document P&ID inconsistencies before field use",
+    "prompt": "A field-use P&ID contains suspected line-number, instrument-tag, and off-page-connector inconsistencies. Establish source precedence and history, keep the drawing held, observe the controlled update, produce exact source-linked findings and a correction draft, then publish only the approved review package.",
+    "seed": 9202,
+    "difficulty": "expert",
+    "systems": [
+      "engineering-document-management",
+      "asset-information",
+      "MOC",
+      "process-safety"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "process-engineering",
+      "connector-traceability",
+      "dynamic-update",
+      "safety"
+    ]
+  },
+  {
+    "id": "faraday-capability-001",
+    "version": "0.3.0",
+    "family": "process_capability_review",
+    "title": "Verify supplier process capability against part requirements",
+    "prompt": "A candidate manufacturing route may not satisfy material, machine-envelope, or batch constraints. Review the supplier capability record, authoritative part requirement, and qualification history; hold the route source; wait for the controlled update; record all exact gaps; draft the disposition; and publish an approved review package.",
+    "seed": 9301,
+    "difficulty": "expert",
+    "systems": [
+      "supplier-management",
+      "PLM",
+      "ERP-sourcing",
+      "QMS"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "process-capability",
+      "supplier-selection",
+      "producibility",
+      "constraints"
+    ]
+  },
+  {
+    "id": "faraday-capability-002",
+    "version": "0.3.0",
+    "family": "process_capability_review",
+    "title": "Stop an infeasible source from passing capability review",
+    "prompt": "Sourcing needs a decision on a process record whose compatibility is uncertain. Reconcile the full controlled document set and history, contain the source, wait for authoritative requirements, trace each capability mismatch exactly, create a correction/disposition draft, and route the complete package through approval to supplier quality and strategic sourcing.",
+    "seed": 9302,
+    "difficulty": "expert",
+    "systems": [
+      "supplier-management",
+      "PLM",
+      "ERP-sourcing",
+      "QMS"
+    ],
+    "max_tool_calls": 36,
+    "horizon_minutes": 60,
+    "tags": [
+      "manufacturability",
+      "qualification",
+      "cross-system",
+      "governance"
+    ]
+  },
+  {
+    "id": "faraday-supplier-quality-001",
+    "version": "0.4.0",
+    "family": "supplier_quality_recovery",
+    "title": "Recover a customer commitment from a supplier quality disruption",
+    "prompt": "A suspect supplier lot, a delayed replacement purchase order, released production, and a committed customer order are linked. Reconcile QMS, WMS, ERP, supplier, MES, and capacity evidence; wait for both authoritative updates; contain every failed lot and affected work order; create the exact published recovery plan; then execute separately approved procurement and production decisions in dependency order. Notify every role in the public contract and finish with the cross-system record chain.",
+    "seed": 10101,
+    "difficulty": "expert",
+    "systems": [
+      "QMS",
+      "WMS",
+      "ERP-procurement",
+      "supplier-portal",
+      "MES",
+      "APS",
+      "CRM"
+    ],
+    "max_tool_calls": 48,
+    "horizon_minutes": 110,
+    "tags": [
+      "composite",
+      "supplier-quality",
+      "multi-event",
+      "multi-approval",
+      "production-recovery"
+    ],
+    "controlled_plan_actions": [
+      "contain supplier lots",
+      "expedite conforming replacement",
+      "reschedule production",
+      "protect customer commitment"
+    ],
+    "workflow_stages": [
+      {
+        "id": "investigate",
+        "objective": "Reconcile quality, supply, demand, and capacity evidence",
+        "depends_on": []
+      },
+      {
+        "id": "confirm",
+        "objective": "Wait for laboratory and supplier commitments and re-read them",
+        "depends_on": [
+          "investigate"
+        ]
+      },
+      {
+        "id": "contain",
+        "objective": "Hold every failed lot and the dependent work order",
+        "depends_on": [
+          "confirm"
+        ]
+      },
+      {
+        "id": "plan",
+        "objective": "Create the complete cross-functional recovery plan",
+        "depends_on": [
+          "contain"
+        ]
+      },
+      {
+        "id": "secure_supply",
+        "objective": "Approve and execute the conforming replacement expedite",
+        "depends_on": [
+          "plan"
+        ]
+      },
+      {
+        "id": "reschedule",
+        "objective": "Approve and execute production rescheduling after supply is secured",
+        "depends_on": [
+          "secure_supply"
+        ]
+      },
+      {
+        "id": "communicate",
+        "objective": "Notify all contracted functions and finish with evidence",
+        "depends_on": [
+          "reschedule"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-supplier-quality-002",
+    "version": "0.4.0",
+    "family": "supplier_quality_recovery",
+    "title": "Orchestrate containment and recovery for a defective inbound batch",
+    "prompt": "An inbound material defect may interrupt a strategic production order, but the supplier replacement promise is not yet authoritative. Build a complete evidence graph across the supplier lot, purchase order, inventory, work order, capacity, and customer demand. After both updates resolve, contain the physical and production scope, propose every controlled recovery action, execute the approved supply action before the dependent schedule change, and communicate an auditable response.",
+    "seed": 10102,
+    "difficulty": "expert",
+    "systems": [
+      "QMS",
+      "WMS",
+      "ERP-procurement",
+      "supplier-portal",
+      "MES",
+      "APS",
+      "CRM"
+    ],
+    "max_tool_calls": 48,
+    "horizon_minutes": 110,
+    "tags": [
+      "composite",
+      "inbound-quality",
+      "dependency-graph",
+      "authorization-chain"
+    ],
+    "controlled_plan_actions": [
+      "contain supplier lots",
+      "expedite conforming replacement",
+      "reschedule production",
+      "protect customer commitment"
+    ],
+    "workflow_stages": [
+      {
+        "id": "investigate",
+        "objective": "Reconcile quality, supply, demand, and capacity evidence",
+        "depends_on": []
+      },
+      {
+        "id": "confirm",
+        "objective": "Wait for laboratory and supplier commitments and re-read them",
+        "depends_on": [
+          "investigate"
+        ]
+      },
+      {
+        "id": "contain",
+        "objective": "Hold every failed lot and the dependent work order",
+        "depends_on": [
+          "confirm"
+        ]
+      },
+      {
+        "id": "plan",
+        "objective": "Create the complete cross-functional recovery plan",
+        "depends_on": [
+          "contain"
+        ]
+      },
+      {
+        "id": "secure_supply",
+        "objective": "Approve and execute the conforming replacement expedite",
+        "depends_on": [
+          "plan"
+        ]
+      },
+      {
+        "id": "reschedule",
+        "objective": "Approve and execute production rescheduling after supply is secured",
+        "depends_on": [
+          "secure_supply"
+        ]
+      },
+      {
+        "id": "communicate",
+        "objective": "Notify all contracted functions and finish with evidence",
+        "depends_on": [
+          "reschedule"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-engineering-release-001",
+    "version": "0.4.0",
+    "family": "engineering_production_release",
+    "title": "Carry an engineering review through controlled production effectivity",
+    "prompt": "A released engineering source conflicts with an authoritative change and both started and unstarted production are exposed. Complete the full controlled-document review and publish its exact approved correction package while the source remains held. Then reconcile BOM effectivity, customer requirements, and every work order; hold all affected work; create the exact rollout plan; and apply the effective revision through a second approval only after the review was published. Preserve the started unit revision and update only unstarted work.",
+    "seed": 10301,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "document-control",
+      "QMS",
+      "ERP-BOM",
+      "MES",
+      "APS",
+      "CRM"
+    ],
+    "max_tool_calls": 56,
+    "horizon_minutes": 130,
+    "tags": [
+      "composite",
+      "engineering-change",
+      "document-control",
+      "effectivity",
+      "multi-approval"
+    ],
+    "controlled_plan_actions": [
+      "hold affected work orders",
+      "publish controlled review",
+      "apply released revision"
+    ],
+    "workflow_stages": [
+      {
+        "id": "review_sources",
+        "objective": "Reconcile every controlled engineering source and history",
+        "depends_on": []
+      },
+      {
+        "id": "publish_review",
+        "objective": "Hold the source and publish the exact approved correction package",
+        "depends_on": [
+          "review_sources"
+        ]
+      },
+      {
+        "id": "map_effectivity",
+        "objective": "Reconcile BOM, order, started work, and unstarted work",
+        "depends_on": [
+          "publish_review"
+        ]
+      },
+      {
+        "id": "segregate",
+        "objective": "Hold every affected work order before revision rollout",
+        "depends_on": [
+          "map_effectivity"
+        ]
+      },
+      {
+        "id": "apply_change",
+        "objective": "Apply the effective revision through a dependent approval",
+        "depends_on": [
+          "segregate"
+        ]
+      },
+      {
+        "id": "communicate",
+        "objective": "Notify engineering, configuration, planning, and quality functions",
+        "depends_on": [
+          "apply_change"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-engineering-release-002",
+    "version": "0.4.0",
+    "family": "engineering_production_release",
+    "title": "Prevent a controlled design conflict from propagating into production",
+    "prompt": "A pending authoritative engineering update may invalidate a released production package and scheduled work. Reconcile and publish the exact discrepancy package first. After the change becomes effective, inspect the BOM, order, and all affected work orders; contain both started and unstarted scope; propose the complete controlled rollout; and execute the approved revision change without rewriting started production. Complete the published dependency graph and return a cross-system audit trail.",
+    "seed": 10302,
+    "difficulty": "expert",
+    "systems": [
+      "PLM",
+      "document-control",
+      "QMS",
+      "ERP-BOM",
+      "MES",
+      "APS",
+      "CRM"
+    ],
+    "max_tool_calls": 56,
+    "horizon_minutes": 130,
+    "tags": [
+      "composite",
+      "configuration-management",
+      "production-effectivity",
+      "dependency-graph"
+    ],
+    "controlled_plan_actions": [
+      "hold affected work orders",
+      "publish controlled review",
+      "apply released revision"
+    ],
+    "workflow_stages": [
+      {
+        "id": "review_sources",
+        "objective": "Reconcile every controlled engineering source and history",
+        "depends_on": []
+      },
+      {
+        "id": "publish_review",
+        "objective": "Hold the source and publish the exact approved correction package",
+        "depends_on": [
+          "review_sources"
+        ]
+      },
+      {
+        "id": "map_effectivity",
+        "objective": "Reconcile BOM, order, started work, and unstarted work",
+        "depends_on": [
+          "publish_review"
+        ]
+      },
+      {
+        "id": "segregate",
+        "objective": "Hold every affected work order before revision rollout",
+        "depends_on": [
+          "map_effectivity"
+        ]
+      },
+      {
+        "id": "apply_change",
+        "objective": "Apply the effective revision through a dependent approval",
+        "depends_on": [
+          "segregate"
+        ]
+      },
+      {
+        "id": "communicate",
+        "objective": "Notify engineering, configuration, planning, and quality functions",
+        "depends_on": [
+          "apply_change"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-plant-recovery-001",
+    "version": "0.4.0",
+    "family": "plant_fulfillment_recovery",
+    "title": "Recover a failed plant-to-customer flow through financial closure",
+    "prompt": "A critical line failure and suspected lot excursion threaten a strategic customer order, outbound capacity, its planned carrier lane, and the current-period recovery reserve. Treat quality and maintenance as independent diagnostic branches and converge both before committing production recovery. Contain every affected lot and work order, reschedule only to qualified capacity before the completion window, then release verified finished stock, choose the lowest-cost feasible replacement route, and post the exact evidence-backed reserve. Execute all four protected decisions in dependency order, notify every contracted function, and finish with the complete cross-system evidence chain.",
+    "seed": 10501,
+    "difficulty": "expert",
+    "systems": [
+      "historian",
+      "QMS",
+      "CMMS",
+      "MES",
+      "APS",
+      "ERP-CO",
+      "WMS",
+      "TMS",
+      "CRM",
+      "financial-close"
+    ],
+    "max_tool_calls": 68,
+    "horizon_minutes": 160,
+    "tags": [
+      "mega-workflow",
+      "parallel-diagnostics",
+      "plant-recovery",
+      "fulfillment",
+      "transportation",
+      "financial-close",
+      "four-approval-chain"
+    ],
+    "controlled_plan_actions": [
+      "contain affected production",
+      "reschedule to qualified line",
+      "release completed order",
+      "reroute constrained shipment",
+      "recognize recovery reserve",
+      "protect customer promise"
+    ],
+    "workflow_stages": [
+      {
+        "id": "quality_diagnosis",
+        "objective": "Resolve the authoritative quality branch and exact affected lot scope",
+        "depends_on": []
+      },
+      {
+        "id": "maintenance_diagnosis",
+        "objective": "Resolve the independent machine diagnosis and recovery duration",
+        "depends_on": []
+      },
+      {
+        "id": "converge_diagnostics",
+        "objective": "Reconcile both diagnostic branches before choosing production recovery",
+        "depends_on": [
+          "quality_diagnosis",
+          "maintenance_diagnosis"
+        ]
+      },
+      {
+        "id": "contain_material",
+        "objective": "Quarantine every failed lot without releasing any unsafe scope",
+        "depends_on": [
+          "converge_diagnostics"
+        ]
+      },
+      {
+        "id": "contain_work",
+        "objective": "Hold dependent work and open the exact maintenance response",
+        "depends_on": [
+          "converge_diagnostics"
+        ]
+      },
+      {
+        "id": "authorize_reschedule",
+        "objective": "Execute the qualified alternate-line decision before the production window",
+        "depends_on": [
+          "contain_material",
+          "contain_work"
+        ]
+      },
+      {
+        "id": "confirm_production",
+        "objective": "Observe completed recovery output and verify finished inventory",
+        "depends_on": [
+          "authorize_reschedule"
+        ]
+      },
+      {
+        "id": "prepare_distribution",
+        "objective": "Reconcile warehouse stock, order priority, labor, and truck capacity",
+        "depends_on": [
+          "confirm_production"
+        ]
+      },
+      {
+        "id": "release_wave",
+        "objective": "Release only the exact feasible customer-order wave",
+        "depends_on": [
+          "prepare_distribution"
+        ]
+      },
+      {
+        "id": "assess_transport",
+        "objective": "Reconcile the blocked lane and all capacity-confirmed route quotes",
+        "depends_on": [
+          "release_wave"
+        ]
+      },
+      {
+        "id": "reroute",
+        "objective": "Execute the lowest-cost feasible route inside the customer promise",
+        "depends_on": [
+          "assess_transport"
+        ]
+      },
+      {
+        "id": "recognize_financial_impact",
+        "objective": "Reconcile and post the exact authoritative recovery reserve",
+        "depends_on": [
+          "reroute"
+        ]
+      },
+      {
+        "id": "communicate_and_close",
+        "objective": "Notify all eight functions and finish with record-level evidence",
+        "depends_on": [
+          "recognize_financial_impact"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-plant-recovery-002",
+    "version": "0.4.0",
+    "family": "plant_fulfillment_recovery",
+    "title": "Orchestrate a convergent factory recovery under expiring windows",
+    "prompt": "A production asset is down while laboratory disposition is pending, yet a contract-critical order must still be built, waved, and transported before its promise. The financial close team also needs the resulting recovery reserve. Work the public DAG rather than treating this as one linear incident: investigate quality and maintenance independently, converge their evidence, contain material and work, and secure qualified alternate production before the completion event. Continue through verified warehouse receipt, constrained wave release, optimal rerouting, and the dependent reserve journal. Do not skip predecessor executions or mutate an approved payload.",
+    "seed": 10502,
+    "difficulty": "expert",
+    "systems": [
+      "historian",
+      "QMS",
+      "CMMS",
+      "MES",
+      "APS",
+      "ERP-CO",
+      "WMS",
+      "TMS",
+      "CRM",
+      "financial-close"
+    ],
+    "max_tool_calls": 68,
+    "horizon_minutes": 160,
+    "tags": [
+      "mega-workflow",
+      "convergence-gate",
+      "deadline",
+      "distribution",
+      "customer-promise",
+      "reserve",
+      "authorization-lineage"
+    ],
+    "controlled_plan_actions": [
+      "contain affected production",
+      "reschedule to qualified line",
+      "release completed order",
+      "reroute constrained shipment",
+      "recognize recovery reserve",
+      "protect customer promise"
+    ],
+    "workflow_stages": [
+      {
+        "id": "quality_diagnosis",
+        "objective": "Resolve the authoritative quality branch and exact affected lot scope",
+        "depends_on": []
+      },
+      {
+        "id": "maintenance_diagnosis",
+        "objective": "Resolve the independent machine diagnosis and recovery duration",
+        "depends_on": []
+      },
+      {
+        "id": "converge_diagnostics",
+        "objective": "Reconcile both diagnostic branches before choosing production recovery",
+        "depends_on": [
+          "quality_diagnosis",
+          "maintenance_diagnosis"
+        ]
+      },
+      {
+        "id": "contain_material",
+        "objective": "Quarantine every failed lot without releasing any unsafe scope",
+        "depends_on": [
+          "converge_diagnostics"
+        ]
+      },
+      {
+        "id": "contain_work",
+        "objective": "Hold dependent work and open the exact maintenance response",
+        "depends_on": [
+          "converge_diagnostics"
+        ]
+      },
+      {
+        "id": "authorize_reschedule",
+        "objective": "Execute the qualified alternate-line decision before the production window",
+        "depends_on": [
+          "contain_material",
+          "contain_work"
+        ]
+      },
+      {
+        "id": "confirm_production",
+        "objective": "Observe completed recovery output and verify finished inventory",
+        "depends_on": [
+          "authorize_reschedule"
+        ]
+      },
+      {
+        "id": "prepare_distribution",
+        "objective": "Reconcile warehouse stock, order priority, labor, and truck capacity",
+        "depends_on": [
+          "confirm_production"
+        ]
+      },
+      {
+        "id": "release_wave",
+        "objective": "Release only the exact feasible customer-order wave",
+        "depends_on": [
+          "prepare_distribution"
+        ]
+      },
+      {
+        "id": "assess_transport",
+        "objective": "Reconcile the blocked lane and all capacity-confirmed route quotes",
+        "depends_on": [
+          "release_wave"
+        ]
+      },
+      {
+        "id": "reroute",
+        "objective": "Execute the lowest-cost feasible route inside the customer promise",
+        "depends_on": [
+          "assess_transport"
+        ]
+      },
+      {
+        "id": "recognize_financial_impact",
+        "objective": "Reconcile and post the exact authoritative recovery reserve",
+        "depends_on": [
+          "reroute"
+        ]
+      },
+      {
+        "id": "communicate_and_close",
+        "objective": "Notify all eight functions and finish with record-level evidence",
+        "depends_on": [
+          "recognize_financial_impact"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-001",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10701,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-002",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10702,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-003",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10703,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-004",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10704,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-005",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10705,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-006",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10706,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-007",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10707,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-contingent-network-008",
+    "version": "0.6.0",
+    "family": "contingent_network_recovery",
+    "title": "Reserve scarce capacity before a network disruption is revealed",
+    "prompt": "Own a distribution recovery decision under uncertainty. Reconcile the versioned operational records and commercial amendments. Commit a feasible common supplier reservation before the reservation window closes, with one whole-order recovery plan for each published disruption. Minimize worst-case total cost under the shared resource, service, timing, emissions, and cash constraints. After the disruption is revealed, execute your committed branch and post a reconciled ledger. Read the mandate for the artifact contract and scoring tolerance; the choice of optimization method is yours.",
+    "seed": 10708,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 100,
+    "horizon_minutes": 220,
+    "tags": [
+      "frontier",
+      "robust-optimization",
+      "irreversible-decision",
+      "real-world-exceptions",
+      "contingent-workflow"
+    ],
+    "workflow_stages": [
+      {
+        "id": "inventory",
+        "objective": "Inventory authoritative source files",
+        "depends_on": []
+      },
+      {
+        "id": "reconcile",
+        "objective": "Reconcile inventory ownership, duplicates, holds, and order status",
+        "depends_on": [
+          "inventory"
+        ]
+      },
+      {
+        "id": "refresh",
+        "objective": "Incorporate commercial revisions before committing",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "model",
+        "objective": "Model shared resources, whole orders, timing, and cash constraints",
+        "depends_on": [
+          "refresh"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Minimize worst-case cost across all published disruptions",
+        "depends_on": [
+          "model"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and commit one common capacity reservation before reveal",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "observe",
+        "objective": "Observe the realized disruption after commitment",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "execute",
+        "objective": "Execute the committed contingent branch",
+        "depends_on": [
+          "observe"
+        ]
+      },
+      {
+        "id": "account",
+        "objective": "Reconcile sunk fees, operating cost, and ledger accounts",
+        "depends_on": [
+          "execute"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Notify owners and finish with auditable evidence",
+        "depends_on": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-001",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40801,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-002",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40802,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-003",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40803,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-004",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40804,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-005",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40805,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-006",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40806,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-007",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40807,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-008",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40808,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-009",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40809,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-010",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40810,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-011",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40811,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-012",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40812,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-013",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40813,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-014",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40814,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-015",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40815,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faraday-workforce-016",
+    "version": "0.8.0-workforce.1",
+    "family": "contingent_network_recovery",
+    "title": "Resolve network disruption under certified-labor and treasury constraints",
+    "prompt": "Reconcile authoritative records and amendments, then commit one supplier reservation and a complete contingent recovery policy before the outcome is revealed. All eight scenarios must satisfy customer service floors and installation-kit coupling, alongside inventory, capacity, deadlines, emissions, and cash limits. Minimize worst-case total cost exactly; among ties minimize aggregate scenario cost. Account for nonlinear customer service credits and once-per-mode activation fees as well as order costs and reservation fees. After revelation execute the exact committed branch, reconcile the ledger, notify owners, and finish with evidence. Read the complete GRC contract; plausible independent order decisions are insufficient. Apply all scenario-specific contract overrides: customer qualification exclusions, emergency kit-split waivers, replacement service credits, minimum carrier dispatch loads and replacement activation fees. Base terms remain binding unless explicitly overridden. Also enforce shared certified-worker release capacity and same-day treasury prepayment limits. Payroll and tax reserves are protected. Do not count refundable deposits as costs or pool capacity across mutually exclusive scenarios.",
+    "seed": 40816,
+    "difficulty": "frontier",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "TMS",
+      "CRM",
+      "GRC"
+    ],
+    "max_tool_calls": 120,
+    "horizon_minutes": 220,
+    "tags": [
+      "coupled-frontier-v1",
+      "compound-disruptions",
+      "exact-optimization",
+      "customer-contracts",
+      "long-tail-contracts-v1",
+      "cross-functional-v1"
+    ],
+    "workflow_stages": [
+      {
+        "id": "reconcile",
+        "objective": "Reconcile final source versions and actual exceptions",
+        "depends_on": []
+      },
+      {
+        "id": "couple",
+        "objective": "Model installation kits, service floors, and nonlinear costs",
+        "depends_on": [
+          "reconcile"
+        ]
+      },
+      {
+        "id": "optimize",
+        "objective": "Optimize all eight branches with exact lexicographic objectives",
+        "depends_on": [
+          "couple"
+        ]
+      },
+      {
+        "id": "commit",
+        "objective": "Approve and reserve before uncertainty is revealed",
+        "depends_on": [
+          "optimize"
+        ]
+      },
+      {
+        "id": "realize",
+        "objective": "Observe disruption and execute the committed branch",
+        "depends_on": [
+          "commit"
+        ]
+      },
+      {
+        "id": "close",
+        "objective": "Reconcile accounting and communicate record evidence",
+        "depends_on": [
+          "realize"
+        ]
+      }
+    ]
+  }
+]

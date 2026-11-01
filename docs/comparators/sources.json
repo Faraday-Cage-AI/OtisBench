@@ -1,0 +1,206 @@
+{
+  "assessment_date": "2026-11-01",
+  "repositories": {
+    "assetops": {
+      "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+      "repository": "IBM/AssetOpsBench"
+    },
+    "benchcad": {
+      "commit": "77fd16a80a4e5fc39964ee23b6cc3225beefac8f",
+      "repository": "BenchCAD/BenchCAD-main"
+    },
+    "erp": {
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "repository": "agentic-labs/erp-bench"
+    },
+    "factory": {
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "repository": "blobfishai/factory-agent-simulation"
+    },
+    "neuralcad": {
+      "commit": "68d1acceda0743e364f45fb7823f7cf39c530ba5",
+      "repository": "AutodeskAILab/neuralCAD-Edit"
+    }
+  },
+  "schema": "comparative-sources/1",
+  "sources": [
+    {
+      "cache_file": "erp-readme.source",
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "id": "erp-readme",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/agentic-labs/erp-bench/ceba3880af555129b5278e056a0c20f2fb5a0ba9/README.md"
+    },
+    {
+      "cache_file": "erp-dataset.source",
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "id": "erp-dataset",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/agentic-labs/erp-bench/ceba3880af555129b5278e056a0c20f2fb5a0ba9/erp_bench/procurement/examples/diverse_300_dataset.toml"
+    },
+    {
+      "cache_file": "erp-solver.source",
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "id": "erp-solver",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/agentic-labs/erp-bench/ceba3880af555129b5278e056a0c20f2fb5a0ba9/erp_bench/procurement/solver.py"
+    },
+    {
+      "cache_file": "erp-runtime.source",
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "id": "erp-runtime",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/agentic-labs/erp-bench/ceba3880af555129b5278e056a0c20f2fb5a0ba9/tasks/2000_easy_01_buy_only_baseline/environment/Dockerfile"
+    },
+    {
+      "cache_file": "factory-readme.source",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-readme",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/blobfishai/factory-agent-simulation/f2253481cba6f9f2e423ec85c8378b432991ac88/README.md"
+    },
+    {
+      "cache_file": "factory-evaluation.source",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-evaluation",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/blobfishai/factory-agent-simulation/f2253481cba6f9f2e423ec85c8378b432991ac88/factorybench/evaluation.py"
+    },
+    {
+      "cache_file": "factory-pyproject.source",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-pyproject",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/blobfishai/factory-agent-simulation/f2253481cba6f9f2e423ec85c8378b432991ac88/pyproject.toml"
+    },
+    {
+      "cache_file": "factory-qualification.source",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-qualification",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/blobfishai/factory-agent-simulation/f2253481cba6f9f2e423ec85c8378b432991ac88/benchmark/factorybench100/reports/qualification.json"
+    },
+    {
+      "cache_file": "factory-model-manifest.source",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-model-manifest",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/blobfishai/factory-agent-simulation/f2253481cba6f9f2e423ec85c8378b432991ac88/benchmark/factorybench100/harbor/model-runs/gpt-5.6-luna-v3.3.5-full-100.json"
+    },
+    {
+      "cache_file": "assetops-readme.source",
+      "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+      "id": "assetops-readme",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/IBM/AssetOpsBench/e844f6468c6c68b328022e7ca8e31da140842cc7/README.md"
+    },
+    {
+      "cache_file": "assetops-tools.source",
+      "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+      "id": "assetops-tools",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/IBM/AssetOpsBench/e844f6468c6c68b328022e7ca8e31da140842cc7/docs/mcp-servers.md"
+    },
+    {
+      "cache_file": "assetops-scenarios.source",
+      "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+      "id": "assetops-scenarios",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/IBM/AssetOpsBench/e844f6468c6c68b328022e7ca8e31da140842cc7/src/couchdb/scenarios_data/default/manifest.json"
+    },
+    {
+      "cache_file": "neuralcad-readme.source",
+      "commit": "68d1acceda0743e364f45fb7823f7cf39c530ba5",
+      "id": "neuralcad-readme",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/AutodeskAILab/neuralCAD-Edit/68d1acceda0743e364f45fb7823f7cf39c530ba5/README.md"
+    },
+    {
+      "cache_file": "neuralcad-harness.source",
+      "commit": "68d1acceda0743e364f45fb7823f7cf39c530ba5",
+      "id": "neuralcad-harness",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/AutodeskAILab/neuralCAD-Edit/68d1acceda0743e364f45fb7823f7cf39c530ba5/src/harnesses/cadquery_script.py"
+    },
+    {
+      "cache_file": "benchcad-readme.source",
+      "commit": "77fd16a80a4e5fc39964ee23b6cc3225beefac8f",
+      "id": "benchcad-readme",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/BenchCAD/BenchCAD-main/77fd16a80a4e5fc39964ee23b6cc3225beefac8f/README.md"
+    },
+    {
+      "cache_file": "erp-tree.json",
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "id": "erp-tree",
+      "kind": "pinned_repository_tree",
+      "url": "https://api.github.com/repos/agentic-labs/erp-bench/git/trees/ceba3880af555129b5278e056a0c20f2fb5a0ba9?recursive=1"
+    },
+    {
+      "cache_file": "factory-tree.json",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-tree",
+      "kind": "pinned_repository_tree",
+      "url": "https://api.github.com/repos/blobfishai/factory-agent-simulation/git/trees/f2253481cba6f9f2e423ec85c8378b432991ac88?recursive=1"
+    },
+    {
+      "cache_file": "assetops-tree.json",
+      "commit": "e844f6468c6c68b328022e7ca8e31da140842cc7",
+      "id": "assetops-tree",
+      "kind": "pinned_repository_tree",
+      "url": "https://api.github.com/repos/IBM/AssetOpsBench/git/trees/e844f6468c6c68b328022e7ca8e31da140842cc7?recursive=1"
+    },
+    {
+      "cache_file": "neuralcad-tree.json",
+      "commit": "68d1acceda0743e364f45fb7823f7cf39c530ba5",
+      "id": "neuralcad-tree",
+      "kind": "pinned_repository_tree",
+      "url": "https://api.github.com/repos/AutodeskAILab/neuralCAD-Edit/git/trees/68d1acceda0743e364f45fb7823f7cf39c530ba5?recursive=1"
+    },
+    {
+      "cache_file": "benchcad-tree.json",
+      "commit": "77fd16a80a4e5fc39964ee23b6cc3225beefac8f",
+      "id": "benchcad-tree",
+      "kind": "pinned_repository_tree",
+      "url": "https://api.github.com/repos/BenchCAD/BenchCAD-main/git/trees/77fd16a80a4e5fc39964ee23b6cc3225beefac8f?recursive=1"
+    },
+    {
+      "cache_file": "benchcad-paper.source",
+      "id": "benchcad-paper",
+      "kind": "versioned_paper",
+      "url": "https://arxiv.org/html/2605.10865v2"
+    },
+    {
+      "cache_file": "neuralcad-project.source",
+      "id": "neuralcad-project",
+      "kind": "publisher_page",
+      "url": "https://autodeskailab.github.io/neuralCAD-Edit/"
+    },
+    {
+      "cache_file": "assetops-repository.source",
+      "id": "assetops-repository",
+      "kind": "publisher_metadata",
+      "url": "https://api.github.com/repos/IBM/AssetOpsBench"
+    },
+    {
+      "cache_file": "lark-article.source",
+      "id": "lark-article",
+      "kind": "publisher_page",
+      "url": "https://larkagents.com/blog/larkbench/article.html"
+    },
+    {
+      "cache_file": "factory-schema.source",
+      "commit": "f2253481cba6f9f2e423ec85c8378b432991ac88",
+      "id": "factory-schema",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/blobfishai/factory-agent-simulation/f2253481cba6f9f2e423ec85c8378b432991ac88/factorybench/schema.sql"
+    },
+    {
+      "cache_file": "erp-license.source",
+      "commit": "ceba3880af555129b5278e056a0c20f2fb5a0ba9",
+      "id": "erp-license",
+      "kind": "pinned_repository_file",
+      "url": "https://raw.githubusercontent.com/agentic-labs/erp-bench/ceba3880af555129b5278e056a0c20f2fb5a0ba9/LICENSE"
+    }
+  ]
+}

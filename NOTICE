@@ -1,0 +1,47 @@
+OtisBench
+Copyright Faraday contributors.
+
+OtisBench incorporates the Faraday Manufacturing Benchmark manufacturing engine,
+case catalogs and authored assets. Internal Python namespaces and versioned
+wire protocols retain their Faraday names for compatibility.
+
+Faraday Manufacturing Benchmark
+Copyright Faraday contributors.
+
+The manufacturing execution engine in src/faraday_industrial_benchmark and the
+selected execution tasks derive from Faraday Industrial Benchmark, revision
+370b7a2f927ed94c6ef4413823c4aafefab70971.
+https://github.com/Faraday-Cage-AI/faraday-industrial-benchmark
+Engine code: Apache License 2.0 (LICENSE). Task content: CC BY 4.0 (DATA_LICENSE).
+
+The optional ERP compatibility adapter loads selected ERP-Bench tasks from
+agentic-labs/erp-bench, revision ceba3880af555129b5278e056a0c20f2fb5a0ba9.
+https://github.com/agentic-labs/erp-bench
+The pinned upstream LICENSE declares CC0 1.0 Universal. Original instructions,
+scenario data, reference plans and verifiers retain explicit upstream provenance.
+They are downloaded into evaluator caches, not counted as new Faraday-authored
+cases. Odoo and other runtime software retain their respective licenses; no Odoo
+server code or Docker image is bundled in this Python package.
+
+The optional real hydraulic extension downloads the Condition monitoring of
+hydraulic systems dataset by Nikolai Helwig, Eliseo Pignanelli and Andreas
+Schuetze (2015), UCI Machine Learning Repository, DOI 10.24432/C5CW21.
+https://archive.ics.uci.edu/dataset/447/condition+monitoring+of+hydraulic+systems
+Dataset license: Creative Commons Attribution 4.0 International (CC BY 4.0).
+The raw source archive is pinned by SHA-256 in scripts/hydraulic_benchmark.py.
+Faraday's changes are physical-channel selection, summary features, grouped
+partitions, local baseline evaluation and reporting. The measurements and
+experimental condition labels remain upstream data, adding zero native cases.
+
+The optional visual inspection extension uses the Visual Anomaly (VisA) dataset
+from Yang Zou, Jongheon Jeong, Latha Pemula, Dongqing Zhang and Onkar Dabeer:
+SPot-the-Difference Self-Supervised Pre-training for Anomaly Detection and
+Segmentation, ECCV 2022. https://arxiv.org/abs/2207.14315
+https://github.com/amazon-science/spot-diff
+VisA images and masks: Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+Pinned source code/metadata snapshots retain their upstream Apache-2.0 notices.
+Faraday's modifications are RGB/mask resampling, opaque identifiers, grouped
+normal-only fit/calibration partitions, local statistical baselines and metrics.
+Original source images/masks are retained unchanged in optional caches. They
+are not bundled in the native wheel or counted as Faraday-authored workflows.

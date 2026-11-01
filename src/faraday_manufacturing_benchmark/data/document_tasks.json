@@ -1,0 +1,258 @@
+[
+  {
+    "draw": 0,
+    "family": "revision_effectivity",
+    "id": "doc-revision_effectivity-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 10691213755260166417
+  },
+  {
+    "draw": 0,
+    "family": "revision_effectivity",
+    "id": "doc-revision_effectivity-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 10691213755260166417
+  },
+  {
+    "draw": 1,
+    "family": "revision_effectivity",
+    "id": "doc-revision_effectivity-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 1778428208476906008
+  },
+  {
+    "draw": 1,
+    "family": "revision_effectivity",
+    "id": "doc-revision_effectivity-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 1778428208476906008
+  },
+  {
+    "draw": 0,
+    "family": "receiving_units",
+    "id": "doc-receiving_units-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 16288676092839345929
+  },
+  {
+    "draw": 0,
+    "family": "receiving_units",
+    "id": "doc-receiving_units-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 16288676092839345929
+  },
+  {
+    "draw": 1,
+    "family": "receiving_units",
+    "id": "doc-receiving_units-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 15327698211654915440
+  },
+  {
+    "draw": 1,
+    "family": "receiving_units",
+    "id": "doc-receiving_units-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 15327698211654915440
+  },
+  {
+    "draw": 0,
+    "family": "split_delivery",
+    "id": "doc-split_delivery-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 14260125783003277177
+  },
+  {
+    "draw": 0,
+    "family": "split_delivery",
+    "id": "doc-split_delivery-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 14260125783003277177
+  },
+  {
+    "draw": 1,
+    "family": "split_delivery",
+    "id": "doc-split_delivery-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 3518249817536410549
+  },
+  {
+    "draw": 1,
+    "family": "split_delivery",
+    "id": "doc-split_delivery-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 3518249817536410549
+  },
+  {
+    "draw": 0,
+    "family": "supplier_deviation",
+    "id": "doc-supplier_deviation-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 294320606136271344
+  },
+  {
+    "draw": 0,
+    "family": "supplier_deviation",
+    "id": "doc-supplier_deviation-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 294320606136271344
+  },
+  {
+    "draw": 1,
+    "family": "supplier_deviation",
+    "id": "doc-supplier_deviation-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 10536982286224099645
+  },
+  {
+    "draw": 1,
+    "family": "supplier_deviation",
+    "id": "doc-supplier_deviation-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 10536982286224099645
+  },
+  {
+    "draw": 0,
+    "family": "invoice_matching",
+    "id": "doc-invoice_matching-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 4449250972176913271
+  },
+  {
+    "draw": 0,
+    "family": "invoice_matching",
+    "id": "doc-invoice_matching-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 4449250972176913271
+  },
+  {
+    "draw": 1,
+    "family": "invoice_matching",
+    "id": "doc-invoice_matching-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 13389465659602158036
+  },
+  {
+    "draw": 1,
+    "family": "invoice_matching",
+    "id": "doc-invoice_matching-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 13389465659602158036
+  },
+  {
+    "draw": 0,
+    "family": "credit_duplicate",
+    "id": "doc-credit_duplicate-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 16343138770888348580
+  },
+  {
+    "draw": 0,
+    "family": "credit_duplicate",
+    "id": "doc-credit_duplicate-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 16343138770888348580
+  },
+  {
+    "draw": 1,
+    "family": "credit_duplicate",
+    "id": "doc-credit_duplicate-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 12834679933341014299
+  },
+  {
+    "draw": 1,
+    "family": "credit_duplicate",
+    "id": "doc-credit_duplicate-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 12834679933341014299
+  },
+  {
+    "draw": 0,
+    "family": "cross_shipment",
+    "id": "doc-cross_shipment-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 14911096451050319015
+  },
+  {
+    "draw": 0,
+    "family": "cross_shipment",
+    "id": "doc-cross_shipment-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 14911096451050319015
+  },
+  {
+    "draw": 1,
+    "family": "cross_shipment",
+    "id": "doc-cross_shipment-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 13709000030324587253
+  },
+  {
+    "draw": 1,
+    "family": "cross_shipment",
+    "id": "doc-cross_shipment-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 13709000030324587253
+  },
+  {
+    "draw": 0,
+    "family": "customs_release",
+    "id": "doc-customs_release-01-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 6850853516591392760
+  },
+  {
+    "draw": 0,
+    "family": "customs_release",
+    "id": "doc-customs_release-01-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 6850853516591392760
+  },
+  {
+    "draw": 1,
+    "family": "customs_release",
+    "id": "doc-customs_release-02-searchable_pdf",
+    "mode": "searchable_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 14402566737691814606
+  },
+  {
+    "draw": 1,
+    "family": "customs_release",
+    "id": "doc-customs_release-02-image_pdf",
+    "mode": "image_pdf",
+    "provenance": "synthetic-generated",
+    "seed": 14402566737691814606
+  }
+]

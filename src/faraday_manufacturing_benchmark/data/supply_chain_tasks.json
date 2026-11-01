@@ -1,0 +1,4283 @@
+[
+  {
+    "domain": "sourcing",
+    "family": "source_award",
+    "fields": {
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer",
+      "units": "integer"
+    },
+    "goal": "Award the complete requirement to one eligible supplier or record no feasible award.",
+    "horizon_minutes": 100,
+    "id": "supply-source_award-001",
+    "inputs": {
+      "due_day": 5,
+      "required_units": 100,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 8,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Supplier must be approved, unblocked, have enough capacity and arrive by due_day. Minimize quantity*unit_cents; break ties by supplier ID. If none qualifies, supplier_id and total_cents are null and units is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "sourcing",
+    "family": "source_award",
+    "fields": {
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer",
+      "units": "integer"
+    },
+    "goal": "Award the complete requirement to one eligible supplier or record no feasible award.",
+    "horizon_minutes": 100,
+    "id": "supply-source_award-002",
+    "inputs": {
+      "due_day": 5,
+      "required_units": 200,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 8,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Supplier must be approved, unblocked, have enough capacity and arrive by due_day. Minimize quantity*unit_cents; break ties by supplier ID. If none qualifies, supplier_id and total_cents are null and units is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "sourcing",
+    "family": "source_award",
+    "fields": {
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer",
+      "units": "integer"
+    },
+    "goal": "Award the complete requirement to one eligible supplier or record no feasible award.",
+    "horizon_minutes": 100,
+    "id": "supply-source_award-003",
+    "inputs": {
+      "due_day": 5,
+      "required_units": 140,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": true,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Supplier must be approved, unblocked, have enough capacity and arrive by due_day. Minimize quantity*unit_cents; break ties by supplier ID. If none qualifies, supplier_id and total_cents are null and units is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "sourcing",
+    "family": "source_award",
+    "fields": {
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer",
+      "units": "integer"
+    },
+    "goal": "Award the complete requirement to one eligible supplier or record no feasible award.",
+    "horizon_minutes": 100,
+    "id": "supply-source_award-004",
+    "inputs": {
+      "due_day": 5,
+      "required_units": 120,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 80,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": false,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 8,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Supplier must be approved, unblocked, have enough capacity and arrive by due_day. Minimize quantity*unit_cents; break ties by supplier ID. If none qualifies, supplier_id and total_cents are null and units is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "sourcing",
+    "family": "dual_source_allocation",
+    "fields": {
+      "allocation_units": "integer_array",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Allocate an exact requirement across suppliers under a concentration limit.",
+    "horizon_minutes": 100,
+    "id": "supply-dual_source_allocation-001",
+    "inputs": {
+      "due_day": 5,
+      "maximum_share_percent": 70,
+      "required_units": 200,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Use only approved, unblocked, on-time suppliers. Integer allocations in supplier list order must sum to required_units, fit capacities, and each be <= floor(required_units*maximum_share_percent/100). Minimize cost, then lexicographically smallest allocation vector. Return [] and null cost if infeasible.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "sourcing",
+    "family": "dual_source_allocation",
+    "fields": {
+      "allocation_units": "integer_array",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Allocate an exact requirement across suppliers under a concentration limit.",
+    "horizon_minutes": 100,
+    "id": "supply-dual_source_allocation-002",
+    "inputs": {
+      "due_day": 5,
+      "maximum_share_percent": 70,
+      "required_units": 270,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Use only approved, unblocked, on-time suppliers. Integer allocations in supplier list order must sum to required_units, fit capacities, and each be <= floor(required_units*maximum_share_percent/100). Minimize cost, then lexicographically smallest allocation vector. Return [] and null cost if infeasible.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "sourcing",
+    "family": "dual_source_allocation",
+    "fields": {
+      "allocation_units": "integer_array",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Allocate an exact requirement across suppliers under a concentration limit.",
+    "horizon_minutes": 100,
+    "id": "supply-dual_source_allocation-003",
+    "inputs": {
+      "due_day": 5,
+      "maximum_share_percent": 70,
+      "required_units": 350,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": true,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Use only approved, unblocked, on-time suppliers. Integer allocations in supplier list order must sum to required_units, fit capacities, and each be <= floor(required_units*maximum_share_percent/100). Minimize cost, then lexicographically smallest allocation vector. Return [] and null cost if infeasible.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "sourcing",
+    "family": "dual_source_allocation",
+    "fields": {
+      "allocation_units": "integer_array",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Allocate an exact requirement across suppliers under a concentration limit.",
+    "horizon_minutes": 100,
+    "id": "supply-dual_source_allocation-004",
+    "inputs": {
+      "due_day": 5,
+      "maximum_share_percent": 70,
+      "required_units": 180,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "id": "SUP-1",
+          "lead_days": 4,
+          "unit_cents": 70
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "id": "SUP-2",
+          "lead_days": 2,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Use only approved, unblocked, on-time suppliers. Integer allocations in supplier list order must sum to required_units, fit capacities, and each be <= floor(required_units*maximum_share_percent/100). Minimize cost, then lexicographically smallest allocation vector. Return [] and null cost if infeasible.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "sourcing",
+    "family": "landed_cost_award",
+    "fields": {
+      "duty_cents": "integer",
+      "goods_usd_cents": "integer",
+      "source": "string",
+      "total_cents": "integer"
+    },
+    "goal": "Choose the less expensive qualified domestic or imported purchase.",
+    "horizon_minutes": 100,
+    "id": "supply-landed_cost_award-001",
+    "inputs": {
+      "domestic_unit_cents": 130,
+      "duty_basis_points": 500,
+      "freight_cents": 2000,
+      "fx_microusd_per_currency": 1100000,
+      "import_unit_foreign_cents": 80,
+      "importer_qualified": true,
+      "insurance_cents": 300,
+      "required_units": 120
+    },
+    "max_tool_calls": 40,
+    "policy": "Convert the total foreign goods value to USD cents, rounding up once. Duty is ceil(converted goods*duty_basis_points/10000). Import landed cost adds freight and insurance; domestic cost is units*domestic_unit_cents. Compare only qualified options; domestic wins ties. Report goods_usd_cents and duty_cents for the selected source; domestic duty is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "sourcing",
+    "family": "landed_cost_award",
+    "fields": {
+      "duty_cents": "integer",
+      "goods_usd_cents": "integer",
+      "source": "string",
+      "total_cents": "integer"
+    },
+    "goal": "Choose the less expensive qualified domestic or imported purchase.",
+    "horizon_minutes": 100,
+    "id": "supply-landed_cost_award-002",
+    "inputs": {
+      "domestic_unit_cents": 130,
+      "duty_basis_points": 500,
+      "freight_cents": 2000,
+      "fx_microusd_per_currency": 1300000,
+      "import_unit_foreign_cents": 80,
+      "importer_qualified": true,
+      "insurance_cents": 300,
+      "required_units": 250
+    },
+    "max_tool_calls": 40,
+    "policy": "Convert the total foreign goods value to USD cents, rounding up once. Duty is ceil(converted goods*duty_basis_points/10000). Import landed cost adds freight and insurance; domestic cost is units*domestic_unit_cents. Compare only qualified options; domestic wins ties. Report goods_usd_cents and duty_cents for the selected source; domestic duty is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "sourcing",
+    "family": "landed_cost_award",
+    "fields": {
+      "duty_cents": "integer",
+      "goods_usd_cents": "integer",
+      "source": "string",
+      "total_cents": "integer"
+    },
+    "goal": "Choose the less expensive qualified domestic or imported purchase.",
+    "horizon_minutes": 100,
+    "id": "supply-landed_cost_award-003",
+    "inputs": {
+      "domestic_unit_cents": 130,
+      "duty_basis_points": 500,
+      "freight_cents": 2000,
+      "fx_microusd_per_currency": 900000,
+      "import_unit_foreign_cents": 80,
+      "importer_qualified": true,
+      "insurance_cents": 300,
+      "required_units": 80
+    },
+    "max_tool_calls": 40,
+    "policy": "Convert the total foreign goods value to USD cents, rounding up once. Duty is ceil(converted goods*duty_basis_points/10000). Import landed cost adds freight and insurance; domestic cost is units*domestic_unit_cents. Compare only qualified options; domestic wins ties. Report goods_usd_cents and duty_cents for the selected source; domestic duty is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "sourcing",
+    "family": "landed_cost_award",
+    "fields": {
+      "duty_cents": "integer",
+      "goods_usd_cents": "integer",
+      "source": "string",
+      "total_cents": "integer"
+    },
+    "goal": "Choose the less expensive qualified domestic or imported purchase.",
+    "horizon_minutes": 100,
+    "id": "supply-landed_cost_award-004",
+    "inputs": {
+      "domestic_unit_cents": 130,
+      "duty_basis_points": 500,
+      "freight_cents": 2000,
+      "fx_microusd_per_currency": 1100000,
+      "import_unit_foreign_cents": 80,
+      "importer_qualified": false,
+      "insurance_cents": 300,
+      "required_units": 300
+    },
+    "max_tool_calls": 40,
+    "policy": "Convert the total foreign goods value to USD cents, rounding up once. Duty is ceil(converted goods*duty_basis_points/10000). Import landed cost adds freight and insurance; domestic cost is units*domestic_unit_cents. Compare only qualified options; domestic wins ties. Report goods_usd_cents and duty_cents for the selected source; domestic duty is zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "purchasing",
+    "family": "quantity_break_buy",
+    "fields": {
+      "buy_units": "nullable_integer",
+      "invoice_cents": "nullable_integer",
+      "objective_cents": "nullable_integer"
+    },
+    "goal": "Choose a pack-multiple purchase quantity accounting for all-units discounts and excess stock.",
+    "horizon_minutes": 100,
+    "id": "supply-quantity_break_buy-001",
+    "inputs": {
+      "excess_unit_cost_cents": 0,
+      "maximum_units": 250,
+      "minimum_units": 50,
+      "pack_units": 10,
+      "required_units": 95,
+      "tiers": [
+        {
+          "minimum_units": 0,
+          "unit_cents": 120
+        },
+        {
+          "minimum_units": 100,
+          "unit_cents": 100
+        },
+        {
+          "minimum_units": 200,
+          "unit_cents": 85
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Buy at least demand and MOQ, at most maximum_units. All units receive the tier with the greatest applicable minimum_units. Minimize invoice cost plus (buy-required)*excess_unit_cost_cents, then smaller quantity. If infeasible return null quantities and costs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "purchasing",
+    "family": "quantity_break_buy",
+    "fields": {
+      "buy_units": "nullable_integer",
+      "invoice_cents": "nullable_integer",
+      "objective_cents": "nullable_integer"
+    },
+    "goal": "Choose a pack-multiple purchase quantity accounting for all-units discounts and excess stock.",
+    "horizon_minutes": 100,
+    "id": "supply-quantity_break_buy-002",
+    "inputs": {
+      "excess_unit_cost_cents": 40,
+      "maximum_units": 250,
+      "minimum_units": 50,
+      "pack_units": 10,
+      "required_units": 101,
+      "tiers": [
+        {
+          "minimum_units": 0,
+          "unit_cents": 120
+        },
+        {
+          "minimum_units": 100,
+          "unit_cents": 100
+        },
+        {
+          "minimum_units": 200,
+          "unit_cents": 85
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Buy at least demand and MOQ, at most maximum_units. All units receive the tier with the greatest applicable minimum_units. Minimize invoice cost plus (buy-required)*excess_unit_cost_cents, then smaller quantity. If infeasible return null quantities and costs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "purchasing",
+    "family": "quantity_break_buy",
+    "fields": {
+      "buy_units": "nullable_integer",
+      "invoice_cents": "nullable_integer",
+      "objective_cents": "nullable_integer"
+    },
+    "goal": "Choose a pack-multiple purchase quantity accounting for all-units discounts and excess stock.",
+    "horizon_minutes": 100,
+    "id": "supply-quantity_break_buy-003",
+    "inputs": {
+      "excess_unit_cost_cents": 90,
+      "maximum_units": 200,
+      "minimum_units": 50,
+      "pack_units": 10,
+      "required_units": 190,
+      "tiers": [
+        {
+          "minimum_units": 0,
+          "unit_cents": 120
+        },
+        {
+          "minimum_units": 100,
+          "unit_cents": 100
+        },
+        {
+          "minimum_units": 200,
+          "unit_cents": 85
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Buy at least demand and MOQ, at most maximum_units. All units receive the tier with the greatest applicable minimum_units. Minimize invoice cost plus (buy-required)*excess_unit_cost_cents, then smaller quantity. If infeasible return null quantities and costs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "purchasing",
+    "family": "quantity_break_buy",
+    "fields": {
+      "buy_units": "nullable_integer",
+      "invoice_cents": "nullable_integer",
+      "objective_cents": "nullable_integer"
+    },
+    "goal": "Choose a pack-multiple purchase quantity accounting for all-units discounts and excess stock.",
+    "horizon_minutes": 100,
+    "id": "supply-quantity_break_buy-004",
+    "inputs": {
+      "excess_unit_cost_cents": 25,
+      "maximum_units": 90,
+      "minimum_units": 50,
+      "pack_units": 10,
+      "required_units": 51,
+      "tiers": [
+        {
+          "minimum_units": 0,
+          "unit_cents": 120
+        },
+        {
+          "minimum_units": 100,
+          "unit_cents": 100
+        },
+        {
+          "minimum_units": 200,
+          "unit_cents": 85
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Buy at least demand and MOQ, at most maximum_units. All units receive the tier with the greatest applicable minimum_units. Minimize invoice cost plus (buy-required)*excess_unit_cost_cents, then smaller quantity. If infeasible return null quantities and costs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "purchasing",
+    "family": "moq_pack_netting",
+    "fields": {
+      "buy_units": "integer",
+      "net_units": "integer",
+      "packs": "integer"
+    },
+    "goal": "Net a material requirement and create a minimum-order, pack-compliant buy.",
+    "horizon_minutes": 100,
+    "id": "supply-moq_pack_netting-001",
+    "inputs": {
+      "confirmed_inbound_units": 20,
+      "gross_need_units": 135,
+      "held_units": 100,
+      "minimum_units": 50,
+      "pack_units": 24,
+      "released_onhand_units": 40,
+      "safety_units": 15
+    },
+    "max_tool_calls": 40,
+    "policy": "Net=max(0,gross need+safety-released onhand-confirmed inbound). Held stock cannot offset need. If net is zero buy zero; otherwise round max(net,MOQ) up to packs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "purchasing",
+    "family": "moq_pack_netting",
+    "fields": {
+      "buy_units": "integer",
+      "net_units": "integer",
+      "packs": "integer"
+    },
+    "goal": "Net a material requirement and create a minimum-order, pack-compliant buy.",
+    "horizon_minutes": 100,
+    "id": "supply-moq_pack_netting-002",
+    "inputs": {
+      "confirmed_inbound_units": 0,
+      "gross_need_units": 240,
+      "held_units": 100,
+      "minimum_units": 50,
+      "pack_units": 24,
+      "released_onhand_units": 40,
+      "safety_units": 15
+    },
+    "max_tool_calls": 40,
+    "policy": "Net=max(0,gross need+safety-released onhand-confirmed inbound). Held stock cannot offset need. If net is zero buy zero; otherwise round max(net,MOQ) up to packs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "purchasing",
+    "family": "moq_pack_netting",
+    "fields": {
+      "buy_units": "integer",
+      "net_units": "integer",
+      "packs": "integer"
+    },
+    "goal": "Net a material requirement and create a minimum-order, pack-compliant buy.",
+    "horizon_minutes": 100,
+    "id": "supply-moq_pack_netting-003",
+    "inputs": {
+      "confirmed_inbound_units": 60,
+      "gross_need_units": 80,
+      "held_units": 100,
+      "minimum_units": 50,
+      "pack_units": 24,
+      "released_onhand_units": 40,
+      "safety_units": 15
+    },
+    "max_tool_calls": 40,
+    "policy": "Net=max(0,gross need+safety-released onhand-confirmed inbound). Held stock cannot offset need. If net is zero buy zero; otherwise round max(net,MOQ) up to packs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "purchasing",
+    "family": "moq_pack_netting",
+    "fields": {
+      "buy_units": "integer",
+      "net_units": "integer",
+      "packs": "integer"
+    },
+    "goal": "Net a material requirement and create a minimum-order, pack-compliant buy.",
+    "horizon_minutes": 100,
+    "id": "supply-moq_pack_netting-004",
+    "inputs": {
+      "confirmed_inbound_units": 20,
+      "gross_need_units": 340,
+      "held_units": 100,
+      "minimum_units": 50,
+      "pack_units": 24,
+      "released_onhand_units": 40,
+      "safety_units": 15
+    },
+    "max_tool_calls": 40,
+    "policy": "Net=max(0,gross need+safety-released onhand-confirmed inbound). Held stock cannot offset need. If net is zero buy zero; otherwise round max(net,MOQ) up to packs.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "purchasing",
+    "family": "blanket_release",
+    "fields": {
+      "cost_cents": "integer",
+      "escalate": "boolean",
+      "release_units": "integer",
+      "remaining_units": "integer"
+    },
+    "goal": "Release against a blanket agreement only within remaining quantity, value and validity.",
+    "horizon_minutes": 100,
+    "id": "supply-blanket_release-001",
+    "inputs": {
+      "contract_spend_cents": 50000,
+      "contract_units": 500,
+      "expiry_day": 20,
+      "pack_units": 10,
+      "release_day": 10,
+      "released_units": 350,
+      "required_units": 80,
+      "spent_cents": 35000,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Required quantity is indivisible. Release only if it is pack compliant, the release day is no later than expiry, and remaining units and spend both cover it. Otherwise release zero and set escalate true. Report remaining contract units after this action.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "purchasing",
+    "family": "blanket_release",
+    "fields": {
+      "cost_cents": "integer",
+      "escalate": "boolean",
+      "release_units": "integer",
+      "remaining_units": "integer"
+    },
+    "goal": "Release against a blanket agreement only within remaining quantity, value and validity.",
+    "horizon_minutes": 100,
+    "id": "supply-blanket_release-002",
+    "inputs": {
+      "contract_spend_cents": 50000,
+      "contract_units": 500,
+      "expiry_day": 20,
+      "pack_units": 10,
+      "release_day": 10,
+      "released_units": 350,
+      "required_units": 220,
+      "spent_cents": 35000,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Required quantity is indivisible. Release only if it is pack compliant, the release day is no later than expiry, and remaining units and spend both cover it. Otherwise release zero and set escalate true. Report remaining contract units after this action.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "purchasing",
+    "family": "blanket_release",
+    "fields": {
+      "cost_cents": "integer",
+      "escalate": "boolean",
+      "release_units": "integer",
+      "remaining_units": "integer"
+    },
+    "goal": "Release against a blanket agreement only within remaining quantity, value and validity.",
+    "horizon_minutes": 100,
+    "id": "supply-blanket_release-003",
+    "inputs": {
+      "contract_spend_cents": 50000,
+      "contract_units": 500,
+      "expiry_day": 20,
+      "pack_units": 10,
+      "release_day": 10,
+      "released_units": 450,
+      "required_units": 100,
+      "spent_cents": 35000,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Required quantity is indivisible. Release only if it is pack compliant, the release day is no later than expiry, and remaining units and spend both cover it. Otherwise release zero and set escalate true. Report remaining contract units after this action.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "purchasing",
+    "family": "blanket_release",
+    "fields": {
+      "cost_cents": "integer",
+      "escalate": "boolean",
+      "release_units": "integer",
+      "remaining_units": "integer"
+    },
+    "goal": "Release against a blanket agreement only within remaining quantity, value and validity.",
+    "horizon_minutes": 100,
+    "id": "supply-blanket_release-004",
+    "inputs": {
+      "contract_spend_cents": 50000,
+      "contract_units": 500,
+      "expiry_day": 20,
+      "pack_units": 10,
+      "release_day": 21,
+      "released_units": 440,
+      "required_units": 60,
+      "spent_cents": 35000,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Required quantity is indivisible. Release only if it is pack compliant, the release day is no later than expiry, and remaining units and spend both cover it. Otherwise release zero and set escalate true. Report remaining contract units after this action.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "purchasing",
+    "family": "po_amendment",
+    "fields": {
+      "approved": "boolean",
+      "commitment_cents": "integer",
+      "open_units": "integer",
+      "total_units": "integer"
+    },
+    "goal": "Amend a purchase order without canceling already received units or exceeding delegated value.",
+    "horizon_minutes": 100,
+    "id": "supply-po_amendment-001",
+    "inputs": {
+      "approval_limit_cents": 25000,
+      "change_fee_cents": 1500,
+      "original_units": 200,
+      "received_units": 80,
+      "requested_total_units": 150,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "A new total below received quantity is invalid. Commitment=new total*unit price+change fee, including sunk receipts. Approve only within approval_limit_cents. On rejection retain original quantity, open quantity and original commitment with no change fee.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "purchasing",
+    "family": "po_amendment",
+    "fields": {
+      "approved": "boolean",
+      "commitment_cents": "integer",
+      "open_units": "integer",
+      "total_units": "integer"
+    },
+    "goal": "Amend a purchase order without canceling already received units or exceeding delegated value.",
+    "horizon_minutes": 100,
+    "id": "supply-po_amendment-002",
+    "inputs": {
+      "approval_limit_cents": 25000,
+      "change_fee_cents": 1500,
+      "original_units": 200,
+      "received_units": 120,
+      "requested_total_units": 100,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "A new total below received quantity is invalid. Commitment=new total*unit price+change fee, including sunk receipts. Approve only within approval_limit_cents. On rejection retain original quantity, open quantity and original commitment with no change fee.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "purchasing",
+    "family": "po_amendment",
+    "fields": {
+      "approved": "boolean",
+      "commitment_cents": "integer",
+      "open_units": "integer",
+      "total_units": "integer"
+    },
+    "goal": "Amend a purchase order without canceling already received units or exceeding delegated value.",
+    "horizon_minutes": 100,
+    "id": "supply-po_amendment-003",
+    "inputs": {
+      "approval_limit_cents": 25000,
+      "change_fee_cents": 1500,
+      "original_units": 200,
+      "received_units": 80,
+      "requested_total_units": 240,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "A new total below received quantity is invalid. Commitment=new total*unit price+change fee, including sunk receipts. Approve only within approval_limit_cents. On rejection retain original quantity, open quantity and original commitment with no change fee.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "purchasing",
+    "family": "po_amendment",
+    "fields": {
+      "approved": "boolean",
+      "commitment_cents": "integer",
+      "open_units": "integer",
+      "total_units": "integer"
+    },
+    "goal": "Amend a purchase order without canceling already received units or exceeding delegated value.",
+    "horizon_minutes": 100,
+    "id": "supply-po_amendment-004",
+    "inputs": {
+      "approval_limit_cents": 10000,
+      "change_fee_cents": 1500,
+      "original_units": 200,
+      "received_units": 80,
+      "requested_total_units": 150,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "A new total below received quantity is invalid. Commitment=new total*unit price+change fee, including sunk receipts. Approve only within approval_limit_cents. On rejection retain original quantity, open quantity and original commitment with no change fee.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "supply_planning",
+    "family": "expedite_recovery",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "lane_id": "nullable_string",
+      "purchase_units": "integer",
+      "unresolved_units": "integer"
+    },
+    "goal": "Recover a material shortage using a qualified on-time lane within the recovery budget.",
+    "horizon_minutes": 100,
+    "id": "supply-expedite_recovery-001",
+    "inputs": {
+      "budget_cents": 20000,
+      "due_day": 5,
+      "options": [
+        {
+          "arrival_day": 7,
+          "capacity_units": 200,
+          "fixed_cents": 0,
+          "id": "LANE-1",
+          "qualified": true,
+          "unit_cents": 90
+        },
+        {
+          "arrival_day": 3,
+          "capacity_units": 100,
+          "fixed_cents": 2000,
+          "id": "LANE-2",
+          "qualified": true,
+          "unit_cents": 110
+        },
+        {
+          "arrival_day": 4,
+          "capacity_units": 150,
+          "fixed_cents": 1000,
+          "id": "LANE-3",
+          "qualified": true,
+          "unit_cents": 120
+        }
+      ],
+      "required_units": 100,
+      "stock_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "Shortage=max(0,required-stock). Choose one qualified lane with enough capacity and arrival<=due; cost=shortage*unit_cents+fixed_cents must fit budget. Minimize cost then lane ID. If none, lane_id null and cost null; report unresolved shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "supply_planning",
+    "family": "expedite_recovery",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "lane_id": "nullable_string",
+      "purchase_units": "integer",
+      "unresolved_units": "integer"
+    },
+    "goal": "Recover a material shortage using a qualified on-time lane within the recovery budget.",
+    "horizon_minutes": 100,
+    "id": "supply-expedite_recovery-002",
+    "inputs": {
+      "budget_cents": 20000,
+      "due_day": 3,
+      "options": [
+        {
+          "arrival_day": 7,
+          "capacity_units": 200,
+          "fixed_cents": 0,
+          "id": "LANE-1",
+          "qualified": true,
+          "unit_cents": 90
+        },
+        {
+          "arrival_day": 3,
+          "capacity_units": 100,
+          "fixed_cents": 2000,
+          "id": "LANE-2",
+          "qualified": true,
+          "unit_cents": 110
+        },
+        {
+          "arrival_day": 4,
+          "capacity_units": 150,
+          "fixed_cents": 1000,
+          "id": "LANE-3",
+          "qualified": true,
+          "unit_cents": 120
+        }
+      ],
+      "required_units": 130,
+      "stock_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "Shortage=max(0,required-stock). Choose one qualified lane with enough capacity and arrival<=due; cost=shortage*unit_cents+fixed_cents must fit budget. Minimize cost then lane ID. If none, lane_id null and cost null; report unresolved shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "supply_planning",
+    "family": "expedite_recovery",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "lane_id": "nullable_string",
+      "purchase_units": "integer",
+      "unresolved_units": "integer"
+    },
+    "goal": "Recover a material shortage using a qualified on-time lane within the recovery budget.",
+    "horizon_minutes": 100,
+    "id": "supply-expedite_recovery-003",
+    "inputs": {
+      "budget_cents": 20000,
+      "due_day": 5,
+      "options": [
+        {
+          "arrival_day": 7,
+          "capacity_units": 200,
+          "fixed_cents": 0,
+          "id": "LANE-1",
+          "qualified": true,
+          "unit_cents": 90
+        },
+        {
+          "arrival_day": 3,
+          "capacity_units": 100,
+          "fixed_cents": 2000,
+          "id": "LANE-2",
+          "qualified": false,
+          "unit_cents": 110
+        },
+        {
+          "arrival_day": 4,
+          "capacity_units": 150,
+          "fixed_cents": 1000,
+          "id": "LANE-3",
+          "qualified": true,
+          "unit_cents": 120
+        }
+      ],
+      "required_units": 100,
+      "stock_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "Shortage=max(0,required-stock). Choose one qualified lane with enough capacity and arrival<=due; cost=shortage*unit_cents+fixed_cents must fit budget. Minimize cost then lane ID. If none, lane_id null and cost null; report unresolved shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "supply_planning",
+    "family": "expedite_recovery",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "lane_id": "nullable_string",
+      "purchase_units": "integer",
+      "unresolved_units": "integer"
+    },
+    "goal": "Recover a material shortage using a qualified on-time lane within the recovery budget.",
+    "horizon_minutes": 100,
+    "id": "supply-expedite_recovery-004",
+    "inputs": {
+      "budget_cents": 8000,
+      "due_day": 5,
+      "options": [
+        {
+          "arrival_day": 7,
+          "capacity_units": 200,
+          "fixed_cents": 0,
+          "id": "LANE-1",
+          "qualified": true,
+          "unit_cents": 90
+        },
+        {
+          "arrival_day": 3,
+          "capacity_units": 100,
+          "fixed_cents": 2000,
+          "id": "LANE-2",
+          "qualified": true,
+          "unit_cents": 110
+        },
+        {
+          "arrival_day": 4,
+          "capacity_units": 150,
+          "fixed_cents": 1000,
+          "id": "LANE-3",
+          "qualified": true,
+          "unit_cents": 120
+        }
+      ],
+      "required_units": 100,
+      "stock_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "Shortage=max(0,required-stock). Choose one qualified lane with enough capacity and arrival<=due; cost=shortage*unit_cents+fixed_cents must fit budget. Minimize cost then lane ID. If none, lane_id null and cost null; report unresolved shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "network_planning",
+    "family": "interplant_transfer",
+    "fields": {
+      "cost_cents": "integer",
+      "transfer_units": "integer_array",
+      "unresolved_units": "integer"
+    },
+    "goal": "Transfer stock without consuming donor reservations or safety stock.",
+    "horizon_minutes": 100,
+    "id": "supply-interplant_transfer-001",
+    "inputs": {
+      "destination_stock": 10,
+      "due_day": 4,
+      "plants": [
+        {
+          "id": "PLANT-1",
+          "released_units": 80,
+          "reserved_units": 20,
+          "safety_units": 10,
+          "transfer_cents_unit": 30,
+          "transit_days": 2
+        },
+        {
+          "id": "PLANT-2",
+          "released_units": 100,
+          "reserved_units": 10,
+          "safety_units": 20,
+          "transfer_cents_unit": 20,
+          "transit_days": 3
+        }
+      ],
+      "required_units": 60
+    },
+    "max_tool_calls": 40,
+    "policy": "Available donor units=max(0,released-reserved-safety); ignore donors arriving after due_day. In integer units minimize unresolved shortage first, then transfer cost, then lexicographic allocation in plant order. Never exceed destination shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "network_planning",
+    "family": "interplant_transfer",
+    "fields": {
+      "cost_cents": "integer",
+      "transfer_units": "integer_array",
+      "unresolved_units": "integer"
+    },
+    "goal": "Transfer stock without consuming donor reservations or safety stock.",
+    "horizon_minutes": 100,
+    "id": "supply-interplant_transfer-002",
+    "inputs": {
+      "destination_stock": 10,
+      "due_day": 4,
+      "plants": [
+        {
+          "id": "PLANT-1",
+          "released_units": 80,
+          "reserved_units": 20,
+          "safety_units": 10,
+          "transfer_cents_unit": 30,
+          "transit_days": 2
+        },
+        {
+          "id": "PLANT-2",
+          "released_units": 100,
+          "reserved_units": 10,
+          "safety_units": 20,
+          "transfer_cents_unit": 20,
+          "transit_days": 3
+        }
+      ],
+      "required_units": 120
+    },
+    "max_tool_calls": 40,
+    "policy": "Available donor units=max(0,released-reserved-safety); ignore donors arriving after due_day. In integer units minimize unresolved shortage first, then transfer cost, then lexicographic allocation in plant order. Never exceed destination shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "network_planning",
+    "family": "interplant_transfer",
+    "fields": {
+      "cost_cents": "integer",
+      "transfer_units": "integer_array",
+      "unresolved_units": "integer"
+    },
+    "goal": "Transfer stock without consuming donor reservations or safety stock.",
+    "horizon_minutes": 100,
+    "id": "supply-interplant_transfer-003",
+    "inputs": {
+      "destination_stock": 10,
+      "due_day": 4,
+      "plants": [
+        {
+          "id": "PLANT-1",
+          "released_units": 80,
+          "reserved_units": 20,
+          "safety_units": 10,
+          "transfer_cents_unit": 30,
+          "transit_days": 2
+        },
+        {
+          "id": "PLANT-2",
+          "released_units": 100,
+          "reserved_units": 10,
+          "safety_units": 20,
+          "transfer_cents_unit": 20,
+          "transit_days": 5
+        }
+      ],
+      "required_units": 40
+    },
+    "max_tool_calls": 40,
+    "policy": "Available donor units=max(0,released-reserved-safety); ignore donors arriving after due_day. In integer units minimize unresolved shortage first, then transfer cost, then lexicographic allocation in plant order. Never exceed destination shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "network_planning",
+    "family": "interplant_transfer",
+    "fields": {
+      "cost_cents": "integer",
+      "transfer_units": "integer_array",
+      "unresolved_units": "integer"
+    },
+    "goal": "Transfer stock without consuming donor reservations or safety stock.",
+    "horizon_minutes": 100,
+    "id": "supply-interplant_transfer-004",
+    "inputs": {
+      "destination_stock": 10,
+      "due_day": 4,
+      "plants": [
+        {
+          "id": "PLANT-1",
+          "released_units": 80,
+          "reserved_units": 20,
+          "safety_units": 10,
+          "transfer_cents_unit": 30,
+          "transit_days": 2
+        },
+        {
+          "id": "PLANT-2",
+          "released_units": 100,
+          "reserved_units": 10,
+          "safety_units": 20,
+          "transfer_cents_unit": 20,
+          "transit_days": 3
+        }
+      ],
+      "required_units": 180
+    },
+    "max_tool_calls": 40,
+    "policy": "Available donor units=max(0,released-reserved-safety); ignore donors arriving after due_day. In integer units minimize unresolved shortage first, then transfer cost, then lexicographic allocation in plant order. Never exceed destination shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "inventory_planning",
+    "family": "reorder_safety_stock",
+    "fields": {
+      "buy_units": "integer",
+      "inventory_position_units": "integer",
+      "reorder_point_units": "integer",
+      "safety_units": "integer"
+    },
+    "goal": "Compute safety stock, reorder point and a pack-compliant replenishment.",
+    "horizon_minutes": 100,
+    "id": "supply-reorder_safety_stock-001",
+    "inputs": {
+      "backorder_units": 0,
+      "lead_days": 5,
+      "mean_units_day": 20,
+      "onhand_units": 70,
+      "open_po_units": 100,
+      "order_up_to_units": 300,
+      "pack_units": 20,
+      "service_z": 1.65,
+      "sigma_units_day": 4
+    },
+    "max_tool_calls": 40,
+    "policy": "Assume independent daily demand and constant lead time. Safety=ceil(z*sigma*sqrt(lead days)); ROP=ceil(mean*lead+safety). Position=onhand+open POs-backorders. Reorder if position<=ROP, up to order_up_to rounded to packs; otherwise zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "inventory_planning",
+    "family": "reorder_safety_stock",
+    "fields": {
+      "buy_units": "integer",
+      "inventory_position_units": "integer",
+      "reorder_point_units": "integer",
+      "safety_units": "integer"
+    },
+    "goal": "Compute safety stock, reorder point and a pack-compliant replenishment.",
+    "horizon_minutes": 100,
+    "id": "supply-reorder_safety_stock-002",
+    "inputs": {
+      "backorder_units": 0,
+      "lead_days": 5,
+      "mean_units_day": 20,
+      "onhand_units": 70,
+      "open_po_units": 0,
+      "order_up_to_units": 300,
+      "pack_units": 20,
+      "service_z": 1.65,
+      "sigma_units_day": 12
+    },
+    "max_tool_calls": 40,
+    "policy": "Assume independent daily demand and constant lead time. Safety=ceil(z*sigma*sqrt(lead days)); ROP=ceil(mean*lead+safety). Position=onhand+open POs-backorders. Reorder if position<=ROP, up to order_up_to rounded to packs; otherwise zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "inventory_planning",
+    "family": "reorder_safety_stock",
+    "fields": {
+      "buy_units": "integer",
+      "inventory_position_units": "integer",
+      "reorder_point_units": "integer",
+      "safety_units": "integer"
+    },
+    "goal": "Compute safety stock, reorder point and a pack-compliant replenishment.",
+    "horizon_minutes": 100,
+    "id": "supply-reorder_safety_stock-003",
+    "inputs": {
+      "backorder_units": 0,
+      "lead_days": 10,
+      "mean_units_day": 20,
+      "onhand_units": 70,
+      "open_po_units": 100,
+      "order_up_to_units": 300,
+      "pack_units": 20,
+      "service_z": 1.65,
+      "sigma_units_day": 4
+    },
+    "max_tool_calls": 40,
+    "policy": "Assume independent daily demand and constant lead time. Safety=ceil(z*sigma*sqrt(lead days)); ROP=ceil(mean*lead+safety). Position=onhand+open POs-backorders. Reorder if position<=ROP, up to order_up_to rounded to packs; otherwise zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "inventory_planning",
+    "family": "reorder_safety_stock",
+    "fields": {
+      "buy_units": "integer",
+      "inventory_position_units": "integer",
+      "reorder_point_units": "integer",
+      "safety_units": "integer"
+    },
+    "goal": "Compute safety stock, reorder point and a pack-compliant replenishment.",
+    "horizon_minutes": 100,
+    "id": "supply-reorder_safety_stock-004",
+    "inputs": {
+      "backorder_units": 120,
+      "lead_days": 5,
+      "mean_units_day": 20,
+      "onhand_units": 70,
+      "open_po_units": 100,
+      "order_up_to_units": 300,
+      "pack_units": 20,
+      "service_z": 1.65,
+      "sigma_units_day": 4
+    },
+    "max_tool_calls": 40,
+    "policy": "Assume independent daily demand and constant lead time. Safety=ceil(z*sigma*sqrt(lead days)); ROP=ceil(mean*lead+safety). Position=onhand+open POs-backorders. Reorder if position<=ROP, up to order_up_to rounded to packs; otherwise zero.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "supply_planning",
+    "family": "time_phased_netting",
+    "fields": {
+      "projected_units": "integer_array",
+      "receipts_units": "integer_array",
+      "release_periods": "integer_array"
+    },
+    "goal": "Create time-phased replenishment without treating late receipts as opening stock.",
+    "horizon_minutes": 100,
+    "id": "supply-time_phased_netting-001",
+    "inputs": {
+      "demand_units": [
+        40,
+        10,
+        60,
+        20
+      ],
+      "lead_periods": 1,
+      "opening_units": 30,
+      "pack_units": 25,
+      "safety_units": 10,
+      "scheduled_receipts_units": [
+        0,
+        40,
+        0,
+        0
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "At each zero-based period receive scheduled supply, then consume demand. If below safety, add the smallest pack-multiple receipt restoring safety. Release period=receipt period-lead; retain negative periods to expose past-due releases. Return release_periods only for nonzero planned receipts, in receipt-period order.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "supply_planning",
+    "family": "time_phased_netting",
+    "fields": {
+      "projected_units": "integer_array",
+      "receipts_units": "integer_array",
+      "release_periods": "integer_array"
+    },
+    "goal": "Create time-phased replenishment without treating late receipts as opening stock.",
+    "horizon_minutes": 100,
+    "id": "supply-time_phased_netting-002",
+    "inputs": {
+      "demand_units": [
+        0,
+        90,
+        0,
+        90
+      ],
+      "lead_periods": 2,
+      "opening_units": 30,
+      "pack_units": 25,
+      "safety_units": 10,
+      "scheduled_receipts_units": [
+        0,
+        40,
+        0,
+        0
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "At each zero-based period receive scheduled supply, then consume demand. If below safety, add the smallest pack-multiple receipt restoring safety. Release period=receipt period-lead; retain negative periods to expose past-due releases. Return release_periods only for nonzero planned receipts, in receipt-period order.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "supply_planning",
+    "family": "time_phased_netting",
+    "fields": {
+      "projected_units": "integer_array",
+      "receipts_units": "integer_array",
+      "release_periods": "integer_array"
+    },
+    "goal": "Create time-phased replenishment without treating late receipts as opening stock.",
+    "horizon_minutes": 100,
+    "id": "supply-time_phased_netting-003",
+    "inputs": {
+      "demand_units": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "lead_periods": 1,
+      "opening_units": 30,
+      "pack_units": 25,
+      "safety_units": 10,
+      "scheduled_receipts_units": [
+        0,
+        40,
+        0,
+        0
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "At each zero-based period receive scheduled supply, then consume demand. If below safety, add the smallest pack-multiple receipt restoring safety. Release period=receipt period-lead; retain negative periods to expose past-due releases. Return release_periods only for nonzero planned receipts, in receipt-period order.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "supply_planning",
+    "family": "time_phased_netting",
+    "fields": {
+      "projected_units": "integer_array",
+      "receipts_units": "integer_array",
+      "release_periods": "integer_array"
+    },
+    "goal": "Create time-phased replenishment without treating late receipts as opening stock.",
+    "horizon_minutes": 100,
+    "id": "supply-time_phased_netting-004",
+    "inputs": {
+      "demand_units": [
+        100,
+        0,
+        0,
+        0
+      ],
+      "lead_periods": 3,
+      "opening_units": 30,
+      "pack_units": 25,
+      "safety_units": 10,
+      "scheduled_receipts_units": [
+        0,
+        40,
+        0,
+        0
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "At each zero-based period receive scheduled supply, then consume demand. If below safety, add the smallest pack-multiple receipt restoring safety. Release period=receipt period-lead; retain negative periods to expose past-due releases. Return release_periods only for nonzero planned receipts, in receipt-period order.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "receiving",
+    "family": "receiving_disposition",
+    "fields": {
+      "accept_units": "integer",
+      "open_po_units": "integer",
+      "quarantine_units": "integer",
+      "reject_units": "integer"
+    },
+    "goal": "Post accepted and quarantined quantities without inflating conforming stock.",
+    "horizon_minutes": 100,
+    "id": "supply-receiving_disposition-001",
+    "inputs": {
+      "arrival_units": 75,
+      "certificate_valid": true,
+      "damaged_units": 5,
+      "ordered_units": 100,
+      "overreceipt_tolerance_units": 5,
+      "previously_received_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "If arrival exceeds remaining PO plus tolerance, reject the entire arrival with zero accepted and quarantine units. Otherwise physical receipt=arrival; if certificate invalid quarantine all, else quarantine damaged units. Accept remaining; open PO=max(0,ordered-previous-physical receipt).",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "receiving",
+    "family": "receiving_disposition",
+    "fields": {
+      "accept_units": "integer",
+      "open_po_units": "integer",
+      "quarantine_units": "integer",
+      "reject_units": "integer"
+    },
+    "goal": "Post accepted and quarantined quantities without inflating conforming stock.",
+    "horizon_minutes": 100,
+    "id": "supply-receiving_disposition-002",
+    "inputs": {
+      "arrival_units": 90,
+      "certificate_valid": true,
+      "damaged_units": 5,
+      "ordered_units": 100,
+      "overreceipt_tolerance_units": 5,
+      "previously_received_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "If arrival exceeds remaining PO plus tolerance, reject the entire arrival with zero accepted and quarantine units. Otherwise physical receipt=arrival; if certificate invalid quarantine all, else quarantine damaged units. Accept remaining; open PO=max(0,ordered-previous-physical receipt).",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "receiving",
+    "family": "receiving_disposition",
+    "fields": {
+      "accept_units": "integer",
+      "open_po_units": "integer",
+      "quarantine_units": "integer",
+      "reject_units": "integer"
+    },
+    "goal": "Post accepted and quarantined quantities without inflating conforming stock.",
+    "horizon_minutes": 100,
+    "id": "supply-receiving_disposition-003",
+    "inputs": {
+      "arrival_units": 75,
+      "certificate_valid": false,
+      "damaged_units": 0,
+      "ordered_units": 100,
+      "overreceipt_tolerance_units": 5,
+      "previously_received_units": 20
+    },
+    "max_tool_calls": 40,
+    "policy": "If arrival exceeds remaining PO plus tolerance, reject the entire arrival with zero accepted and quarantine units. Otherwise physical receipt=arrival; if certificate invalid quarantine all, else quarantine damaged units. Accept remaining; open PO=max(0,ordered-previous-physical receipt).",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "receiving",
+    "family": "receiving_disposition",
+    "fields": {
+      "accept_units": "integer",
+      "open_po_units": "integer",
+      "quarantine_units": "integer",
+      "reject_units": "integer"
+    },
+    "goal": "Post accepted and quarantined quantities without inflating conforming stock.",
+    "horizon_minutes": 100,
+    "id": "supply-receiving_disposition-004",
+    "inputs": {
+      "arrival_units": 15,
+      "certificate_valid": true,
+      "damaged_units": 0,
+      "ordered_units": 100,
+      "overreceipt_tolerance_units": 5,
+      "previously_received_units": 90
+    },
+    "max_tool_calls": 40,
+    "policy": "If arrival exceeds remaining PO plus tolerance, reject the entire arrival with zero accepted and quarantine units. Otherwise physical receipt=arrival; if certificate invalid quarantine all, else quarantine damaged units. Accept remaining; open PO=max(0,ordered-previous-physical receipt).",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "shelf_life_allocation",
+    "fields": {
+      "allocations": "allocation_array",
+      "shortage_units": "integer"
+    },
+    "goal": "Allocate eligible inventory by expiry while meeting customer remaining-life rules.",
+    "horizon_minutes": 100,
+    "id": "supply-shelf_life_allocation-001",
+    "inputs": {
+      "lots": [
+        {
+          "expiry_day": 15,
+          "id": "LOT-1",
+          "status": "released",
+          "units": 40
+        },
+        {
+          "expiry_day": 30,
+          "id": "LOT-2",
+          "status": "hold",
+          "units": 80
+        },
+        {
+          "expiry_day": 20,
+          "id": "LOT-3",
+          "status": "released",
+          "units": 35
+        }
+      ],
+      "minimum_remaining_days": 3,
+      "required_units": 60,
+      "use_day": 10
+    },
+    "max_tool_calls": 40,
+    "policy": "Eligible lots are released with expiry_day-use_day>=minimum_remaining_days. Allocate by earliest expiry then lot ID. Each allocation is an object with lot_id and units. Return allocations in that order, omitting zeros, and the shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "shelf_life_allocation",
+    "fields": {
+      "allocations": "allocation_array",
+      "shortage_units": "integer"
+    },
+    "goal": "Allocate eligible inventory by expiry while meeting customer remaining-life rules.",
+    "horizon_minutes": 100,
+    "id": "supply-shelf_life_allocation-002",
+    "inputs": {
+      "lots": [
+        {
+          "expiry_day": 15,
+          "id": "LOT-1",
+          "status": "released",
+          "units": 40
+        },
+        {
+          "expiry_day": 30,
+          "id": "LOT-2",
+          "status": "hold",
+          "units": 80
+        },
+        {
+          "expiry_day": 20,
+          "id": "LOT-3",
+          "status": "released",
+          "units": 35
+        }
+      ],
+      "minimum_remaining_days": 3,
+      "required_units": 100,
+      "use_day": 10
+    },
+    "max_tool_calls": 40,
+    "policy": "Eligible lots are released with expiry_day-use_day>=minimum_remaining_days. Allocate by earliest expiry then lot ID. Each allocation is an object with lot_id and units. Return allocations in that order, omitting zeros, and the shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "shelf_life_allocation",
+    "fields": {
+      "allocations": "allocation_array",
+      "shortage_units": "integer"
+    },
+    "goal": "Allocate eligible inventory by expiry while meeting customer remaining-life rules.",
+    "horizon_minutes": 100,
+    "id": "supply-shelf_life_allocation-003",
+    "inputs": {
+      "lots": [
+        {
+          "expiry_day": 15,
+          "id": "LOT-1",
+          "status": "released",
+          "units": 40
+        },
+        {
+          "expiry_day": 30,
+          "id": "LOT-2",
+          "status": "hold",
+          "units": 80
+        },
+        {
+          "expiry_day": 20,
+          "id": "LOT-3",
+          "status": "released",
+          "units": 35
+        }
+      ],
+      "minimum_remaining_days": 3,
+      "required_units": 30,
+      "use_day": 16
+    },
+    "max_tool_calls": 40,
+    "policy": "Eligible lots are released with expiry_day-use_day>=minimum_remaining_days. Allocate by earliest expiry then lot ID. Each allocation is an object with lot_id and units. Return allocations in that order, omitting zeros, and the shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "shelf_life_allocation",
+    "fields": {
+      "allocations": "allocation_array",
+      "shortage_units": "integer"
+    },
+    "goal": "Allocate eligible inventory by expiry while meeting customer remaining-life rules.",
+    "horizon_minutes": 100,
+    "id": "supply-shelf_life_allocation-004",
+    "inputs": {
+      "lots": [
+        {
+          "expiry_day": 15,
+          "id": "LOT-1",
+          "status": "released",
+          "units": 40
+        },
+        {
+          "expiry_day": 30,
+          "id": "LOT-2",
+          "status": "hold",
+          "units": 80
+        },
+        {
+          "expiry_day": 20,
+          "id": "LOT-3",
+          "status": "released",
+          "units": 35
+        }
+      ],
+      "minimum_remaining_days": 8,
+      "required_units": 60,
+      "use_day": 10
+    },
+    "max_tool_calls": 40,
+    "policy": "Eligible lots are released with expiry_day-use_day>=minimum_remaining_days. Allocate by earliest expiry then lot ID. Each allocation is an object with lot_id and units. Return allocations in that order, omitting zeros, and the shortage.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "cycle_count_adjustment",
+    "fields": {
+      "adjustment_units": "integer",
+      "adjustment_value_cents": "integer",
+      "ending_units": "integer",
+      "escalate": "boolean"
+    },
+    "goal": "Reconcile a blind cycle count under financial and transaction-freeze controls.",
+    "horizon_minutes": 100,
+    "id": "supply-cycle_count_adjustment-001",
+    "inputs": {
+      "adjustment_limit_cents": 1500,
+      "book_units": 120,
+      "count_one_units": 110,
+      "count_two_units": 110,
+      "transactions_open": false,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Post counted-book only when both counts agree, no transactions remain open, and absolute adjustment value<=limit. Otherwise post zero, keep book quantity, escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "cycle_count_adjustment",
+    "fields": {
+      "adjustment_units": "integer",
+      "adjustment_value_cents": "integer",
+      "ending_units": "integer",
+      "escalate": "boolean"
+    },
+    "goal": "Reconcile a blind cycle count under financial and transaction-freeze controls.",
+    "horizon_minutes": 100,
+    "id": "supply-cycle_count_adjustment-002",
+    "inputs": {
+      "adjustment_limit_cents": 1500,
+      "book_units": 120,
+      "count_one_units": 110,
+      "count_two_units": 109,
+      "transactions_open": false,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Post counted-book only when both counts agree, no transactions remain open, and absolute adjustment value<=limit. Otherwise post zero, keep book quantity, escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "cycle_count_adjustment",
+    "fields": {
+      "adjustment_units": "integer",
+      "adjustment_value_cents": "integer",
+      "ending_units": "integer",
+      "escalate": "boolean"
+    },
+    "goal": "Reconcile a blind cycle count under financial and transaction-freeze controls.",
+    "horizon_minutes": 100,
+    "id": "supply-cycle_count_adjustment-003",
+    "inputs": {
+      "adjustment_limit_cents": 1500,
+      "book_units": 120,
+      "count_one_units": 110,
+      "count_two_units": 110,
+      "transactions_open": false,
+      "unit_cents": 300
+    },
+    "max_tool_calls": 40,
+    "policy": "Post counted-book only when both counts agree, no transactions remain open, and absolute adjustment value<=limit. Otherwise post zero, keep book quantity, escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "inventory_execution",
+    "family": "cycle_count_adjustment",
+    "fields": {
+      "adjustment_units": "integer",
+      "adjustment_value_cents": "integer",
+      "ending_units": "integer",
+      "escalate": "boolean"
+    },
+    "goal": "Reconcile a blind cycle count under financial and transaction-freeze controls.",
+    "horizon_minutes": 100,
+    "id": "supply-cycle_count_adjustment-004",
+    "inputs": {
+      "adjustment_limit_cents": 1500,
+      "book_units": 120,
+      "count_one_units": 110,
+      "count_two_units": 110,
+      "transactions_open": true,
+      "unit_cents": 100
+    },
+    "max_tool_calls": 40,
+    "policy": "Post counted-book only when both counts agree, no transactions remain open, and absolute adjustment value<=limit. Otherwise post zero, keep book quantity, escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "payables",
+    "family": "three_way_match",
+    "fields": {
+      "hold": "boolean",
+      "pay_cents": "integer",
+      "reasons": "string_array"
+    },
+    "goal": "Validate an invoice against accepted receipts, PO pricing and authorized freight.",
+    "horizon_minutes": 100,
+    "id": "supply-three_way_match-001",
+    "inputs": {
+      "accepted_units": 80,
+      "authorized_freight_cents": 500,
+      "freight_cents": 500,
+      "invoice_unit_cents": 100,
+      "invoice_units": 60,
+      "po_unit_cents": 100,
+      "po_units": 100,
+      "previously_invoiced_units": 20,
+      "price_tolerance_basis_points": 200
+    },
+    "max_tool_calls": 40,
+    "policy": "Hold if invoice quantity exceeds accepted less previously invoiced; if abs(invoice unit-PO unit)*10000 exceeds PO unit*price tolerance bps; or freight exceeds authorization. Report sorted reason codes freight, price, quantity. Pay zero when held; else units*invoice price+freight.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "payables",
+    "family": "three_way_match",
+    "fields": {
+      "hold": "boolean",
+      "pay_cents": "integer",
+      "reasons": "string_array"
+    },
+    "goal": "Validate an invoice against accepted receipts, PO pricing and authorized freight.",
+    "horizon_minutes": 100,
+    "id": "supply-three_way_match-002",
+    "inputs": {
+      "accepted_units": 80,
+      "authorized_freight_cents": 500,
+      "freight_cents": 500,
+      "invoice_unit_cents": 100,
+      "invoice_units": 70,
+      "po_unit_cents": 100,
+      "po_units": 100,
+      "previously_invoiced_units": 20,
+      "price_tolerance_basis_points": 200
+    },
+    "max_tool_calls": 40,
+    "policy": "Hold if invoice quantity exceeds accepted less previously invoiced; if abs(invoice unit-PO unit)*10000 exceeds PO unit*price tolerance bps; or freight exceeds authorization. Report sorted reason codes freight, price, quantity. Pay zero when held; else units*invoice price+freight.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "payables",
+    "family": "three_way_match",
+    "fields": {
+      "hold": "boolean",
+      "pay_cents": "integer",
+      "reasons": "string_array"
+    },
+    "goal": "Validate an invoice against accepted receipts, PO pricing and authorized freight.",
+    "horizon_minutes": 100,
+    "id": "supply-three_way_match-003",
+    "inputs": {
+      "accepted_units": 100,
+      "authorized_freight_cents": 500,
+      "freight_cents": 500,
+      "invoice_unit_cents": 103,
+      "invoice_units": 80,
+      "po_unit_cents": 100,
+      "po_units": 100,
+      "previously_invoiced_units": 20,
+      "price_tolerance_basis_points": 200
+    },
+    "max_tool_calls": 40,
+    "policy": "Hold if invoice quantity exceeds accepted less previously invoiced; if abs(invoice unit-PO unit)*10000 exceeds PO unit*price tolerance bps; or freight exceeds authorization. Report sorted reason codes freight, price, quantity. Pay zero when held; else units*invoice price+freight.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "payables",
+    "family": "three_way_match",
+    "fields": {
+      "hold": "boolean",
+      "pay_cents": "integer",
+      "reasons": "string_array"
+    },
+    "goal": "Validate an invoice against accepted receipts, PO pricing and authorized freight.",
+    "horizon_minutes": 100,
+    "id": "supply-three_way_match-004",
+    "inputs": {
+      "accepted_units": 80,
+      "authorized_freight_cents": 0,
+      "freight_cents": 500,
+      "invoice_unit_cents": 100,
+      "invoice_units": 60,
+      "po_unit_cents": 100,
+      "po_units": 100,
+      "previously_invoiced_units": 20,
+      "price_tolerance_basis_points": 200
+    },
+    "max_tool_calls": 40,
+    "policy": "Hold if invoice quantity exceeds accepted less previously invoiced; if abs(invoice unit-PO unit)*10000 exceeds PO unit*price tolerance bps; or freight exceeds authorization. Report sorted reason codes freight, price, quantity. Pay zero when held; else units*invoice price+freight.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "payables",
+    "family": "duplicate_invoice",
+    "fields": {
+      "conflict_ids": "string_array",
+      "duplicate_ids": "string_array",
+      "hold": "boolean"
+    },
+    "goal": "Detect duplicate billing without conflating supplier identities or currencies.",
+    "horizon_minutes": 100,
+    "id": "supply-duplicate_invoice-001",
+    "inputs": {
+      "candidate": {
+        "amount_cents": 12000,
+        "currency": "USD",
+        "number": " inv-0042 ",
+        "supplier": "SUP-1"
+      },
+      "existing": [
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-1",
+          "number": "INV-0042",
+          "status": "posted",
+          "supplier": "SUP-1"
+        },
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-2",
+          "number": "INV0043",
+          "status": "posted",
+          "supplier": "SUP-2"
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Normalize numbers by stripping whitespace, hyphens and case. Exact duplicate requires same supplier, normalized number, currency and amount on a nonvoid record. Same supplier/number/currency with different amount is a conflict. Return sorted existing IDs; either condition holds payment.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "payables",
+    "family": "duplicate_invoice",
+    "fields": {
+      "conflict_ids": "string_array",
+      "duplicate_ids": "string_array",
+      "hold": "boolean"
+    },
+    "goal": "Detect duplicate billing without conflating supplier identities or currencies.",
+    "horizon_minutes": 100,
+    "id": "supply-duplicate_invoice-002",
+    "inputs": {
+      "candidate": {
+        "amount_cents": 12000,
+        "currency": "USD",
+        "number": "INV0043",
+        "supplier": "SUP-1"
+      },
+      "existing": [
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-1",
+          "number": "INV-0042",
+          "status": "posted",
+          "supplier": "SUP-1"
+        },
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-2",
+          "number": "INV0043",
+          "status": "posted",
+          "supplier": "SUP-2"
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Normalize numbers by stripping whitespace, hyphens and case. Exact duplicate requires same supplier, normalized number, currency and amount on a nonvoid record. Same supplier/number/currency with different amount is a conflict. Return sorted existing IDs; either condition holds payment.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "payables",
+    "family": "duplicate_invoice",
+    "fields": {
+      "conflict_ids": "string_array",
+      "duplicate_ids": "string_array",
+      "hold": "boolean"
+    },
+    "goal": "Detect duplicate billing without conflating supplier identities or currencies.",
+    "horizon_minutes": 100,
+    "id": "supply-duplicate_invoice-003",
+    "inputs": {
+      "candidate": {
+        "amount_cents": 12000,
+        "currency": "EUR",
+        "number": "INV-0042",
+        "supplier": "SUP-1"
+      },
+      "existing": [
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-1",
+          "number": "INV-0042",
+          "status": "posted",
+          "supplier": "SUP-1"
+        },
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-2",
+          "number": "INV0043",
+          "status": "posted",
+          "supplier": "SUP-2"
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Normalize numbers by stripping whitespace, hyphens and case. Exact duplicate requires same supplier, normalized number, currency and amount on a nonvoid record. Same supplier/number/currency with different amount is a conflict. Return sorted existing IDs; either condition holds payment.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "payables",
+    "family": "duplicate_invoice",
+    "fields": {
+      "conflict_ids": "string_array",
+      "duplicate_ids": "string_array",
+      "hold": "boolean"
+    },
+    "goal": "Detect duplicate billing without conflating supplier identities or currencies.",
+    "horizon_minutes": 100,
+    "id": "supply-duplicate_invoice-004",
+    "inputs": {
+      "candidate": {
+        "amount_cents": 13000,
+        "currency": "USD",
+        "number": "INV-0042",
+        "supplier": "SUP-1"
+      },
+      "existing": [
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-1",
+          "number": "INV-0042",
+          "status": "posted",
+          "supplier": "SUP-1"
+        },
+        {
+          "amount_cents": 12000,
+          "currency": "USD",
+          "id": "BILL-2",
+          "number": "INV0043",
+          "status": "posted",
+          "supplier": "SUP-2"
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Normalize numbers by stripping whitespace, hyphens and case. Exact duplicate requires same supplier, normalized number, currency and amount on a nonvoid record. Same supplier/number/currency with different amount is a conflict. Return sorted existing IDs; either condition holds payment.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "logistics_finance",
+    "family": "freight_claim",
+    "fields": {
+      "claim_cents": "integer",
+      "file_claim": "boolean",
+      "loss_cents": "integer"
+    },
+    "goal": "File a supported loss claim within the contractual deadline.",
+    "horizon_minutes": 100,
+    "id": "supply-freight_claim-001",
+    "inputs": {
+      "carrier_cap_cents": 20000,
+      "claim_day": 10,
+      "damaged_units": 3,
+      "deadline_day": 30,
+      "deductible_cents": 1000,
+      "lost_units": 12,
+      "proof_available": true,
+      "unit_value_cents": 800
+    },
+    "max_tool_calls": 40,
+    "policy": "Loss=(lost+damaged)*unit value. Recoverable=max(0,min(loss,carrier cap)-deductible). File only with proof and claim day<=deadline; otherwise claim zero. Report gross loss regardless.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "logistics_finance",
+    "family": "freight_claim",
+    "fields": {
+      "claim_cents": "integer",
+      "file_claim": "boolean",
+      "loss_cents": "integer"
+    },
+    "goal": "File a supported loss claim within the contractual deadline.",
+    "horizon_minutes": 100,
+    "id": "supply-freight_claim-002",
+    "inputs": {
+      "carrier_cap_cents": 6000,
+      "claim_day": 10,
+      "damaged_units": 3,
+      "deadline_day": 30,
+      "deductible_cents": 1000,
+      "lost_units": 12,
+      "proof_available": true,
+      "unit_value_cents": 800
+    },
+    "max_tool_calls": 40,
+    "policy": "Loss=(lost+damaged)*unit value. Recoverable=max(0,min(loss,carrier cap)-deductible). File only with proof and claim day<=deadline; otherwise claim zero. Report gross loss regardless.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "logistics_finance",
+    "family": "freight_claim",
+    "fields": {
+      "claim_cents": "integer",
+      "file_claim": "boolean",
+      "loss_cents": "integer"
+    },
+    "goal": "File a supported loss claim within the contractual deadline.",
+    "horizon_minutes": 100,
+    "id": "supply-freight_claim-003",
+    "inputs": {
+      "carrier_cap_cents": 20000,
+      "claim_day": 10,
+      "damaged_units": 5,
+      "deadline_day": 30,
+      "deductible_cents": 1000,
+      "lost_units": 30,
+      "proof_available": false,
+      "unit_value_cents": 800
+    },
+    "max_tool_calls": 40,
+    "policy": "Loss=(lost+damaged)*unit value. Recoverable=max(0,min(loss,carrier cap)-deductible). File only with proof and claim day<=deadline; otherwise claim zero. Report gross loss regardless.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "logistics_finance",
+    "family": "freight_claim",
+    "fields": {
+      "claim_cents": "integer",
+      "file_claim": "boolean",
+      "loss_cents": "integer"
+    },
+    "goal": "File a supported loss claim within the contractual deadline.",
+    "horizon_minutes": 100,
+    "id": "supply-freight_claim-004",
+    "inputs": {
+      "carrier_cap_cents": 20000,
+      "claim_day": 40,
+      "damaged_units": 3,
+      "deadline_day": 30,
+      "deductible_cents": 1000,
+      "lost_units": 12,
+      "proof_available": true,
+      "unit_value_cents": 800
+    },
+    "max_tool_calls": 40,
+    "policy": "Loss=(lost+damaged)*unit value. Recoverable=max(0,min(loss,carrier cap)-deductible). File only with proof and claim day<=deadline; otherwise claim zero. Report gross loss regardless.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "supplier_quality",
+    "family": "supplier_return",
+    "fields": {
+      "credit_cents": "integer",
+      "escalate": "boolean",
+      "net_recovery_cents": "integer",
+      "return_units": "integer"
+    },
+    "goal": "Authorize a supplier return and reconcile its net recovery.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_return-001",
+    "inputs": {
+      "authorization_valid": true,
+      "rejected_units": 20,
+      "restocking_basis_points": 0,
+      "return_freight_cents": 1200,
+      "unit_cents": 500,
+      "within_window": true
+    },
+    "max_tool_calls": 40,
+    "policy": "Return all rejected units only if authorization is valid and within window. Credit is units*price minus ceil(gross*restocking bps/10000), net recovery=credit-return freight. If not authorized, return and recover zero and escalate.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "supplier_quality",
+    "family": "supplier_return",
+    "fields": {
+      "credit_cents": "integer",
+      "escalate": "boolean",
+      "net_recovery_cents": "integer",
+      "return_units": "integer"
+    },
+    "goal": "Authorize a supplier return and reconcile its net recovery.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_return-002",
+    "inputs": {
+      "authorization_valid": false,
+      "rejected_units": 20,
+      "restocking_basis_points": 0,
+      "return_freight_cents": 1200,
+      "unit_cents": 500,
+      "within_window": true
+    },
+    "max_tool_calls": 40,
+    "policy": "Return all rejected units only if authorization is valid and within window. Credit is units*price minus ceil(gross*restocking bps/10000), net recovery=credit-return freight. If not authorized, return and recover zero and escalate.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "supplier_quality",
+    "family": "supplier_return",
+    "fields": {
+      "credit_cents": "integer",
+      "escalate": "boolean",
+      "net_recovery_cents": "integer",
+      "return_units": "integer"
+    },
+    "goal": "Authorize a supplier return and reconcile its net recovery.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_return-003",
+    "inputs": {
+      "authorization_valid": true,
+      "rejected_units": 20,
+      "restocking_basis_points": 0,
+      "return_freight_cents": 1200,
+      "unit_cents": 500,
+      "within_window": false
+    },
+    "max_tool_calls": 40,
+    "policy": "Return all rejected units only if authorization is valid and within window. Credit is units*price minus ceil(gross*restocking bps/10000), net recovery=credit-return freight. If not authorized, return and recover zero and escalate.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "supplier_quality",
+    "family": "supplier_return",
+    "fields": {
+      "credit_cents": "integer",
+      "escalate": "boolean",
+      "net_recovery_cents": "integer",
+      "return_units": "integer"
+    },
+    "goal": "Authorize a supplier return and reconcile its net recovery.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_return-004",
+    "inputs": {
+      "authorization_valid": true,
+      "rejected_units": 20,
+      "restocking_basis_points": 1500,
+      "return_freight_cents": 1200,
+      "unit_cents": 500,
+      "within_window": true
+    },
+    "max_tool_calls": 40,
+    "policy": "Return all rejected units only if authorization is valid and within window. Credit is units*price minus ceil(gross*restocking bps/10000), net recovery=credit-return freight. If not authorized, return and recover zero and escalate.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "traceability",
+    "family": "supplier_recall_scope",
+    "fields": {
+      "hold_lots": "string_array",
+      "notify_shipments": "string_array",
+      "quarantine_units": "integer",
+      "shipped_units": "integer"
+    },
+    "goal": "Contain a supplier recall through all downstream transformations and shipments.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_recall_scope-001",
+    "inputs": {
+      "edges": [
+        {
+          "child": "WIP-1",
+          "parent": "RAW-1"
+        },
+        {
+          "child": "FG-1",
+          "parent": "WIP-1"
+        },
+        {
+          "child": "FG-2",
+          "parent": "RAW-2"
+        },
+        {
+          "child": "KIT-1",
+          "parent": "FG-1"
+        }
+      ],
+      "onhand": [
+        {
+          "lot": "FG-1",
+          "units": 8
+        },
+        {
+          "lot": "FG-2",
+          "units": 12
+        }
+      ],
+      "shipments": [
+        {
+          "id": "SHIP-1",
+          "lot": "KIT-1",
+          "units": 10
+        },
+        {
+          "id": "SHIP-2",
+          "lot": "FG-2",
+          "units": 20
+        },
+        {
+          "id": "SHIP-3",
+          "lot": "FG-1",
+          "units": 5
+        }
+      ],
+      "suspect_lots": [
+        "RAW-1"
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Compute transitive closure including suspect sources. Return sorted affected lot IDs, sorted affected shipment IDs, affected shipped units, and affected onhand units. Unconnected lots and shipments must stay outside scope.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "traceability",
+    "family": "supplier_recall_scope",
+    "fields": {
+      "hold_lots": "string_array",
+      "notify_shipments": "string_array",
+      "quarantine_units": "integer",
+      "shipped_units": "integer"
+    },
+    "goal": "Contain a supplier recall through all downstream transformations and shipments.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_recall_scope-002",
+    "inputs": {
+      "edges": [
+        {
+          "child": "WIP-1",
+          "parent": "RAW-1"
+        },
+        {
+          "child": "FG-1",
+          "parent": "WIP-1"
+        },
+        {
+          "child": "FG-2",
+          "parent": "RAW-2"
+        },
+        {
+          "child": "KIT-1",
+          "parent": "FG-1"
+        }
+      ],
+      "onhand": [
+        {
+          "lot": "FG-1",
+          "units": 8
+        },
+        {
+          "lot": "FG-2",
+          "units": 12
+        }
+      ],
+      "shipments": [
+        {
+          "id": "SHIP-1",
+          "lot": "KIT-1",
+          "units": 10
+        },
+        {
+          "id": "SHIP-2",
+          "lot": "FG-2",
+          "units": 20
+        },
+        {
+          "id": "SHIP-3",
+          "lot": "FG-1",
+          "units": 5
+        }
+      ],
+      "suspect_lots": [
+        "RAW-2"
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Compute transitive closure including suspect sources. Return sorted affected lot IDs, sorted affected shipment IDs, affected shipped units, and affected onhand units. Unconnected lots and shipments must stay outside scope.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "traceability",
+    "family": "supplier_recall_scope",
+    "fields": {
+      "hold_lots": "string_array",
+      "notify_shipments": "string_array",
+      "quarantine_units": "integer",
+      "shipped_units": "integer"
+    },
+    "goal": "Contain a supplier recall through all downstream transformations and shipments.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_recall_scope-003",
+    "inputs": {
+      "edges": [
+        {
+          "child": "WIP-1",
+          "parent": "RAW-1"
+        },
+        {
+          "child": "FG-1",
+          "parent": "WIP-1"
+        },
+        {
+          "child": "FG-2",
+          "parent": "RAW-2"
+        },
+        {
+          "child": "KIT-1",
+          "parent": "FG-1"
+        }
+      ],
+      "onhand": [
+        {
+          "lot": "FG-1",
+          "units": 8
+        },
+        {
+          "lot": "FG-2",
+          "units": 12
+        }
+      ],
+      "shipments": [
+        {
+          "id": "SHIP-1",
+          "lot": "KIT-1",
+          "units": 10
+        },
+        {
+          "id": "SHIP-2",
+          "lot": "FG-2",
+          "units": 20
+        },
+        {
+          "id": "SHIP-3",
+          "lot": "FG-1",
+          "units": 5
+        }
+      ],
+      "suspect_lots": [
+        "RAW-1",
+        "RAW-2"
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Compute transitive closure including suspect sources. Return sorted affected lot IDs, sorted affected shipment IDs, affected shipped units, and affected onhand units. Unconnected lots and shipments must stay outside scope.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "traceability",
+    "family": "supplier_recall_scope",
+    "fields": {
+      "hold_lots": "string_array",
+      "notify_shipments": "string_array",
+      "quarantine_units": "integer",
+      "shipped_units": "integer"
+    },
+    "goal": "Contain a supplier recall through all downstream transformations and shipments.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_recall_scope-004",
+    "inputs": {
+      "edges": [
+        {
+          "child": "WIP-1",
+          "parent": "RAW-1"
+        },
+        {
+          "child": "FG-1",
+          "parent": "WIP-1"
+        },
+        {
+          "child": "FG-2",
+          "parent": "RAW-2"
+        },
+        {
+          "child": "KIT-1",
+          "parent": "FG-1"
+        }
+      ],
+      "onhand": [
+        {
+          "lot": "FG-1",
+          "units": 8
+        },
+        {
+          "lot": "FG-2",
+          "units": 12
+        }
+      ],
+      "shipments": [
+        {
+          "id": "SHIP-1",
+          "lot": "KIT-1",
+          "units": 10
+        },
+        {
+          "id": "SHIP-2",
+          "lot": "FG-2",
+          "units": 20
+        },
+        {
+          "id": "SHIP-3",
+          "lot": "FG-1",
+          "units": 5
+        }
+      ],
+      "suspect_lots": [
+        "RAW-X"
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Compute transitive closure including suspect sources. Return sorted affected lot IDs, sorted affected shipment IDs, affected shipped units, and affected onhand units. Unconnected lots and shipments must stay outside scope.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "transportation",
+    "family": "transport_mode",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "escalate": "boolean",
+      "lane_id": "nullable_string"
+    },
+    "goal": "Book a feasible transport mode under delivery, temperature, weight and cost constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-transport_mode-001",
+    "inputs": {
+      "budget_cents": 20000,
+      "deadline_hours": 24,
+      "lanes": [
+        {
+          "capacity_kg": 1000,
+          "cents_kg": 10,
+          "cold": true,
+          "fixed_cents": 1000,
+          "hours": 48,
+          "id": "LANE-1"
+        },
+        {
+          "capacity_kg": 500,
+          "cents_kg": 30,
+          "cold": false,
+          "fixed_cents": 2000,
+          "hours": 20,
+          "id": "LANE-2"
+        },
+        {
+          "capacity_kg": 250,
+          "cents_kg": 50,
+          "cold": true,
+          "fixed_cents": 5000,
+          "hours": 6,
+          "id": "LANE-3"
+        }
+      ],
+      "requires_cold": false,
+      "weight_kg": 120
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose a lane arriving by deadline, covering weight, supporting cold if required, and within budget. Cost=fixed+weight*cents_kg. Minimize cost then lane ID. If none return null lane and cost and escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "transportation",
+    "family": "transport_mode",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "escalate": "boolean",
+      "lane_id": "nullable_string"
+    },
+    "goal": "Book a feasible transport mode under delivery, temperature, weight and cost constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-transport_mode-002",
+    "inputs": {
+      "budget_cents": 20000,
+      "deadline_hours": 8,
+      "lanes": [
+        {
+          "capacity_kg": 1000,
+          "cents_kg": 10,
+          "cold": true,
+          "fixed_cents": 1000,
+          "hours": 48,
+          "id": "LANE-1"
+        },
+        {
+          "capacity_kg": 500,
+          "cents_kg": 30,
+          "cold": false,
+          "fixed_cents": 2000,
+          "hours": 20,
+          "id": "LANE-2"
+        },
+        {
+          "capacity_kg": 250,
+          "cents_kg": 50,
+          "cold": true,
+          "fixed_cents": 5000,
+          "hours": 6,
+          "id": "LANE-3"
+        }
+      ],
+      "requires_cold": false,
+      "weight_kg": 120
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose a lane arriving by deadline, covering weight, supporting cold if required, and within budget. Cost=fixed+weight*cents_kg. Minimize cost then lane ID. If none return null lane and cost and escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "transportation",
+    "family": "transport_mode",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "escalate": "boolean",
+      "lane_id": "nullable_string"
+    },
+    "goal": "Book a feasible transport mode under delivery, temperature, weight and cost constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-transport_mode-003",
+    "inputs": {
+      "budget_cents": 20000,
+      "deadline_hours": 24,
+      "lanes": [
+        {
+          "capacity_kg": 1000,
+          "cents_kg": 10,
+          "cold": true,
+          "fixed_cents": 1000,
+          "hours": 48,
+          "id": "LANE-1"
+        },
+        {
+          "capacity_kg": 500,
+          "cents_kg": 30,
+          "cold": false,
+          "fixed_cents": 2000,
+          "hours": 20,
+          "id": "LANE-2"
+        },
+        {
+          "capacity_kg": 250,
+          "cents_kg": 50,
+          "cold": true,
+          "fixed_cents": 5000,
+          "hours": 6,
+          "id": "LANE-3"
+        }
+      ],
+      "requires_cold": true,
+      "weight_kg": 300
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose a lane arriving by deadline, covering weight, supporting cold if required, and within budget. Cost=fixed+weight*cents_kg. Minimize cost then lane ID. If none return null lane and cost and escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "transportation",
+    "family": "transport_mode",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "escalate": "boolean",
+      "lane_id": "nullable_string"
+    },
+    "goal": "Book a feasible transport mode under delivery, temperature, weight and cost constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-transport_mode-004",
+    "inputs": {
+      "budget_cents": 4000,
+      "deadline_hours": 24,
+      "lanes": [
+        {
+          "capacity_kg": 1000,
+          "cents_kg": 10,
+          "cold": true,
+          "fixed_cents": 1000,
+          "hours": 48,
+          "id": "LANE-1"
+        },
+        {
+          "capacity_kg": 500,
+          "cents_kg": 30,
+          "cold": false,
+          "fixed_cents": 2000,
+          "hours": 20,
+          "id": "LANE-2"
+        },
+        {
+          "capacity_kg": 250,
+          "cents_kg": 50,
+          "cold": true,
+          "fixed_cents": 5000,
+          "hours": 6,
+          "id": "LANE-3"
+        }
+      ],
+      "requires_cold": false,
+      "weight_kg": 120
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose a lane arriving by deadline, covering weight, supporting cold if required, and within budget. Cost=fixed+weight*cents_kg. Minimize cost then lane ID. If none return null lane and cost and escalate true.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "transportation",
+    "family": "container_capacity",
+    "fields": {
+      "book_containers": "integer",
+      "cost_cents": "integer",
+      "units_per_container": "integer",
+      "unshipped_units": "integer"
+    },
+    "goal": "Book containers respecting both payload and cubic capacity.",
+    "horizon_minutes": 100,
+    "id": "supply-container_capacity-001",
+    "inputs": {
+      "container_cents": 8000,
+      "container_volume_liters": 4000,
+      "container_weight_kg": 1000,
+      "maximum_containers": 4,
+      "unit_volume_liters": 40,
+      "unit_weight_kg": 12,
+      "units": 110
+    },
+    "max_tool_calls": 40,
+    "policy": "No geometry constraint beyond volume. Units per container=min(floor(weight limit/unit weight),floor(volume limit/unit volume)). Containers=ceil(units/capacity). Book only if within maximum_containers; otherwise book zero and expose all units as unshipped.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "transportation",
+    "family": "container_capacity",
+    "fields": {
+      "book_containers": "integer",
+      "cost_cents": "integer",
+      "units_per_container": "integer",
+      "unshipped_units": "integer"
+    },
+    "goal": "Book containers respecting both payload and cubic capacity.",
+    "horizon_minutes": 100,
+    "id": "supply-container_capacity-002",
+    "inputs": {
+      "container_cents": 8000,
+      "container_volume_liters": 4000,
+      "container_weight_kg": 1000,
+      "maximum_containers": 4,
+      "unit_volume_liters": 40,
+      "unit_weight_kg": 12,
+      "units": 200
+    },
+    "max_tool_calls": 40,
+    "policy": "No geometry constraint beyond volume. Units per container=min(floor(weight limit/unit weight),floor(volume limit/unit volume)). Containers=ceil(units/capacity). Book only if within maximum_containers; otherwise book zero and expose all units as unshipped.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "transportation",
+    "family": "container_capacity",
+    "fields": {
+      "book_containers": "integer",
+      "cost_cents": "integer",
+      "units_per_container": "integer",
+      "unshipped_units": "integer"
+    },
+    "goal": "Book containers respecting both payload and cubic capacity.",
+    "horizon_minutes": 100,
+    "id": "supply-container_capacity-003",
+    "inputs": {
+      "container_cents": 8000,
+      "container_volume_liters": 4000,
+      "container_weight_kg": 1000,
+      "maximum_containers": 4,
+      "unit_volume_liters": 400,
+      "unit_weight_kg": 12,
+      "units": 30
+    },
+    "max_tool_calls": 40,
+    "policy": "No geometry constraint beyond volume. Units per container=min(floor(weight limit/unit weight),floor(volume limit/unit volume)). Containers=ceil(units/capacity). Book only if within maximum_containers; otherwise book zero and expose all units as unshipped.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "transportation",
+    "family": "container_capacity",
+    "fields": {
+      "book_containers": "integer",
+      "cost_cents": "integer",
+      "units_per_container": "integer",
+      "unshipped_units": "integer"
+    },
+    "goal": "Book containers respecting both payload and cubic capacity.",
+    "horizon_minutes": 100,
+    "id": "supply-container_capacity-004",
+    "inputs": {
+      "container_cents": 8000,
+      "container_volume_liters": 4000,
+      "container_weight_kg": 1000,
+      "maximum_containers": 1,
+      "unit_volume_liters": 40,
+      "unit_weight_kg": 12,
+      "units": 110
+    },
+    "max_tool_calls": 40,
+    "policy": "No geometry constraint beyond volume. Units per container=min(floor(weight limit/unit weight),floor(volume limit/unit volume)). Containers=ceil(units/capacity). Book only if within maximum_containers; otherwise book zero and expose all units as unshipped.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "supplier_performance",
+    "family": "supplier_otif",
+    "fields": {
+      "escalate": "boolean",
+      "late_units": "integer",
+      "otif_fraction": "number",
+      "short_units": "integer"
+    },
+    "goal": "Reconcile supplier on-time/in-full performance at the order level.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_otif-001",
+    "inputs": {
+      "minimum_otif_fraction": 0.8,
+      "orders": [
+        {
+          "due_day": 10,
+          "id": "PO-1",
+          "ordered": 100,
+          "receipt_day": 9,
+          "received": 100
+        },
+        {
+          "due_day": 10,
+          "id": "PO-2",
+          "ordered": 80,
+          "receipt_day": 12,
+          "received": 80
+        },
+        {
+          "due_day": 12,
+          "id": "PO-3",
+          "ordered": 50,
+          "receipt_day": 12,
+          "received": 50
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "An order passes only if received>=ordered and receipt_day<=due_day. OTIF=passing orders/all orders. Late units=sum received on late orders; short units=sum max(0,ordered-received). Escalate if OTIF<minimum.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "supplier_performance",
+    "family": "supplier_otif",
+    "fields": {
+      "escalate": "boolean",
+      "late_units": "integer",
+      "otif_fraction": "number",
+      "short_units": "integer"
+    },
+    "goal": "Reconcile supplier on-time/in-full performance at the order level.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_otif-002",
+    "inputs": {
+      "minimum_otif_fraction": 0.8,
+      "orders": [
+        {
+          "due_day": 10,
+          "id": "PO-1",
+          "ordered": 100,
+          "receipt_day": 9,
+          "received": 100
+        },
+        {
+          "due_day": 10,
+          "id": "PO-2",
+          "ordered": 80,
+          "receipt_day": 9,
+          "received": 70
+        },
+        {
+          "due_day": 12,
+          "id": "PO-3",
+          "ordered": 50,
+          "receipt_day": 12,
+          "received": 50
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "An order passes only if received>=ordered and receipt_day<=due_day. OTIF=passing orders/all orders. Late units=sum received on late orders; short units=sum max(0,ordered-received). Escalate if OTIF<minimum.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "supplier_performance",
+    "family": "supplier_otif",
+    "fields": {
+      "escalate": "boolean",
+      "late_units": "integer",
+      "otif_fraction": "number",
+      "short_units": "integer"
+    },
+    "goal": "Reconcile supplier on-time/in-full performance at the order level.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_otif-003",
+    "inputs": {
+      "minimum_otif_fraction": 0.8,
+      "orders": [
+        {
+          "due_day": 10,
+          "id": "PO-1",
+          "ordered": 100,
+          "receipt_day": 9,
+          "received": 100
+        },
+        {
+          "due_day": 10,
+          "id": "PO-2",
+          "ordered": 80,
+          "receipt_day": 10,
+          "received": 80
+        },
+        {
+          "due_day": 12,
+          "id": "PO-3",
+          "ordered": 50,
+          "receipt_day": 12,
+          "received": 50
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "An order passes only if received>=ordered and receipt_day<=due_day. OTIF=passing orders/all orders. Late units=sum received on late orders; short units=sum max(0,ordered-received). Escalate if OTIF<minimum.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "supplier_performance",
+    "family": "supplier_otif",
+    "fields": {
+      "escalate": "boolean",
+      "late_units": "integer",
+      "otif_fraction": "number",
+      "short_units": "integer"
+    },
+    "goal": "Reconcile supplier on-time/in-full performance at the order level.",
+    "horizon_minutes": 100,
+    "id": "supply-supplier_otif-004",
+    "inputs": {
+      "minimum_otif_fraction": 0.8,
+      "orders": [
+        {
+          "due_day": 10,
+          "id": "PO-1",
+          "ordered": 100,
+          "receipt_day": 9,
+          "received": 100
+        },
+        {
+          "due_day": 10,
+          "id": "PO-2",
+          "ordered": 80,
+          "receipt_day": 9,
+          "received": 0
+        },
+        {
+          "due_day": 12,
+          "id": "PO-3",
+          "ordered": 50,
+          "receipt_day": 12,
+          "received": 50
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "An order passes only if received>=ordered and receipt_day<=due_day. OTIF=passing orders/all orders. Late units=sum received on late orders; short units=sum max(0,ordered-received). Escalate if OTIF<minimum.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "sourcing",
+    "family": "carbon_constrained_award",
+    "fields": {
+      "carbon_kg": "nullable_number",
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Award a purchase within an explicit embodied-carbon budget and delivery constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-carbon_constrained_award-001",
+    "inputs": {
+      "due_day": 5,
+      "maximum_carbon_kg": 150,
+      "required_units": 100,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "carbon_kg_unit": 2,
+          "id": "SUP-1",
+          "lead_days": 3,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "carbon_kg_unit": 1,
+          "id": "SUP-2",
+          "lead_days": 3,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "carbon_kg_unit": 0.5,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose one approved, unblocked, on-time supplier with capacity>=required and required*carbon_kg_unit<=maximum_carbon_kg. Minimize purchase cost, then supplier ID. If infeasible all outputs null.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "sourcing",
+    "family": "carbon_constrained_award",
+    "fields": {
+      "carbon_kg": "nullable_number",
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Award a purchase within an explicit embodied-carbon budget and delivery constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-carbon_constrained_award-002",
+    "inputs": {
+      "due_day": 5,
+      "maximum_carbon_kg": 80,
+      "required_units": 100,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "carbon_kg_unit": 2,
+          "id": "SUP-1",
+          "lead_days": 3,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "carbon_kg_unit": 1,
+          "id": "SUP-2",
+          "lead_days": 3,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "carbon_kg_unit": 0.5,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose one approved, unblocked, on-time supplier with capacity>=required and required*carbon_kg_unit<=maximum_carbon_kg. Minimize purchase cost, then supplier ID. If infeasible all outputs null.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "sourcing",
+    "family": "carbon_constrained_award",
+    "fields": {
+      "carbon_kg": "nullable_number",
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Award a purchase within an explicit embodied-carbon budget and delivery constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-carbon_constrained_award-003",
+    "inputs": {
+      "due_day": 5,
+      "maximum_carbon_kg": 50,
+      "required_units": 100,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "carbon_kg_unit": 2,
+          "id": "SUP-1",
+          "lead_days": 3,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "carbon_kg_unit": 1,
+          "id": "SUP-2",
+          "lead_days": 3,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": true,
+          "capacity_units": 200,
+          "carbon_kg_unit": 0.5,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 70
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose one approved, unblocked, on-time supplier with capacity>=required and required*carbon_kg_unit<=maximum_carbon_kg. Minimize purchase cost, then supplier ID. If infeasible all outputs null.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "sourcing",
+    "family": "carbon_constrained_award",
+    "fields": {
+      "carbon_kg": "nullable_number",
+      "supplier_id": "nullable_string",
+      "total_cents": "nullable_integer"
+    },
+    "goal": "Award a purchase within an explicit embodied-carbon budget and delivery constraints.",
+    "horizon_minutes": 100,
+    "id": "supply-carbon_constrained_award-004",
+    "inputs": {
+      "due_day": 5,
+      "maximum_carbon_kg": 150,
+      "required_units": 100,
+      "suppliers": [
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 120,
+          "carbon_kg_unit": 2,
+          "id": "SUP-1",
+          "lead_days": 3,
+          "unit_cents": 90
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 180,
+          "carbon_kg_unit": 1,
+          "id": "SUP-2",
+          "lead_days": 3,
+          "unit_cents": 110
+        },
+        {
+          "approved": true,
+          "blocked": false,
+          "capacity_units": 200,
+          "carbon_kg_unit": 0.5,
+          "id": "SUP-3",
+          "lead_days": 3,
+          "unit_cents": 140
+        }
+      ]
+    },
+    "max_tool_calls": 40,
+    "policy": "Choose one approved, unblocked, on-time supplier with capacity>=required and required*carbon_kg_unit<=maximum_carbon_kg. Minimize purchase cost, then supplier ID. If infeasible all outputs null.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  },
+  {
+    "domain": "engineering_supply",
+    "family": "alternate_effectivity",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "part_id": "nullable_string",
+      "shortage_units": "integer"
+    },
+    "goal": "Select an approved substitute valid for the build date, material grade and quantity.",
+    "horizon_minutes": 100,
+    "id": "supply-alternate_effectivity-001",
+    "inputs": {
+      "alternates": [
+        {
+          "approved_from": 5,
+          "approved_until": 15,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-1",
+          "stock": 100,
+          "unit_cents": 120
+        },
+        {
+          "approved_from": 0,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G1",
+          "id": "PART-2",
+          "stock": 200,
+          "unit_cents": 70
+        },
+        {
+          "approved_from": 5,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-3",
+          "stock": 60,
+          "unit_cents": 130
+        }
+      ],
+      "build_day": 10,
+      "required_grade": "G2",
+      "required_units": 80
+    },
+    "max_tool_calls": 40,
+    "policy": "Use one alternate with matching grade, customer approval, sufficient stock and inclusive effectivity window. Minimize required*unit cost, then part ID. If none, part_id/cost null and shortage=required.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 0
+  },
+  {
+    "domain": "engineering_supply",
+    "family": "alternate_effectivity",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "part_id": "nullable_string",
+      "shortage_units": "integer"
+    },
+    "goal": "Select an approved substitute valid for the build date, material grade and quantity.",
+    "horizon_minutes": 100,
+    "id": "supply-alternate_effectivity-002",
+    "inputs": {
+      "alternates": [
+        {
+          "approved_from": 5,
+          "approved_until": 15,
+          "customer_approved": false,
+          "grade": "G2",
+          "id": "PART-1",
+          "stock": 100,
+          "unit_cents": 120
+        },
+        {
+          "approved_from": 0,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G1",
+          "id": "PART-2",
+          "stock": 200,
+          "unit_cents": 70
+        },
+        {
+          "approved_from": 5,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-3",
+          "stock": 100,
+          "unit_cents": 130
+        }
+      ],
+      "build_day": 10,
+      "required_grade": "G2",
+      "required_units": 80
+    },
+    "max_tool_calls": 40,
+    "policy": "Use one alternate with matching grade, customer approval, sufficient stock and inclusive effectivity window. Minimize required*unit cost, then part ID. If none, part_id/cost null and shortage=required.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 1
+  },
+  {
+    "domain": "engineering_supply",
+    "family": "alternate_effectivity",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "part_id": "nullable_string",
+      "shortage_units": "integer"
+    },
+    "goal": "Select an approved substitute valid for the build date, material grade and quantity.",
+    "horizon_minutes": 100,
+    "id": "supply-alternate_effectivity-003",
+    "inputs": {
+      "alternates": [
+        {
+          "approved_from": 5,
+          "approved_until": 15,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-1",
+          "stock": 100,
+          "unit_cents": 120
+        },
+        {
+          "approved_from": 0,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G1",
+          "id": "PART-2",
+          "stock": 200,
+          "unit_cents": 70
+        },
+        {
+          "approved_from": 5,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-3",
+          "stock": 100,
+          "unit_cents": 130
+        }
+      ],
+      "build_day": 20,
+      "required_grade": "G2",
+      "required_units": 80
+    },
+    "max_tool_calls": 40,
+    "policy": "Use one alternate with matching grade, customer approval, sufficient stock and inclusive effectivity window. Minimize required*unit cost, then part ID. If none, part_id/cost null and shortage=required.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 2
+  },
+  {
+    "domain": "engineering_supply",
+    "family": "alternate_effectivity",
+    "fields": {
+      "cost_cents": "nullable_integer",
+      "part_id": "nullable_string",
+      "shortage_units": "integer"
+    },
+    "goal": "Select an approved substitute valid for the build date, material grade and quantity.",
+    "horizon_minutes": 100,
+    "id": "supply-alternate_effectivity-004",
+    "inputs": {
+      "alternates": [
+        {
+          "approved_from": 5,
+          "approved_until": 15,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-1",
+          "stock": 100,
+          "unit_cents": 120
+        },
+        {
+          "approved_from": 0,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G1",
+          "id": "PART-2",
+          "stock": 200,
+          "unit_cents": 70
+        },
+        {
+          "approved_from": 5,
+          "approved_until": 30,
+          "customer_approved": true,
+          "grade": "G2",
+          "id": "PART-3",
+          "stock": 60,
+          "unit_cents": 100
+        }
+      ],
+      "build_day": 10,
+      "required_grade": "G2",
+      "required_units": 80
+    },
+    "max_tool_calls": 40,
+    "policy": "Use one alternate with matching grade, customer approval, sufficient stock and inclusive effectivity window. Minimize required*unit cost, then part ID. If none, part_id/cost null and shortage=required.",
+    "provenance": "synthetic-authored",
+    "systems": [
+      "ERP",
+      "SCM",
+      "WMS",
+      "QMS",
+      "AP",
+      "TMS"
+    ],
+    "variant": 3
+  }
+]
