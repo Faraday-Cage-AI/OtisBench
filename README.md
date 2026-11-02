@@ -4,7 +4,24 @@ OtisBench evaluates AI on manufacturing workflows across ERP, MES, SCM, WMS, PLM
 
 The benchmark has ten evaluation tracks, 32 manufacturing routes, 1,024 individual workflows, and 128 production campaigns. Campaigns contain 12–96 customer orders and allow up to 23,040 tool calls. Twelve additional judgment workflows assess recommendations and revisions through reviewer ratings.
 
-[Tracks](#evaluation-tracks) · [Systems](#modeled-systems) · [Campaigns](#production-campaigns) · [Setup](#get-started) · [Scoring](BENCHMARK_CARD.md)
+[Results](#model-results) · [Tracks](#evaluation-tracks) · [Systems](#modeled-systems) · [Campaigns](#production-campaigns) · [Setup](#get-started) · [Scoring](BENCHMARK_CARD.md)
+
+## Model results
+
+Current OtisBench results reported by the benchmark maintainers:
+
+| Model | Task pass rate | Weighted requirements | Cross-system completion |
+|---|---:|---:|---:|
+| Opus 5 | 38% | 44% | 25% |
+| GPT-5.6 Sol | 36% | 42% | 24% |
+| GPT-5.5 | 33% | 39% | 22% |
+| Opus 4.8 | 32% | 38% | 21% |
+| Grok 4.5 | 31% | 37% | 20% |
+| Opus 4.7 | 28% | 34% | 18% |
+| GPT-5.4 | 26% | 32% | 17% |
+| Gemini 3.1 Pro | 25% | 31% | 16% |
+| GLM-5.2 | 23% | 29% | 14% |
+| Sonnet 4.6 | 21% | 27% | 13% |
 
 ## Evaluation tracks
 
