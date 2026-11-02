@@ -1,22 +1,24 @@
-# Introducing OtisBench: from customer order to customer shipment
+# Introducing OtisBench
 
-Faraday Research · November 1, 2026 · Benchmark version 1.4.2
+Faraday Research · November 1, 2026 · Version 1.4.2
 
-[Read on the Faraday website](https://faradaycompute.com/research/otisbench) · [Benchmark card](../BENCHMARK_CARD.md)
+Testing AI on purchasing, production, quality, and shipping.
 
-## What we set out to measure
+[Website](https://faradaycompute.com/research/otisbench) · [Benchmark card](../BENCHMARK_CARD.md)
 
-A customer order is a promise that crosses departments. Engineering defines what must be built. Purchasing secures the right material. Production needs qualified people, available machines, and workable process settings. Quality decides what can be released. Shipping must deliver the correct serialized units before the customer window closes.
+## What we built
 
-OtisBench evaluates whether an AI can carry that promise through a modeled manufacturing operation. It combines engineering problems, operational tools, changing evidence, and persistent plant state. A plausible plan is only the beginning: execution tracks check the records and physical or financial outcomes represented by the environment.
+We built OtisBench to test whether an AI agent can complete manufacturing work across connected business systems. An agent reads records, calculates process settings, purchases material, schedules operations, handles disruptions, and ships finished orders.
 
-We built OtisBench 1.4.2 with ten outcome-scored tracks, 32 manufacturing routes, 1,024 individual manufacturing workflows, 128 production campaigns, and twelve staged judgment workshops. Its breadth comes from connecting different kinds of work, while retaining separate measures for what each task actually tests.
+Version 1.4.2 has ten execution tracks, 32 manufacturing routes, 1,024 individual workflows, 128 production campaigns, and twelve judgment workshops. The tracks test different skills and report separate scores.
 
-## Eight systems. One operational consequence.
+The environments represent orders, inventory, machines, people, approvals, and money in software. Actions change the records used by later steps. Production consumes material; inspection controls release; shipments create receivables. The evaluator checks whether the required work was completed.
 
-The environment models the records and actions that connect an industrial order. These are authored software environments; the system names describe operational roles, not a claim that every episode connects to a live commercial installation.
+## Connected business systems
 
-An engineering revision can invalidate process settings and approvals. A quality hold can make reserved inventory unusable. A machine change still requires qualified personnel and an available fixture. A shipment depends on released serials, and in a campaign it creates receivables that fund later work. Correctness must survive those dependencies.
+We modeled eight system roles. The records are authored benchmark content. These roles do not imply connections to eight live vendor products.
+
+A drawing revision can invalidate process settings and approvals. A quality hold can block reserved material. Moving work to another machine still requires a qualified operator and an available fixture. The agent has to check these dependencies before acting.
 
 | System | What the agent must coordinate |
 | --- | --- |
@@ -29,11 +31,13 @@ An engineering revision can invalidate process settings and approvals. A quality
 | CMMS | Condition alerts, repairs, calibration, tooling, and maintenance stock |
 | HR | Operator availability, qualifications, and work assignments |
 
-## A broad catalog with distinct tests of competence
+## What the catalog covers
 
-OtisBench spans discrete production, process manufacturing, engineering calculations, commercial reconciliation, documents, geometry, and factory economics. Machining and fabrication sit alongside casting, molding, electronics, batteries, surface treatment, mechanical assembly, chemicals, food, textiles, glass, and ceramics.
+The manufacturing routes include machining, fabrication, casting, molding, electronics, batteries, surface treatment, assembly, chemicals, food, textiles, glass, and ceramics. Other tracks test calculations, purchasing, documents, geometry, sensors, and factory economics.
 
-Catalog size and conceptual diversity are different measures. The 1,024 workflow cases are 32 routes × 16 disruption contracts × two parameter draws. The 128 campaigns are those 32 routes under four operating profiles. Parameter variation increases test coverage; it does not turn every case into a distinct operational concept. Track results keep their own units and should not be collapsed into a synthetic universal score.
+The 1,024 workflows come from 32 routes × 16 disruption contracts × two parameter draws. The 128 campaigns use the same routes under four operating profiles. We report those dimensions separately so that parameter variants are not mistaken for distinct types of work.
+
+Additional source-run tiers contain 64 temporal recovery variants, 48 material-network cases, and 128 replenishment cases. These test changing evidence schedules, shared subassemblies, recycling, inter-site transfers, supplier capacity, minimum order quantities, pack sizes, and component allocation. They have separate catalogs and entry points.
 
 | Track | Catalog | What is checked |
 | --- | --- | --- |
@@ -48,55 +52,53 @@ Catalog size and conceptual diversity are different measures. The 1,024 workflow
 | Enterprise execution | 58; 18 families | Completed criteria, authorization, economics and timeliness |
 | Factory seasons | 12; 26 weeks each | Profit, demand margin, fill rate, cash and cost decomposition |
 
-Additional source-run tiers add 64 temporal recovery variants, 48 material-network cases, and 128 replenishment cases. They cover changing evidence schedules, nested and shared subassemblies, reconvergent material flows, recycling, inter-site transfers, supplier capacity, minimum order quantities, pack sizes, and allocation from components to shipments. These remain separate catalogs with their own entry points.
+## Example: recovering a disrupted order
 
-## A short example: recovering a disrupted order
+In a pump-assembly workflow, the agent reads the order, engineering instructions, material lots, and resource records. It calculates the required process settings, reserves eligible material, and schedules the machine, operator, and fixture. The first operation consumes the reserved input. Later operations process the same work in progress.
 
-Consider a pump-assembly order. The agent reads the customer commitment, released engineering instructions, material lots, and resource records. It derives the process controls required by the route, reserves eligible material, and schedules the equipment, operator, and fixture. Production consumes that reserved input and carries the resulting work in progress through later operations.
+A late material hold requires a disposition or replacement supply. A drawing change requires updated instructions and recalculated settings. A breakdown requires a qualified alternate or recovery of interrupted work. A failed inspection requires disposition, authorized rework, and new measurements before release.
 
-The catalog introduces sixteen disruption contracts. A late material hold requires a disposition or replacement supply. A drawing change requires current instructions and recalculated settings. A breakdown requires qualified alternate capacity or recovery of interrupted work. A failed inspection requires disposition, exact authorization for rework, and new measurements before release.
+This is an example of the task design. Compound-recovery cases combine several disruptions. Other cases test calibration, expiring qualifications, tool life, outside processing, recalls, batch capacity, overtime, shared fixtures, split lots, customer allocation, and late deliveries.
 
-This walkthrough illustrates the task design, not an observed model trajectory. Compound-recovery cases combine engineering effectivity, held material, machine failure, and nonconformance. Other contracts exercise expiring certifications, tool life, calibration, outside processing, customer allocation, serial recalls, batch capacity, overtime, shared fixtures, split lots, and late inbound material.
+Each workflow allows up to 240 tool calls and 2,400 manufacturing minutes. Reads and attempted actions consume time. The agent must finish within the delivery window and budget.
 
-An individual workflow permits up to 240 tool calls and 2,400 manufacturing minutes. Reads and attempted actions consume time. An agent must obtain current evidence and execute within the remaining window; waiting for perfect information can itself make delivery infeasible.
+## Running multiple orders in one plant
 
-## From one completed job to a plant that keeps running
+Campaigns keep the same plant state across 12, 24, 48, or 96 orders. Horizons and global tool-call budgets range from 2,880 to 23,040. Each order also has a 240-call limit. Manufacturing minutes are simulated time, not model runtime.
 
-Production campaigns keep one plant state across 12, 24, 48, or 96 customer orders. Their horizons and global decision budgets range from 2,880 to 23,040 manufacturing minutes and tool calls. Each order also retains its own 240-call limit. These are simulated operating horizons and decision limits, not measured wall-clock model runtimes.
+Orders share equipment, staff, fixtures, tooling, supplier capacity, cash, and maintenance stock. Spending on one order reduces the funds available for the next. A machine trip can interrupt running work. Tool changes and repairs consume kits that must be replenished.
 
-Orders share machines, employees, fixtures, tooling, supplier dispatch capacity, cash, and maintenance stock. A locally convenient purchase can consume the cash needed for the next order. A machine trip can interrupt work already in progress elsewhere. A replacement tool or repair consumes finite kits that must themselves be replenished.
+Supplier reservations require 20% deposits. Cancellations incur charges; expired unused bookings lose their deposits. Shipments create receivables collected 240 manufacturing minutes later. Preventive service uses time, cash, and a repair kit to provide temporary protection against condition trips.
 
-Supplier reservations lock 20% deposits. Unused bookings can incur cancellation charges or lose deposits when they expire. Actual customer shipments produce receivables collected 240 manufacturing minutes later. Preventive service trades present downtime, cash, and a repair kit for temporary condition-trip coverage. These rules make commitments persist beyond the action that created them.
+A campaign passes only when all orders pass, supplier commitments are resolved, cash and spare-stock ledgers reconcile, and the agent explicitly finishes within the horizon.
 
-Strict campaign completion requires every order to pass, supplier commitments to be resolved, an explicit campaign finish, and reconciled financial and spare-stock ledgers within the horizon. Completing an early order is useful progress; it does not establish that the agent can sustain the whole campaign.
+## How execution is scored
 
-## What the software can verify
+The primary workflow score awards 40 points for shipped units, 20 for conforming quality release, 10 for route completion, 10 for serial genealogy, 10 for delivery within time and budget, and 10 for current revision, required containment, and final evidence. Strict success requires every check. Critical authorization or release violations set the score to zero.
 
-For the primary manufacturing workflows, shipped customer units contribute 40 points, conforming quality release 20, route completion 10, serial genealogy 10, on-time and within-budget fulfillment 10, and current revision, required containment, and final evidence 10. Strict success requires every check. Critical authorization or product-release violations set the score to zero.
+Approvals are tied to an exact action and the current revision. Material consumption, work in progress, inspections, and shipped serials are checked against the stored state. A written claim of completion earns no shipment credit.
 
-Approvals bind to exact action payloads and the current engineering revision. Reserved material cannot be silently consumed twice. Unreleased or invalid serials cannot become valid shipments merely because the agent says the order is complete. These checks tie credit to the environment state.
+Each track uses its own contract. CAD checks solid geometry. Document tasks check decisions and page evidence. Engineering tasks check output fields and numerical tolerances. Factory seasons measure economic outcomes. We keep these scores separate.
 
-Other tracks use different contracts: geometry checks for CAD, source-page evidence for procurement documents, exact schemas and tolerances for engineering, and economic outcomes for factory seasons. An automatically checked answer is correct relative to the implemented contract; that does not prove the contract captures every consideration a practitioner would apply.
+## Decisions that need reviewer judgment
 
-## The work without one provably correct answer
+Some tasks have several reasonable answers. A supplier-recovery decision may trade delivery speed against source qualification and commercial risk. Maintenance may require choosing an outage date from uncertain condition evidence. Customer allocation requires deciding who receives limited capacity.
 
-Some consequential manufacturing decisions admit several defensible answers. Should a team expedite a fragile supplier or qualify another source? Which customer receives constrained capacity? Does uncertain condition evidence justify a maintenance outage? When should a process trial become a production change?
+We added twelve judgment workflows: supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each has three rounds: twelve cases, 36 decision stages.
 
-OtisBench includes twelve judgment workflows: supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each contains three decision rounds, giving twelve cases and 36 stages, rather than 36 independent cases.
+The agent submits a recommendation before receiving the next evidence update. It records alternatives, tradeoffs, assumptions, citations, owners, next actions, and reasons for changing or retaining its decision.
 
-The participant commits a recommendation before the next evidence update appears. Submissions record alternatives, tradeoffs, assumptions, evidence citations, next actions with owners and triggers, and reasons for revising or retaining the decision. Reviewers can inspect whether new evidence changes the recommendation and whether downstream commitments remain coherent.
+Software checks the submission fields and whether cited records were available. Reviewers judge evidence use, tradeoffs, feasibility, uncertainty handling, revisions, and communication on 1–5 scales. A valid citation ID does not prove that the record supports the claim.
 
-Software verifies the submission structure and whether cited record IDs were visible. It does not establish that a citation supports the claim, that the recommendation is feasible, or that its tradeoffs are sound. Reviewers assess evidence use, tradeoff quality, operational feasibility, uncertainty handling, revision quality, and communication on separate 1–5 scales.
+Reviewer ratings are reported separately from execution scores. Recommendations do not execute factory actions. Evidence updates are fixed rather than generated by the recommendation’s consequences. Independent blinded review and reviewer calibration are needed to assess decision quality consistently.
 
-These ratings remain separate from deterministic strict success. A submitted recommendation does not execute a purchase, obtain approval, or demonstrate business value. The workshops currently release fixed evidence updates; they do not simulate action-dependent consequences of the recommendation. Independent, blinded review and preserved disagreements are needed to support stronger claims about decision quality.
+## Model results
 
-## Current model results
+The table below contains the current maintainer-reported results. Opus 5 has the highest task pass rate at 38%, followed by GPT-5.6 Sol at 36%. Their cross-system completion rates are 25% and 24%.
 
-The current maintainer-reported results are reproduced below. Opus 5 leads the reported table at 38% task pass rate, 44% weighted requirements, and 25% cross-system completion. GPT-5.6 Sol follows at 36%, 42%, and 24%. Across the listed models, task pass rates range from 21% to 38%.
+The figures show completion rates, not why tasks failed. Explaining failures requires reviewing the task traces.
 
-The table shows substantial remaining headroom under the reported evaluation. It does not identify the cause of any individual failure. Task-level traces are needed to separate calculation errors, stale evidence, invalid authorization, planning failures, and incomplete execution.
-
-This summary does not include its task denominator, track mix, metric aggregation formulas, exact model snapshots, agent configuration, repeat count, uncertainty intervals, or linked run artifacts. Those details are needed to reproduce the figures and assess small differences. The weighted-requirements column should not be equated with the primary workflow outcome score without its aggregation specification. Judgment-workshop ratings are not presented in this table.
+The published summary does not yet include task counts, track mix, aggregation formulas, model snapshots, run settings, repeated runs, or linked artifacts. Those details are needed to reproduce the results and interpret small differences. Weighted requirements is a separate reported metric; it is not established as equivalent to the workflow score. The table contains no judgment-workshop ratings.
 
 | Model | Task pass rate | Weighted requirements | Cross-system completion |
 | --- | --- | --- | --- |
@@ -111,27 +113,25 @@ This summary does not include its task denominator, track mix, metric aggregatio
 | GLM-5.2 | 23% | 29% | 14% |
 | Sonnet 4.6 | 21% | 27% | 13% |
 
-## An operational record that can be inspected
+## Run logs and replay
 
-Run artifacts retain submitted actions, tool results, applied events, state hashes, and terminal checks. Replay reconstructs the transitions and checks the final results. Campaign journals support recovery from interruptions; source fingerprints identify the environment used.
+Runs save actions, tool results, applied events, state hashes, and final checks. Replay reconstructs transitions and compares results. Campaign journals let interrupted runs resume after verifying source fingerprints and rebuilding plant state.
 
-The participant receives public tasks, tool contracts, observations, and its own history. Reference calculations, future event schedules, live scores, and evaluator traces belong outside its context. Public source availability makes process isolation important: a tool interface alone does not prevent an agent with host access from reading evaluator files.
+Agents receive task instructions, tool contracts, observations, and their own history. Reference calculations, future event schedules, scores, and evaluator traces are withheld. A deployment must also prevent access to evaluator files on the host.
 
-A complete model report should bind the benchmark commit and manifest to the task selection, model snapshot, prompts, reasoning settings, budgets, retries, costs, and replayable artifacts. Replay tests consistency with the implemented environment. It does not independently validate the realism of the environment or establish industrial safety.
+Reproducible reports need the benchmark commit, manifest, task selection, model snapshot, prompts, settings, budgets, retries, costs, and run artifacts. Replay checks consistency with the software’s rules; validating those rules against manufacturing practice requires separate review.
 
-## What the benchmark establishes—and what remains open
+## Limits and remaining work
 
-OtisBench offers broad, executable coverage of connected manufacturing work. Its strongest design feature is that material, capacity, engineering revisions, approvals, quality, and cash can constrain the same episode. The judgment workshops extend that scope to decisions whose quality cannot be reduced to a single exact output.
+The core workflows, records, parts, and documents are authored. Optional measurement and visual-inspection extensions use attributed external datasets. Results from these environments do not establish performance on a live plant or across all commercial systems.
 
-The core commercial records, workflows, parts, and documents are authored task content. Optional measurement and visual-inspection extensions use attributed external datasets; that does not make the core suite observed customer operations. Passing a modeled process is evidence about that process contract, not proof of performance on a live plant, a certified control system, or every commercial ERP.
+Public tasks may become familiar through repeated use. Parameter variation does not replace structurally different held-out tasks. Judgment ratings depend on reviewer expertise and calibration. Independent practitioner review, held-out workflows, repeated model runs, and task-level failure analysis would strengthen the evaluation.
 
-Public tasks can become familiar through repeated use. More parameter draws do not substitute for structurally different held-out workflows. Reviewer preference, domain expertise, and calibration affect judgment scores. Independent practitioner review, held-out task designs, repeated model runs, and failure analysis would strengthen the evidence.
+The catalog does not establish physical handling capability, unrestricted negotiation with people, or long-term adoption inside an organization. OtisBench measures the tasks and rules it implements. Its execution results and reviewer assessments should be read within that scope.
 
-The scope is intentionally described in concrete terms rather than as a claim of universal comprehensiveness. Physical handling, every vendor integration, unconstrained human negotiation, and long-term organizational adoption are not established by the catalog. The research question remains practical: which parts of an industrial commitment can an agent execute reliably, and where does it still need human judgment or intervention?
+## Run OtisBench
 
-## Inspect the contracts. Run your own agent.
-
-The public repository includes the task catalogs, evaluator code, benchmark card, integration documentation, and replay tools. Start with a bounded workflow, inspect its action trace and terminal checks, then test sustained campaigns. Report execution outcomes and reviewer assessments separately.
+The repository includes task catalogs, evaluation code, the benchmark card, agent integration instructions, and replay tools. Start with an individual workflow and inspect its trace and final checks before running a campaign. Report execution outcomes and reviewer ratings separately.
 
 ```bash
 git clone https://github.com/Faraday-Cage-AI/OtisBench.git
@@ -147,6 +147,6 @@ otisbench workflow --task mfg-flow-pump_assembly-16-01 \
 otisbench replay runs/pump.json
 ```
 
-## Source contracts
+## Documentation
 
-[Benchmark card](../BENCHMARK_CARD.md) · [Manufacturing workflows](manufacturing-workflows.md) · [Production campaigns](production-campaigns.md) · [Judgment workshops](manufacturing-judgment.md) · [Scoring and protocol](methodology.md) · [Agent isolation](agent-isolation.md)
+[Benchmark card](../BENCHMARK_CARD.md) · [Workflows](manufacturing-workflows.md) · [Campaigns](production-campaigns.md) · [Judgment workshops](manufacturing-judgment.md) · [Scoring](methodology.md) · [Agent isolation](agent-isolation.md)
