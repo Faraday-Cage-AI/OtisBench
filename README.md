@@ -1,6 +1,6 @@
 # OtisBench
 
-OtisBench tests AI agents on manufacturing workflows across ERP, MES, SCM, WMS, PLM, QMS, CMMS, and HR. Agents read records, purchase material, schedule production, handle disruptions, inspect output, and ship customer orders.
+OtisBench evaluates AI on manufacturing workflows across ERP, MES, SCM, WMS, PLM, QMS, CMMS, and HR. The model reads records, purchases material, schedules production, handles disruptions, inspects output, and ships customer orders.
 
 The benchmark has ten evaluation tracks, 32 manufacturing routes, 1,024 individual workflows, and 128 production campaigns. Campaigns contain 12–96 customer orders and allow up to 23,040 tool calls. Twelve additional judgment workflows assess recommendations and revisions through reviewer ratings.
 
@@ -8,7 +8,7 @@ The benchmark has ten evaluation tracks, 32 manufacturing routes, 1,024 individu
 
 ## Evaluation tracks
 
-| Track | Catalog | What the agent delivers |
+| Track | Catalog | Required output |
 |---|---:|---|
 | Production campaigns | 128 campaigns · 12–96 orders each | Completed orders using shared plant resources |
 | Manufacturing workflows | 1,024 cases · 32 routes · 16 disruptions | Conforming, traceable customer shipments |
@@ -51,13 +51,13 @@ Each campaign keeps the same plant state across multiple customer orders.
 
 Orders share machines, staff, fixtures, tooling, material, supplier dispatch slots, and cash. Supply reservations require deposits. Maintenance consumes kits. Customer shipments generate delayed payments. Each order has a separate 240-call limit.
 
-Engineering changes, equipment trips, quality holds, late receipts, and expired qualifications can interrupt work or invalidate earlier records and approvals. The agent must recover through the tools and complete the required inspections and shipments.
+Engineering changes, equipment trips, quality holds, late receipts, and expired qualifications can interrupt work or invalidate earlier records and approvals. The model must recover through the tools and complete the required inspections and shipments.
 
 There are 128 campaigns: 32 manufacturing routes × 4 profiles. [Campaign rules, tools, and recovery](docs/production-campaigns.md).
 
 ## Workflow execution and scoring
 
-An individual workflow covers order review, material sourcing, production, inspection, rework when required, quality release, and serialized shipment. The agent calculates process settings and selects qualified resources.
+An individual workflow covers order review, material sourcing, production, inspection, rework when required, quality release, and serialized shipment. The model calculates process settings and selects qualified resources.
 
 Workflow scores check delivered quantity, completed operations, quality release, serial traceability, delivery dates, budget, and final evidence. Critical authorization or product-release violations set the score to zero. Campaign completion also requires all orders to pass and the financial and spare-stock ledgers to reconcile.
 
@@ -92,11 +92,11 @@ Each has three rounds. The participant submits a recommendation, receives new ev
 
 These tiers have separate catalogs and entry points in the source checkout.
 
-## Agent inputs
+## Model inputs
 
-Agents receive the task, tool contracts, and business records. They choose actions and supply all calculated values. The runner does not provide reference plans, expected values, evaluator annotations, or live scores. Workflow identifiers are replaced with opaque identifiers for each episode.
+Models receive the task, tool contracts, and business records. They choose actions and supply all calculated values. The runner does not provide reference plans, expected values, evaluator annotations, or live scores. Workflow identifiers are replaced with opaque identifiers for each episode.
 
-The evaluator calculates reference values only to check submitted controls. It does not insert answers into agent actions.
+The evaluator calculates reference values only to check submitted controls. It does not insert answers into model actions.
 
 ## Get started
 
@@ -113,7 +113,7 @@ otisbench show mfg-flow-pump_assembly-16-01
 otisbench export-agent --task mfg-flow-pump_assembly-16-01 --output agent-input.json
 ```
 
-Run a long production campaign with your own agent:
+Run a long production campaign with your own model:
 
 ```bash
 otisbench campaign \
@@ -130,7 +130,7 @@ otisbench workflow   --task mfg-flow-pump_assembly-16-01   --agent-command 'pyth
 otisbench replay runs/pump-recovery.json
 ```
 
-The agent is a persistent JSONL process. Read one decision from stdin and write one action to stdout:
+The model connects through a persistent JSONL process. Read one decision from stdin and write one action to stdout:
 
 ```json
 {"tool":"read","arguments":{"system":"ERP"}}
