@@ -96,8 +96,6 @@ Judgment ratings are reported separately from execution scores. Workshop recomme
 
 In the current maintainer-reported results, Opus 5 records the highest task pass rate at 38%, followed by GPT-5.6 Sol at 36%. Their cross-system completion rates are 25% and 24%, respectively. The chart and table show all ten models across the three reported metrics.
 
-Task traces are needed to explain the failures behind these rates. The aggregate results alone do not distinguish errors in calculation, planning, authorization, or execution.
-
 | Model | Task pass rate | Weighted requirements | Cross-system completion |
 | --- | --- | --- | --- |
 | Opus 5 | 38% | 44% | 25% |
