@@ -6,9 +6,9 @@ Testing AI on purchasing, production, quality, and shipping.
 
 [Website](https://faradaycompute.com/research/otisbench) · [Benchmark card](../BENCHMARK_CARD.md)
 
-## What we built
+## What OtisBench tests
 
-We built OtisBench to test whether an AI agent can complete manufacturing work across connected business systems. An agent reads records, calculates process settings, purchases material, schedules operations, handles disruptions, and ships finished orders.
+OtisBench tests whether an AI agent can complete manufacturing work across connected business systems. An agent reads records, calculates process settings, purchases material, schedules operations, handles disruptions, and ships finished orders.
 
 Version 1.4.2 has ten execution tracks, 32 manufacturing routes, 1,024 individual workflows, 128 production campaigns, and twelve judgment workshops. The tracks test different skills and report separate scores.
 
@@ -16,7 +16,7 @@ The environments represent orders, inventory, machines, people, approvals, and m
 
 ## Connected business systems
 
-We modeled eight system roles. The records are authored benchmark content. These roles do not imply connections to eight live vendor products.
+OtisBench models eight system roles. The records are authored benchmark content. These roles do not imply connections to eight live vendor products.
 
 A drawing revision can invalidate process settings and approvals. A quality hold can block reserved material. Moving work to another machine still requires a qualified operator and an available fixture. The agent has to check these dependencies before acting.
 
@@ -35,7 +35,7 @@ A drawing revision can invalidate process settings and approvals. A quality hold
 
 The manufacturing routes include machining, fabrication, casting, molding, electronics, batteries, surface treatment, assembly, chemicals, food, textiles, glass, and ceramics. Other tracks test calculations, purchasing, documents, geometry, sensors, and factory economics.
 
-The 1,024 workflows come from 32 routes × 16 disruption contracts × two parameter draws. The 128 campaigns use the same routes under four operating profiles. We report those dimensions separately so that parameter variants are not mistaken for distinct types of work.
+The 1,024 workflows come from 32 routes × 16 disruption contracts × two parameter draws. The 128 campaigns use the same routes under four operating profiles. Route, disruption, and parameter counts are reported separately.
 
 Additional source-run tiers contain 64 temporal recovery variants, 48 material-network cases, and 128 replenishment cases. These test changing evidence schedules, shared subassemblies, recycling, inter-site transfers, supplier capacity, minimum order quantities, pack sizes, and component allocation. They have separate catalogs and entry points.
 
@@ -78,13 +78,13 @@ The primary workflow score awards 40 points for shipped units, 20 for conforming
 
 Approvals are tied to an exact action and the current revision. Material consumption, work in progress, inspections, and shipped serials are checked against the stored state. A written claim of completion earns no shipment credit.
 
-Each track uses its own contract. CAD checks solid geometry. Document tasks check decisions and page evidence. Engineering tasks check output fields and numerical tolerances. Factory seasons measure economic outcomes. We keep these scores separate.
+Each track uses its own contract. CAD checks solid geometry. Document tasks check decisions and page evidence. Engineering tasks check output fields and numerical tolerances. Factory seasons measure economic outcomes. Scores remain separate across tracks.
 
 ## Decisions that need reviewer judgment
 
 Some tasks have several reasonable answers. A supplier-recovery decision may trade delivery speed against source qualification and commercial risk. Maintenance may require choosing an outage date from uncertain condition evidence. Customer allocation requires deciding who receives limited capacity.
 
-We added twelve judgment workflows: supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each has three rounds: twelve cases, 36 decision stages.
+The twelve judgment workflows cover supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each has three rounds: twelve cases, 36 decision stages.
 
 The agent submits a recommendation before receiving the next evidence update. It records alternatives, tradeoffs, assumptions, citations, owners, next actions, and reasons for changing or retaining its decision.
 

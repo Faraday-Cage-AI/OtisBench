@@ -29,9 +29,9 @@ The published summary does not yet include task counts, track mix, aggregation f
 
 [Full walkthrough](docs/otisbench-walkthrough.md) · [Website](https://faradaycompute.com/research/otisbench)
 
-### What we built
+### What OtisBench tests
 
-We built OtisBench to test whether an AI agent can complete manufacturing work across connected business systems. An agent reads records, calculates process settings, purchases material, schedules operations, handles disruptions, and ships finished orders.
+OtisBench tests whether an AI agent can complete manufacturing work across connected business systems. An agent reads records, calculates process settings, purchases material, schedules operations, handles disruptions, and ships finished orders.
 
 Version 1.4.2 has ten execution tracks, 32 manufacturing routes, 1,024 individual workflows, 128 production campaigns, and twelve judgment workshops. The tracks test different skills and report separate scores.
 
@@ -61,7 +61,7 @@ A campaign passes only when all orders pass, supplier commitments are resolved, 
 
 Some tasks have several reasonable answers. A supplier-recovery decision may trade delivery speed against source qualification and commercial risk. Maintenance may require choosing an outage date from uncertain condition evidence. Customer allocation requires deciding who receives limited capacity.
 
-We added twelve judgment workflows: supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each has three rounds: twelve cases, 36 decision stages.
+The twelve judgment workflows cover supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each has three rounds: twelve cases, 36 decision stages.
 
 The agent submits a recommendation before receiving the next evidence update. It records alternatives, tradeoffs, assumptions, citations, owners, next actions, and reasons for changing or retaining its decision.
 
