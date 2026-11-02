@@ -2,13 +2,13 @@
 
 Faraday Research · November 1, 2026 · Version 1.4.2
 
-A benchmark for AI agents in manufacturing.
+A comprehensive benchmark for AI in manufacturing.
 
 [Website](https://faradaycompute.com/research/otisbench) · [Benchmark card](../BENCHMARK_CARD.md)
 
 ## Manufacturing work from order to shipment
 
-OtisBench evaluates whether AI agents can fulfill manufacturing orders across engineering, purchasing, production, quality, and shipping. Agents inspect business records, calculate process settings, secure material, schedule resources, and recover when conditions change. Completion depends on the resulting production and business records.
+OtisBench evaluates whether AI models can fulfill manufacturing orders across engineering, purchasing, production, quality, and shipping. Models inspect business records, calculate process settings, secure material, schedule resources, and recover when conditions change. Completion depends on the resulting production and business records.
 
 Version 1.4.2 includes ten execution tracks, 32 manufacturing routes, 1,024 individual workflows, 128 production campaigns, and twelve judgment workshops. Together, they cover both work with explicit completion criteria and decisions that require a reviewer to assess the evidence and tradeoffs.
 
@@ -18,9 +18,9 @@ Each environment maintains operational state throughout the task. Production con
 
 OtisBench models the roles of ERP, MES, SCM, WMS, PLM, QMS, CMMS, and HR systems. Their records describe the same orders, materials, equipment, and people, so a change in one area can affect work elsewhere.
 
-A drawing revision can invalidate process settings and approvals. A quality hold can prevent consumption of reserved material. Moving an operation to another machine still requires a qualified operator and an available fixture. Agents must reconcile these dependencies as the records change.
+A drawing revision can invalidate process settings and approvals. A quality hold can prevent consumption of reserved material. Moving an operation to another machine still requires a qualified operator and an available fixture. Models must reconcile these dependencies as the records change.
 
-| System | What the agent must coordinate |
+| System | What the model must coordinate |
 | --- | --- |
 | ERP | Customer orders, quantities, dates, budgets, and commercial commitments |
 | MES | Routes, machines, resource bookings, operations, and work in progress |
@@ -54,7 +54,7 @@ Additional catalogs available from the source checkout include 64 temporal recov
 
 ## Example: a pump order under disruption
 
-A pump-assembly task begins with a customer order, released engineering instructions, material lots, and resource availability. The agent derives the process settings, reserves eligible stock, and schedules a machine, operator, and fixture. The first operation consumes the reserved input; subsequent operations carry that work in progress toward inspection and shipment.
+A pump-assembly task begins with a customer order, released engineering instructions, material lots, and resource availability. The model derives the process settings, reserves eligible stock, and schedules a machine, operator, and fixture. The first operation consumes the reserved input; subsequent operations carry that work in progress toward inspection and shipment.
 
 If a quality hold affects the material, production must wait for an acceptable disposition or replacement supply. A drawing change requires current instructions and revised settings. A machine failure requires a qualified alternate or recovery of interrupted work. Failed inspection requires a disposition, authorized rework, and new measurements before release.
 
@@ -70,7 +70,7 @@ All orders draw on shared equipment, staff, fixtures, tooling, supplier capacity
 
 Commercial commitments persist across the campaign. Supplier reservations require 20% deposits; cancellations incur charges, and unused bookings forfeit their deposits when they expire. Shipments create receivables collected 240 manufacturing minutes later. Preventive service consumes time, cash, and a repair kit in exchange for temporary protection against condition trips.
 
-Strict campaign success requires every order to pass, all supplier commitments to be resolved, and cash and spare-stock ledgers to reconcile. The agent must also finish explicitly within the campaign horizon. These horizons describe simulated operating time rather than model runtime.
+Strict campaign success requires every order to pass, all supplier commitments to be resolved, and cash and spare-stock ledgers to reconcile. The model must also finish explicitly within the campaign horizon. These horizons describe simulated operating time rather than model runtime.
 
 ## Completion criteria and scoring
 
@@ -86,7 +86,7 @@ Many operational decisions cannot be settled by an exact output check. Supplier 
 
 Twelve judgment workflows cover supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trials, and supplier negotiation. Each contains three rounds, for twelve cases and 36 decision stages.
 
-At each round, the agent commits a recommendation before receiving new evidence. Submissions include alternatives, tradeoffs, assumptions, citations, responsible owners, next actions, and reasons for retaining or revising the decision. Reviewers can then assess how the recommendation responds to changing information.
+At each round, the model commits a recommendation before receiving new evidence. Submissions include alternatives, tradeoffs, assumptions, citations, responsible owners, next actions, and reasons for retaining or revising the decision. Reviewers can then assess how the recommendation responds to changing information.
 
 Automated checks validate the submission fields and confirm that cited records were available. Reviewers assess evidence use, tradeoffs, feasibility, uncertainty handling, revisions, and communication on 1–5 scales. Assessing whether a citation actually supports a claim remains part of the review.
 
@@ -117,7 +117,7 @@ Reproduction requires task counts, track mix, aggregation formulas, exact model 
 
 Run artifacts preserve submitted actions, tool results, applied events, state hashes, and final checks. Replay reconstructs the transitions and compares the resulting state and scores. Campaign journals support resuming interrupted episodes after source fingerprints and the recorded history have been verified.
 
-Agents receive task instructions, tool contracts, observations, and their own history. Reference calculations, future event schedules, scores, and evaluator traces remain outside their context. Evaluation deployments must also restrict access to evaluator files on the host.
+Models receive task instructions, tool contracts, observations, and their own history. Reference calculations, future event schedules, scores, and evaluator traces remain outside their context. Evaluation deployments must also restrict access to evaluator files on the host.
 
 A reproducible model report identifies the benchmark commit, manifest, selected tasks, exact model version, prompts, settings, budgets, retries, costs, and run artifacts. Replay verifies consistency with the implemented rules. Separate practitioner review is needed to assess how well those rules represent manufacturing work.
 
@@ -131,7 +131,7 @@ Physical handling, open-ended negotiation with people, and long-term organizatio
 
 ## Run an evaluation
 
-The repository includes task catalogs, evaluation code, scoring contracts, agent integration instructions, and replay tools. An individual workflow provides a bounded starting point for inspecting actions and final checks before moving to a full campaign. Execution outcomes and reviewer ratings should be reported separately.
+The repository includes task catalogs, evaluation code, scoring contracts, model integration instructions, and replay tools. An individual workflow provides a bounded starting point for inspecting actions and final checks before moving to a full campaign. Execution outcomes and reviewer ratings should be reported separately.
 
 ```bash
 git clone https://github.com/Faraday-Cage-AI/OtisBench.git
