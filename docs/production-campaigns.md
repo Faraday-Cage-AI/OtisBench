@@ -11,7 +11,7 @@ A production campaign keeps one plant running across many customer work orders. 
 | Six shifts | 12 | 2,880 minutes | 2,880 calls |
 | Twelve shifts | 24 | 5,760 minutes | 5,760 calls |
 | Extended production: 24 shifts | 48 | 11,520 minutes | 11,520 calls |
-| Plant marathon: 48 shifts | 96 | 23,040 minutes | 23,040 calls |
+| 48 shifts | 96 | 23,040 minutes | 23,040 calls |
 
 Work orders arrive roughly three manufacturing hours apart in the shorter profiles and 3.6 hours apart in the extended profiles. Each has its own quantity, source evidence, drawing revision, production route, delivery window, allocation, approval records, quality state, and serial genealogy. Customer material and local document IDs are scoped to their work order; equipment, people, and fixtures are plant resources.
 

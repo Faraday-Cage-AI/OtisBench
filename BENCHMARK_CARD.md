@@ -1,6 +1,6 @@
 # OtisBench benchmark card
 
-OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.4.1** includes ten outcome-scored tracks, twelve staged judgment workshops, and source-run advanced tiers.
+OtisBench evaluates manufacturing problem solving through executable task environments and checked outputs. Version **1.4.2** includes ten outcome-scored tracks, twelve staged judgment workshops, and source-run advanced tiers.
 
 ## Task catalogs
 
