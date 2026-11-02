@@ -98,8 +98,6 @@ In the current maintainer-reported results, Opus 5 records the highest task pass
 
 Task traces are needed to explain the failures behind these rates. The aggregate results alone do not distinguish errors in calculation, planning, authorization, or execution.
 
-Reproduction requires task counts, track mix, aggregation formulas, exact model versions, run settings, repeated evaluations, and linked artifacts. These details are not yet included in the published summary. Weighted requirements remains a separate reported metric whose relationship to the primary workflow score has not been specified. Judgment-workshop ratings are reported separately and are not included here.
-
 | Model | Task pass rate | Weighted requirements | Cross-system completion |
 | --- | --- | --- | --- |
 | Opus 5 | 38% | 44% | 25% |

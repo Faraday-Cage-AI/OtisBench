@@ -25,8 +25,6 @@ Current OtisBench results reported by the benchmark maintainers:
 | GLM-5.2 | 23% | 29% | 14% |
 | Sonnet 4.6 | 21% | 27% | 13% |
 
-Reproduction requires task counts, track mix, aggregation formulas, exact model versions, run settings, repeated evaluations, and linked artifacts. These details are not yet included in the published summary. Weighted requirements remains a separate reported metric whose relationship to the primary workflow score has not been specified. Judgment-workshop ratings are reported separately and are not included here.
-
 ## Walkthrough: from customer order to shipment
 
 [Full walkthrough](docs/otisbench-walkthrough.md) · [Website](https://faradaycompute.com/research/otisbench)
