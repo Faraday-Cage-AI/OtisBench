@@ -23,67 +23,67 @@ Current OtisBench results reported by the benchmark maintainers:
 | GLM-5.2 | 23% | 29% | 14% |
 | Sonnet 4.6 | 21% | 27% | 13% |
 
-The published summary does not yet include task counts, track mix, aggregation formulas, model snapshots, run settings, repeated runs, or linked artifacts. Those details are needed to reproduce the results and interpret small differences. Weighted requirements is a separate reported metric; it is not established as equivalent to the workflow score. The table contains no judgment-workshop ratings.
+Reproduction requires task counts, track mix, aggregation formulas, exact model versions, run settings, repeated evaluations, and linked artifacts. These details are not yet included in the published summary. Weighted requirements remains a separate reported metric whose relationship to the primary workflow score has not been specified. Judgment-workshop ratings are reported separately and are not included here.
 
 ## Walkthrough: from customer order to shipment
 
 [Full walkthrough](docs/otisbench-walkthrough.md) · [Website](https://faradaycompute.com/research/otisbench)
 
-### What OtisBench tests
+### Manufacturing work from order to shipment
 
-OtisBench tests whether an AI agent can complete manufacturing work across connected business systems. An agent reads records, calculates process settings, purchases material, schedules operations, handles disruptions, and ships finished orders.
+OtisBench evaluates whether AI agents can fulfill manufacturing orders across engineering, purchasing, production, quality, and shipping. Agents inspect business records, calculate process settings, secure material, schedule resources, and recover when conditions change. Completion depends on the resulting production and business records.
 
-Version 1.4.2 has ten execution tracks, 32 manufacturing routes, 1,024 individual workflows, 128 production campaigns, and twelve judgment workshops. The tracks test different skills and report separate scores.
+Version 1.4.2 includes ten execution tracks, 32 manufacturing routes, 1,024 individual workflows, 128 production campaigns, and twelve judgment workshops. Together, they cover both work with explicit completion criteria and decisions that require a reviewer to assess the evidence and tradeoffs.
 
-The environments represent orders, inventory, machines, people, approvals, and money in software. Actions change the records used by later steps. Production consumes material; inspection controls release; shipments create receivables. The evaluator checks whether the required work was completed.
+Each environment maintains operational state throughout the task. Production consumes reserved material and creates work in progress. Quality release determines which units can ship. In campaigns, shipments generate receivables that help fund subsequent orders. These dependencies carry the consequences of an action into later decisions.
 
-### Example: recovering a disrupted order
+### Example: a pump order under disruption
 
-In a pump-assembly workflow, the agent reads the order, engineering instructions, material lots, and resource records. It calculates the required process settings, reserves eligible material, and schedules the machine, operator, and fixture. The first operation consumes the reserved input. Later operations process the same work in progress.
+A pump-assembly task begins with a customer order, released engineering instructions, material lots, and resource availability. The agent derives the process settings, reserves eligible stock, and schedules a machine, operator, and fixture. The first operation consumes the reserved input; subsequent operations carry that work in progress toward inspection and shipment.
 
-A late material hold requires a disposition or replacement supply. A drawing change requires updated instructions and recalculated settings. A breakdown requires a qualified alternate or recovery of interrupted work. A failed inspection requires disposition, authorized rework, and new measurements before release.
+If a quality hold affects the material, production must wait for an acceptable disposition or replacement supply. A drawing change requires current instructions and revised settings. A machine failure requires a qualified alternate or recovery of interrupted work. Failed inspection requires a disposition, authorized rework, and new measurements before release.
 
-This is an example of the task design. Compound-recovery cases combine several disruptions. Other cases test calibration, expiring qualifications, tool life, outside processing, recalls, batch capacity, overtime, shared fixtures, split lots, customer allocation, and late deliveries.
+This example describes the task structure. Compound-recovery cases combine several disruptions within an episode. Other cases focus on calibration, expiring qualifications, tool life, outside processing, recalls, batch capacity, overtime, shared fixtures, split lots, customer allocation, or late receipts.
 
-Each workflow allows up to 240 tool calls and 2,400 manufacturing minutes. Reads and attempted actions consume time. The agent must finish within the delivery window and budget.
+Each workflow permits up to 240 tool calls and 2,400 manufacturing minutes. Reads and attempted actions advance the clock, making investigation and recovery part of the delivery schedule. Success requires completing the order within its time and budget constraints.
 
-### Running multiple orders in one plant
+### Production campaigns with shared resources
 
-Campaigns keep the same plant state across 12, 24, 48, or 96 orders. Horizons and global tool-call budgets range from 2,880 to 23,040. Each order also has a 240-call limit. Manufacturing minutes are simulated time, not model runtime.
+Campaigns extend the same plant state across 12, 24, 48, or 96 orders. The four profiles allow 2,880 to 23,040 simulated manufacturing minutes and the same respective number of tool calls. Each order retains a separate 240-call limit.
 
-Orders share equipment, staff, fixtures, tooling, supplier capacity, cash, and maintenance stock. Spending on one order reduces the funds available for the next. A machine trip can interrupt running work. Tool changes and repairs consume kits that must be replenished.
+All orders draw on shared equipment, staff, fixtures, tooling, supplier capacity, cash, and maintenance stock. A purchase reduces the funds available for other orders. A machine trip can interrupt scheduled production. Repairs and tool changes consume kits that must be replenished before later work needs them.
 
-Supplier reservations require 20% deposits. Cancellations incur charges; expired unused bookings lose their deposits. Shipments create receivables collected 240 manufacturing minutes later. Preventive service uses time, cash, and a repair kit to provide temporary protection against condition trips.
+Commercial commitments persist across the campaign. Supplier reservations require 20% deposits; cancellations incur charges, and unused bookings forfeit their deposits when they expire. Shipments create receivables collected 240 manufacturing minutes later. Preventive service consumes time, cash, and a repair kit in exchange for temporary protection against condition trips.
 
-A campaign passes only when all orders pass, supplier commitments are resolved, cash and spare-stock ledgers reconcile, and the agent explicitly finishes within the horizon.
+Strict campaign success requires every order to pass, all supplier commitments to be resolved, and cash and spare-stock ledgers to reconcile. The agent must also finish explicitly within the campaign horizon. These horizons describe simulated operating time rather than model runtime.
 
-### Decisions that need reviewer judgment
+### Evaluating decisions with several defensible answers
 
-Some tasks have several reasonable answers. A supplier-recovery decision may trade delivery speed against source qualification and commercial risk. Maintenance may require choosing an outage date from uncertain condition evidence. Customer allocation requires deciding who receives limited capacity.
+Many operational decisions cannot be settled by an exact output check. Supplier recovery may require balancing delivery speed, source qualification, and commercial exposure. Maintenance decisions depend on uncertain condition evidence and the cost of an outage. Customer allocation requires choosing how to use limited capacity.
 
-The twelve judgment workflows cover supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trial, and supplier negotiation. Each has three rounds: twelve cases, 36 decision stages.
+Twelve judgment workflows cover supplier recovery, defect investigation, maintenance strategy, customer allocation, engineering change, customer escalation, capacity investment, supplier development, shift handover, cross-site transfer, process trials, and supplier negotiation. Each contains three rounds, for twelve cases and 36 decision stages.
 
-The agent submits a recommendation before receiving the next evidence update. It records alternatives, tradeoffs, assumptions, citations, owners, next actions, and reasons for changing or retaining its decision.
+At each round, the agent commits a recommendation before receiving new evidence. Submissions include alternatives, tradeoffs, assumptions, citations, responsible owners, next actions, and reasons for retaining or revising the decision. Reviewers can then assess how the recommendation responds to changing information.
 
-Software checks the submission fields and whether cited records were available. Reviewers judge evidence use, tradeoffs, feasibility, uncertainty handling, revisions, and communication on 1–5 scales. A valid citation ID does not prove that the record supports the claim.
+Automated checks validate the submission fields and confirm that cited records were available. Reviewers assess evidence use, tradeoffs, feasibility, uncertainty handling, revisions, and communication on 1–5 scales. Assessing whether a citation actually supports a claim remains part of the review.
 
-Reviewer ratings are reported separately from execution scores. Recommendations do not execute factory actions. Evidence updates are fixed rather than generated by the recommendation’s consequences. Independent blinded review and reviewer calibration are needed to assess decision quality consistently.
+Judgment ratings are reported separately from execution scores. Workshop recommendations do not execute factory actions, and evidence updates follow a fixed sequence. Independent blinded review and reviewer calibration are needed to assess decision quality consistently.
 
-### Run logs and replay
+### Recorded actions and reproducible runs
 
-Runs save actions, tool results, applied events, state hashes, and final checks. Replay reconstructs transitions and compares results. Campaign journals let interrupted runs resume after verifying source fingerprints and rebuilding plant state.
+Run artifacts preserve submitted actions, tool results, applied events, state hashes, and final checks. Replay reconstructs the transitions and compares the resulting state and scores. Campaign journals support resuming interrupted episodes after source fingerprints and the recorded history have been verified.
 
-Agents receive task instructions, tool contracts, observations, and their own history. Reference calculations, future event schedules, scores, and evaluator traces are withheld. A deployment must also prevent access to evaluator files on the host.
+Agents receive task instructions, tool contracts, observations, and their own history. Reference calculations, future event schedules, scores, and evaluator traces remain outside their context. Evaluation deployments must also restrict access to evaluator files on the host.
 
-Reproducible reports need the benchmark commit, manifest, task selection, model snapshot, prompts, settings, budgets, retries, costs, and run artifacts. Replay checks consistency with the software’s rules; validating those rules against manufacturing practice requires separate review.
+A reproducible model report identifies the benchmark commit, manifest, selected tasks, exact model version, prompts, settings, budgets, retries, costs, and run artifacts. Replay verifies consistency with the implemented rules. Separate practitioner review is needed to assess how well those rules represent manufacturing work.
 
-### Limits and remaining work
+### Scope and limitations
 
-The core workflows, records, parts, and documents are authored. Optional measurement and visual-inspection extensions use attributed external datasets. Results from these environments do not establish performance on a live plant or across all commercial systems.
+The core environments use authored workflows, commercial records, parts, and documents. Optional measurement and visual-inspection extensions use attributed external datasets. The results measure performance in these environments; they do not establish reliability in a live plant or compatibility with every commercial system.
 
-Public tasks may become familiar through repeated use. Parameter variation does not replace structurally different held-out tasks. Judgment ratings depend on reviewer expertise and calibration. Independent practitioner review, held-out workflows, repeated model runs, and task-level failure analysis would strengthen the evaluation.
+Public tasks can become familiar through repeated exposure. New parameter draws do not replace structurally different held-out workflows. Judgment ratings also depend on reviewer expertise and calibration. Independent practitioner review, held-out tasks, repeated runs, and task-level failure analysis would strengthen the evidence.
 
-The catalog does not establish physical handling capability, unrestricted negotiation with people, or long-term adoption inside an organization. OtisBench measures the tasks and rules it implements. Its execution results and reviewer assessments should be read within that scope.
+Physical handling, open-ended negotiation with people, and long-term organizational adoption are outside the demonstrated scope. Execution scores and reviewer assessments describe performance under the specific task rules and evidence provided.
 
 ## Evaluation tracks
 
